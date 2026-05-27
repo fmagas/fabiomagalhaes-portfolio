@@ -584,6 +584,137 @@
     .consult-features { grid-template-columns:1fr; }
     .stack-group { flex-direction:column; gap:10px; }
     .stack-group-label { border-right:none; border-bottom:1px solid var(--border); padding-right:0; padding-bottom:8px; min-width:unset; }
+    .orch-panels { grid-template-columns:1fr; }
+    .orch-tree-horiz { width:10%; }
+    .orch-bridge-row { flex-direction:column; gap:12px; }
+    .orch-bridge-line { width:1px; height:32px; max-width:unset; flex:unset; }
+    .orch-bridge-line::before { width:1px; height:100%; top:0; left:0; background:linear-gradient(to bottom,rgba(0,161,224,0.4),rgba(212,168,83,0.4)); }
+  }
+
+  /* ─── CLAUDE AI SECTION ─── */
+  #claude { background:var(--bg2); }
+
+  .claude-diagram {
+    display:flex; flex-direction:column; align-items:center; gap:0;
+  }
+
+  /* Bridge: Salesforce ←→ Claude */
+  .orch-bridge-row {
+    display:flex; align-items:center; justify-content:center;
+    gap:0; width:100%; max-width:680px; margin:0 auto;
+  }
+
+  .orch-node {
+    border-radius:4px; padding:22px 32px;
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    min-width:170px; text-align:center; position:relative; z-index:2;
+  }
+  .orch-node-sf {
+    background:rgba(0,161,224,0.07); border:1px solid rgba(0,161,224,0.28);
+  }
+  .orch-node-claude {
+    background:linear-gradient(135deg,rgba(212,168,83,0.11),rgba(212,168,83,0.05));
+    border:1px solid rgba(212,168,83,0.45);
+    box-shadow:0 0 48px rgba(212,168,83,0.08);
+  }
+  .orch-node-icon { font-size:22px; line-height:1; margin-bottom:2px; }
+  .orch-node-name {
+    font-family:'DM Sans',sans-serif; font-weight:700; font-size:14px;
+    color:var(--text); letter-spacing:-0.01em;
+  }
+  .orch-node-desc {
+    font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.13em;
+    text-transform:uppercase; color:var(--muted); line-height:1.5;
+  }
+
+  .orch-bridge-line {
+    flex:1; max-width:110px; height:1px; position:relative;
+  }
+  .orch-bridge-line::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:1px;
+    background:linear-gradient(to right,rgba(0,161,224,0.45),rgba(212,168,83,0.45));
+  }
+  .orch-bridge-line::after {
+    content:attr(data-label); position:absolute; top:-15px; left:50%;
+    transform:translateX(-50%);
+    font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--muted); white-space:nowrap;
+    background:var(--bg2); padding:0 6px;
+  }
+
+  /* Tree connector: vertical drop + horizontal T-bar */
+  .orch-tree { display:flex; flex-direction:column; align-items:center; width:100%; }
+  .orch-tree-vert {
+    width:1px; height:36px; background:rgba(212,168,83,0.32);
+  }
+  .orch-tree-horiz {
+    width:51%; height:1px; background:rgba(212,168,83,0.22); position:relative;
+  }
+  .orch-tree-horiz::before, .orch-tree-horiz::after {
+    content:''; position:absolute; top:0; width:1px; height:28px;
+    background:rgba(212,168,83,0.32);
+  }
+  .orch-tree-horiz::before { left:0; }
+  .orch-tree-horiz::after  { right:0; }
+
+  /* Agent panels */
+  .orch-panels {
+    display:grid; grid-template-columns:1fr 1fr; gap:20px; width:100%;
+  }
+
+  .agent-panel {
+    border:1px solid var(--border); border-radius:4px; overflow:hidden;
+  }
+  .agent-panel-header {
+    padding:13px 20px 11px; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .tech-panel-header { background:rgba(26,148,112,0.07); border-bottom-color:rgba(26,148,112,0.16); }
+  .biz-panel-header  { background:rgba(112,80,184,0.07); border-bottom-color:rgba(112,80,184,0.16); }
+
+  .panel-type-label {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase;
+  }
+  .tech-panel-header .panel-type-label { color:var(--teal2); }
+  .biz-panel-header  .panel-type-label { color:var(--purple2); }
+  .panel-agent-count {
+    font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.1em;
+    color:var(--muted); margin-left:auto;
+  }
+
+  .agent-grid {
+    display:grid; gap:1px; background:var(--border);
+  }
+  .tech-grid { grid-template-columns:repeat(3,1fr); }
+  .biz-grid  { grid-template-columns:repeat(2,1fr); }
+
+  .agent-card {
+    background:var(--surface); padding:18px 16px;
+    display:flex; flex-direction:column; gap:5px;
+    transition:background 0.18s;
+  }
+  .agent-card:hover { background:var(--surface2); }
+
+  .agent-card-icon { font-size:17px; line-height:1; margin-bottom:2px; }
+  .agent-card-name {
+    font-family:'DM Sans',sans-serif; font-weight:600;
+    font-size:13px; color:var(--text); line-height:1.2;
+  }
+  .agent-card-role {
+    font-family:'DM Mono',monospace; font-size:8.5px;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--muted); line-height:1.45;
+  }
+
+  /* Capability strip below diagram */
+  .claude-caps {
+    margin-top:40px; display:flex; gap:12px; flex-wrap:wrap;
+  }
+  .claude-cap {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--teal2);
+    border:1px solid rgba(46,201,154,0.2); border-radius:2px;
+    padding:5px 12px; background:rgba(46,201,154,0.04);
   }
 </style>
 </head>
@@ -598,6 +729,7 @@
   <ul class="nav-links">
     <li><a href="#capabilities">Capabilities</a></li>
     <li><a href="#use-cases">Use Cases</a></li>
+    <li><a href="#claude">Claude AI</a></li>
     <li><a href="#diagrams">Architecture</a></li>
     <li><a href="#projects">Case Studies</a></li>
     <li><a href="#stack">Stack</a></li>
@@ -767,6 +899,125 @@
     </div>
 
   </div>
+</section>
+
+<hr class="divider">
+
+<!-- CLAUDE AI MULTI-AGENT SECTION -->
+<section id="claude">
+  <div class="section-label">Claude AI Integration</div>
+  <h2>Salesforce <em>×</em> Claude</h2>
+  <p class="section-sub">Certified Salesforce architect + Claude integration specialist. Multi-agent orchestration built natively — CRM data feeds Claude context in real time, Claude routes decisions and actions across 10 specialised agents.</p>
+
+  <div class="claude-diagram">
+
+    <!-- Bridge: Salesforce ←→ Claude Orchestrator -->
+    <div class="orch-bridge-row">
+      <div class="orch-node orch-node-sf">
+        <div class="orch-node-icon">☁</div>
+        <div class="orch-node-name">Salesforce CRM</div>
+        <div class="orch-node-desc">Live data · Triggers · Objects</div>
+      </div>
+      <div class="orch-bridge-line" data-label="Context flow"></div>
+      <div class="orch-node orch-node-claude">
+        <div class="orch-node-icon">◆</div>
+        <div class="orch-node-name">Claude Orchestrator</div>
+        <div class="orch-node-desc">Routing · Reasoning · Execution</div>
+      </div>
+    </div>
+
+    <!-- Tree connector: vertical + horizontal T-bar -->
+    <div class="orch-tree">
+      <div class="orch-tree-vert"></div>
+      <div class="orch-tree-horiz"></div>
+    </div>
+
+    <!-- Two agent panels -->
+    <div class="orch-panels">
+
+      <!-- Technical Agents (left) -->
+      <div class="agent-panel">
+        <div class="agent-panel-header tech-panel-header">
+          <span class="panel-type-label">⚙ Technical Agents</span>
+          <span class="panel-agent-count">6 agents</span>
+        </div>
+        <div class="agent-grid tech-grid">
+          <div class="agent-card">
+            <div class="agent-card-icon">🏗</div>
+            <div class="agent-card-name">Architect</div>
+            <div class="agent-card-role">Data model · System design</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-card-icon">📋</div>
+            <div class="agent-card-name">Manager</div>
+            <div class="agent-card-role">Sprint · Coordination</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-card-icon">💻</div>
+            <div class="agent-card-name">Dev</div>
+            <div class="agent-card-role">Apex · LWC · Flows</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-card-icon">✅</div>
+            <div class="agent-card-name">QA</div>
+            <div class="agent-card-role">Test plans · Coverage</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-card-icon">⚙</div>
+            <div class="agent-card-name">Admin</div>
+            <div class="agent-card-role">Config · Metadata · Perms</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-card-icon">🧪</div>
+            <div class="agent-card-name">UAT</div>
+            <div class="agent-card-role">User testing · Sign-off</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Intelligence Agents (right) -->
+      <div class="agent-panel">
+        <div class="agent-panel-header biz-panel-header">
+          <span class="panel-type-label">◈ Business Agents</span>
+          <span class="panel-agent-count">4 agents</span>
+        </div>
+        <div class="agent-grid biz-grid">
+          <div class="agent-card">
+            <div class="agent-card-icon">⚠</div>
+            <div class="agent-card-name">Deal at Risk</div>
+            <div class="agent-card-role">Stall detection · Alerts · Next step</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-card-icon">📊</div>
+            <div class="agent-card-name">Deal Review</div>
+            <div class="agent-card-role">Pipeline review · Coaching</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-card-icon">👥</div>
+            <div class="agent-card-name">Buying Group</div>
+            <div class="agent-card-role">Stakeholder mapping · Gaps</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-card-icon">📝</div>
+            <div class="agent-card-name">Deal Administrator</div>
+            <div class="agent-card-role">CRM hygiene · Docs · Close plan</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /orch-panels -->
+
+    <!-- Capability badges -->
+    <div class="claude-caps">
+      <span class="claude-cap">Agentforce Integration</span>
+      <span class="claude-cap">Native Salesforce Triggers</span>
+      <span class="claude-cap">Multi-Agent Orchestration</span>
+      <span class="claude-cap">Real-time CRM Context</span>
+      <span class="claude-cap">MCP Protocol</span>
+      <span class="claude-cap">Tool Use + Function Calling</span>
+    </div>
+
+  </div><!-- /claude-diagram -->
 </section>
 
 <hr class="divider">
