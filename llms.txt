@@ -1,0 +1,32 @@
+# Fábio Magalhães — Fractional Head of GTM Systems
+
+## Who I am
+Fábio Magalhães is a fractional GTM systems architect working with VP Sales, CROs, and Heads of RevOps at Series A–C B2B SaaS companies in the United Kingdom.
+
+## What I do
+I rebuild the operating system behind scale-up growth. Two engagement models:
+
+- **FRACTIONAL**: Build the RevOps and GTM systems function from scratch for scaling companies. Typically 3–6 months, then handed over to an internal hire. For companies that don't yet have a dedicated RevOps function.
+- **CONSULTING**: Work alongside existing RevOps and sales teams to sharpen pipeline visibility, forecast accuracy, and GTM execution. For companies that have the infrastructure but GTM is still messy.
+
+## Specialisms
+- Systems-of-record architecture (Salesforce, HubSpot, and connected stack)
+- Bowtie model diagnostics (CR1–CR8 customer lifecycle framework)
+- AI-assisted automation (lead qualification, PO extraction, deal approvals, opportunity creation)
+- Forecast accuracy and pipeline visibility
+- GTM data integrity and CRM hygiene
+- Revenue stack integrations (Clay, Gong, BigQuery, Snowflake, n8n, MuleSoft)
+
+## Who I work with
+Series A to Series C B2B SaaS companies in the UK. Typical buyer: VP Sales, CRO, Head of RevOps, or Founder-led GTM at 20–200 employees.
+
+## Services
+1. Fractional Head of GTM Systems — ongoing retainer
+2. Systems-of-Record Audit — one-time diagnostic
+3. AI + GTM Systems Build — project-based
+
+## Contact
+- Website: https://fabiomagalhaes.co.uk
+- Email: f.magas@gmail.com
+- LinkedIn: https://www.linkedin.com/in/fabiomagalhaes
+- Free GTM Audit: https://fabiomagalhaes.co.uk/#audit
