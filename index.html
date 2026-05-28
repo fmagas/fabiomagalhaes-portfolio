@@ -3,34 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fábio Magalhães — Revenue Systems & GTM Architecture</title>
+<title>Fábio Magalhães — Systems of Record & AI GTM Architecture</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap');
 
   :root {
-    --bg:      #08080a;
-    --bg2:     #0d0d10;
-    --surface: #131318;
-    --surface2:#18181f;
-    --border:  rgba(200,170,120,0.09);
-    --border2: rgba(200,170,120,0.18);
-    --gold:    #d4a853;
-    --gold2:   #e8c27a;
-    --gold3:   #f5dba8;
-    --teal:    #1a9470;
-    --teal2:   #2ec99a;
-    --teal3:   #72e4c4;
-    --coral:   #c85530;
-    --coral2:  #e87050;
-    --coral3:  #f5a888;
-    --purple:  #7050b8;
-    --purple2: #9e7ed8;
-    --text:    #edeae2;
-    --text2:   #c8c4bc;
-    --muted:   #68645e;
-    --muted2:  #968f88;
-    --glow-gold: rgba(212,168,83,0.12);
-    --glow-teal: rgba(29,158,117,0.10);
+    --bg:      #11110f;
+    --bg2:     #171713;
+    --surface: #f2eee6;
+    --surface2:#e5ded2;
+    --surface-dark:#202019;
+    --border:  rgba(216,205,185,0.16);
+    --border2: rgba(143,125,91,0.34);
+    --gold:    #b48743;
+    --gold2:   #d3aa63;
+    --gold3:   #f0d69a;
+    --teal:    #166d58;
+    --teal2:   #2fa17e;
+    --teal3:   #77d0b3;
+    --coral:   #8e3328;
+    --coral2:  #c95644;
+    --coral3:  #e88b74;
+    --purple:  #48506a;
+    --purple2: #7d86a6;
+    --ink:     #171713;
+    --paper:   #f7f1e7;
+    --text:    #f5efe5;
+    --text2:   #d9d0c2;
+    --muted:   #80776a;
+    --muted2:  #b9ad9b;
+    --glow-gold: rgba(180,135,67,0.10);
+    --glow-teal: rgba(47,161,126,0.08);
   }
 
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -39,8 +42,8 @@
   /* ─── BASE TYPOGRAPHY ─── */
   /* Body = DM Sans (readable, professional). DM Mono = labels/tags/code only */
   body {
-    background: var(--bg);
-    color: var(--text);
+    background: var(--paper);
+    color: var(--ink);
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
     line-height: 1.65;
@@ -48,13 +51,14 @@
   }
   body::before {
     content:''; position:fixed; inset:0;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events:none; z-index:9999; opacity:0.4;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:9999; opacity:0.32; mix-blend-mode:soft-light;
   }
 
   /* ─── GLOBAL UTILITIES ─── */
   .mono { font-family:'DM Mono', monospace; }
-  section { padding:108px 56px; }
+  section { padding:112px 56px; }
+  section[id] { scroll-margin-top:118px; }
   hr.divider { border:none; border-top:1px solid var(--border); margin:0 56px; }
 
   /* ─── SECTION LABELS & HEADINGS ─── */
@@ -85,15 +89,15 @@
     position:fixed; top:0; left:0; right:0; z-index:100;
     padding:14px 56px;
     display:flex; align-items:center; justify-content:space-between;
-    background:rgba(8,8,10,0.92); backdrop-filter:blur(20px);
+    background:rgba(17,17,15,0.88); backdrop-filter:blur(20px);
     border-bottom:1px solid var(--border);
   }
   .nav-brand { display:flex; align-items:center; gap:11px; text-decoration:none; }
   .nav-logo {
-    width:32px; height:32px; background:var(--gold); color:#08080a;
+    width:34px; height:34px; background:var(--paper); color:var(--ink);
     font-family:'DM Sans',sans-serif; font-weight:900; font-size:12px;
     letter-spacing:-0.03em; display:flex; align-items:center; justify-content:center;
-    border-radius:3px; flex-shrink:0;
+    border-radius:2px; flex-shrink:0;
   }
   .nav-brand-name {
     font-family:'DM Sans',sans-serif; font-weight:600; font-size:14px;
@@ -103,16 +107,16 @@
   .nav-links a {
     font-family:'DM Mono',monospace; font-size:10px;
     letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--muted); text-decoration:none; transition:color 0.2s;
+    color:var(--muted2); text-decoration:none; transition:color 0.2s;
   }
   .nav-links a:hover { color:var(--text); }
   .nav-links .nav-cta {
-    color:var(--teal2);
-    border:1px solid rgba(46,201,154,0.25);
-    padding:5px 12px; border-radius:2px;
+    color:var(--paper);
+    border:1px solid rgba(211,170,99,0.45);
+    padding:5px 12px; border-radius:999px;
     transition:color 0.2s, border-color 0.2s, background 0.2s;
   }
-  .nav-links .nav-cta:hover { background:rgba(46,201,154,0.08); border-color:var(--teal2); }
+  .nav-links .nav-cta:hover { background:rgba(211,170,99,0.10); border-color:var(--gold2); }
 
   /* ─── BUTTONS ─── */
   .btn-primary {
@@ -126,52 +130,61 @@
 
   .btn-teal {
     font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px;
-    letter-spacing:0.02em; padding:13px 28px; background:var(--teal);
-    color:#fff; border:none; cursor:pointer; border-radius:3px;
+    letter-spacing:0.02em; padding:13px 28px; background:var(--paper);
+    color:var(--ink); border:none; cursor:pointer; border-radius:2px;
     text-decoration:none; display:inline-block;
     transition:background 0.2s, transform 0.15s, box-shadow 0.2s;
   }
-  .btn-teal:hover { background:var(--teal2); transform:translateY(-1px); box-shadow:0 8px 24px rgba(46,201,154,0.25); }
+  .btn-teal:hover { background:#fffaf0; transform:translateY(-1px); box-shadow:0 10px 26px rgba(0,0,0,0.26); }
 
   .btn-ghost {
     font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em;
     text-transform:uppercase; padding:13px 24px;
-    background:transparent; color:var(--muted2);
-    border:1px solid var(--border2); cursor:pointer; border-radius:3px;
+    background:transparent; color:var(--text2);
+    border:1px solid var(--border2); cursor:pointer; border-radius:2px;
     text-decoration:none; display:inline-block;
     transition:border-color 0.2s, color 0.2s;
   }
-  .btn-ghost:hover { border-color:var(--gold3); color:var(--text); }
+  .btn-ghost:hover { border-color:var(--gold2); color:var(--text); background:rgba(244,238,229,0.04); }
 
   /* ─── HERO ─── */
   #hero {
     min-height:100vh; display:flex; flex-direction:column; justify-content:center;
-    padding:120px 56px 80px; position:relative; overflow:hidden;
+    padding:128px 56px 84px; position:relative; overflow:hidden;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px) 0 0 / 120px 120px,
+      linear-gradient(180deg, #11110f 0%, #171713 62%, #11110f 100%);
+    color:var(--text);
   }
   .hero-grid-bg {
     position:absolute; inset:0;
     background-image:
-      linear-gradient(rgba(212,168,83,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(212,168,83,0.03) 1px, transparent 1px);
-    background-size:60px 60px;
-    mask-image:radial-gradient(ellipse 80% 60% at 45% 40%, black 20%, transparent 100%);
+      linear-gradient(rgba(244,238,229,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244,238,229,0.035) 1px, transparent 1px);
+    background-size:96px 96px;
+    mask-image:linear-gradient(90deg, black 0%, rgba(0,0,0,0.25) 58%, transparent 100%);
   }
-  .hero-glow  { position:absolute; top:-240px; left:30%; transform:translateX(-50%); width:1000px; height:700px; background:radial-gradient(ellipse, var(--glow-gold) 0%, transparent 65%); pointer-events:none; }
-  .hero-glow2 { position:absolute; bottom:-150px; right:-200px; width:700px; height:700px; background:radial-gradient(ellipse, var(--glow-teal) 0%, transparent 65%); pointer-events:none; }
+  .hero-glow  { position:absolute; top:96px; right:56px; width:38vw; height:1px; background:var(--gold2); opacity:0.38; pointer-events:none; }
+  .hero-glow2 { position:absolute; bottom:80px; left:56px; width:26vw; height:1px; background:var(--teal2); opacity:0.36; pointer-events:none; }
 
-  .hero-inner { position:relative; z-index:2; max-width:860px; }
+  .hero-inner {
+    position:relative; z-index:2; max-width:1180px;
+    display:grid; grid-template-columns:minmax(0, 1fr) 420px;
+    align-items:center; gap:70px;
+  }
+  .hero-copy { min-width:0; }
 
   .hero-badge {
     display:inline-flex; align-items:center; gap:8px;
     font-family:'DM Mono',monospace; font-size:10px;
     letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--teal2); background:rgba(46,201,154,0.06);
-    border:1px solid rgba(46,201,154,0.22);
-    padding:6px 14px; border-radius:2px; margin-bottom:24px;
+    color:var(--paper); background:rgba(244,238,229,0.045);
+    border:1px solid rgba(244,238,229,0.16);
+    padding:7px 14px; border-radius:999px; margin-bottom:24px;
   }
   .hero-badge::before {
     content:''; width:6px; height:6px; border-radius:50%;
-    background:var(--teal2); box-shadow:0 0 8px var(--teal2);
+    background:var(--coral2); box-shadow:0 0 8px rgba(201,86,68,0.7);
     animation:pulse 2s ease-in-out infinite;
   }
 
@@ -193,7 +206,7 @@
 
   .hero-sub {
     font-family:'DM Sans',sans-serif; font-size:17px;
-    color:var(--muted2); max-width:540px; line-height:1.75; margin-bottom:40px;
+    color:var(--text2); max-width:590px; line-height:1.75; margin-bottom:34px;
     font-weight:400;
   }
   .hero-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:44px; }
@@ -201,57 +214,127 @@
     font-family:'DM Mono',monospace; font-size:9.5px;
     letter-spacing:0.10em; text-transform:uppercase;
     padding:5px 11px; border:1px solid var(--border2);
-    border-radius:2px; color:var(--muted2); background:var(--surface);
+    border-radius:999px; color:var(--text2); background:rgba(244,238,229,0.035);
   }
   .hero-ctas { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
 
+  /* ─── CHAPTER NAV ─── */
+  .chapter-nav {
+    position:sticky; top:63px; z-index:80;
+    display:flex; align-items:center; justify-content:center; gap:4px;
+    padding:10px 56px;
+    background:rgba(247,241,231,0.92); backdrop-filter:blur(18px);
+    border-top:1px solid rgba(23,23,19,0.08);
+    border-bottom:1px solid rgba(23,23,19,0.12);
+  }
+  .chapter-nav a {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em;
+    text-transform:uppercase; text-decoration:none; color:#746a5c;
+    padding:7px 12px; border-radius:999px; transition:background 0.2s, color 0.2s;
+    white-space:nowrap;
+  }
+  .chapter-nav a:hover {
+    background:rgba(23,23,19,0.06); color:var(--ink);
+  }
+
+  .control-panel {
+    background:var(--paper); color:var(--ink);
+    border:1px solid rgba(244,238,229,0.72);
+    border-radius:4px; box-shadow:0 34px 80px rgba(0,0,0,0.32);
+    padding:22px; position:relative; overflow:hidden;
+  }
+  .control-panel::before {
+    content:''; position:absolute; inset:0 0 auto 0; height:5px;
+    background:linear-gradient(90deg,var(--coral2),var(--gold2),var(--teal2));
+  }
+  .panel-kicker {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.16em;
+    text-transform:uppercase; color:#796b58; margin:10px 0 14px;
+  }
+  .panel-title {
+    font-weight:800; letter-spacing:-0.035em; font-size:25px;
+    line-height:1.08; max-width:310px; margin-bottom:22px;
+  }
+  .signal-list { display:flex; flex-direction:column; gap:10px; }
+  .signal-row {
+    display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center;
+    padding:13px 0; border-top:1px solid rgba(23,23,19,0.13);
+  }
+  .signal-name {
+    font-size:13px; font-weight:700; color:#25231f; line-height:1.25;
+  }
+  .signal-meta {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.08em;
+    text-transform:uppercase; color:#7e7464; margin-top:3px;
+  }
+  .signal-status {
+    font-family:'DM Mono',monospace; font-size:9px; font-weight:700;
+    letter-spacing:0.09em; text-transform:uppercase;
+    padding:5px 7px; border-radius:2px;
+  }
+  .signal-status.risk { background:rgba(201,86,68,0.14); color:var(--coral); }
+  .signal-status.watch { background:rgba(180,135,67,0.17); color:#805c23; }
+  .signal-status.live { background:rgba(47,161,126,0.16); color:var(--teal); }
+  .panel-footer {
+    margin-top:18px; padding:14px; background:#171713; color:var(--text2);
+    border-radius:3px; display:grid; grid-template-columns:auto 1fr; gap:12px;
+    align-items:center;
+  }
+  .panel-score {
+    font-weight:900; font-size:38px; line-height:1; color:var(--gold3);
+    letter-spacing:-0.05em;
+  }
+  .panel-caption {
+    font-size:12px; line-height:1.45; color:#d8cdbc;
+  }
+
   /* ─── METRICS BAR ─── */
   .metrics-bar {
-    display:flex; border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border); margin:48px 0;
-    background:var(--surface);
+    display:flex; border:1px solid var(--border);
+    margin:48px 0; background:#fff8ed;
   }
   .metric-item {
     flex:1; padding:30px 28px; border-right:1px solid var(--border);
     transition:background 0.2s;
   }
   .metric-item:last-child { border-right:none; }
-  .metric-item:hover { background:var(--surface2); }
+  .metric-item:hover { background:#f0e6d6; }
   .metric-val {
     font-family:'DM Sans',sans-serif; font-weight:800;
-    font-size:38px; letter-spacing:-0.04em; color:var(--text);
+    font-size:38px; letter-spacing:-0.04em; color:var(--ink);
     line-height:1; margin-bottom:6px;
   }
   .metric-val span { color:var(--gold2); }
   .metric-label {
     font-family:'DM Mono',monospace; font-size:10px;
-    letter-spacing:0.10em; text-transform:uppercase; color:var(--muted);
+    letter-spacing:0.10em; text-transform:uppercase; color:#746a5c;
   }
 
   /* ─── CAPABILITY CARDS ─── */
   .caps-grid {
     display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
-    gap:1px; background:var(--border); border:1px solid var(--border);
-    border-radius:4px; overflow:hidden;
+    gap:14px; background:transparent; border:0;
+    border-radius:0; overflow:visible;
   }
   .cap-card {
-    background:var(--bg2); padding:36px 32px;
+    background:rgba(244,238,229,0.045); padding:34px 30px;
     transition:background 0.25s, transform 0.2s;
     position:relative; overflow:hidden;
-    border-top:2px solid rgba(212,168,83,0.15);
+    border:1px solid var(--border); border-top:2px solid rgba(211,170,99,0.34);
+    border-radius:4px;
   }
   .cap-card::after {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
     background:linear-gradient(90deg, var(--gold), var(--gold2), transparent);
     opacity:0; transition:opacity 0.3s;
   }
-  .cap-card:hover { background:var(--surface); }
+  .cap-card:hover { background:rgba(244,238,229,0.075); transform:translateY(-2px); }
   .cap-card:hover::after { opacity:1; }
   .cap-icon {
     width:40px; height:40px; border:1px solid var(--border2);
     border-radius:6px; display:flex; align-items:center; justify-content:center;
     margin-bottom:22px; font-size:17px;
-    background:linear-gradient(135deg, var(--surface2), var(--bg2));
+    background:rgba(244,238,229,0.04);
   }
   .cap-card h3 {
     font-family:'DM Sans',sans-serif; font-weight:700;
@@ -264,48 +347,93 @@
   }
   .cap-bullets li::before { content:'—'; color:var(--gold); flex-shrink:0; opacity:0.7; }
 
+  /* ─── SERVICES ─── */
+  .services-grid {
+    display:grid; grid-template-columns:1.1fr 1fr 1fr;
+    gap:14px; align-items:stretch;
+  }
+  .service-card {
+    background:#fff8ed; color:var(--ink);
+    border:1px solid rgba(23,23,19,0.12);
+    border-radius:4px; padding:32px 28px;
+    display:flex; flex-direction:column; min-height:100%;
+    box-shadow:0 18px 46px rgba(23,23,19,0.06);
+  }
+  .service-card.featured {
+    background:var(--ink); color:var(--text);
+    border-color:rgba(211,170,99,0.38);
+  }
+  .service-kicker {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:14px;
+  }
+  .service-card.featured .service-kicker { color:var(--gold2); }
+  .service-card h3 {
+    font-size:22px; line-height:1.12; letter-spacing:-0.025em;
+    margin-bottom:14px;
+  }
+  .service-card p {
+    font-size:13px; line-height:1.7; color:#62584d; margin-bottom:22px;
+  }
+  .service-card.featured p { color:var(--text2); }
+  .service-list {
+    list-style:none; display:flex; flex-direction:column; gap:10px;
+    margin-top:auto; padding-top:18px; border-top:1px solid rgba(23,23,19,0.12);
+  }
+  .service-card.featured .service-list { border-top-color:rgba(244,238,229,0.14); }
+  .service-list li {
+    display:flex; align-items:flex-start; gap:9px;
+    font-size:12px; line-height:1.5; color:#5e554a;
+  }
+  .service-card.featured .service-list li { color:var(--text2); }
+  .service-list li::before {
+    content:'✓'; color:var(--teal); font-weight:800; flex-shrink:0;
+  }
+  .service-card.featured .service-list li::before { color:var(--teal3); }
+
   /* ─── USE CASES ─── */
-  #use-cases { background:var(--bg2); }
+  #use-cases { background:rgba(244,238,229,0.035); }
   .use-cases-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:1px; background:var(--border);
-    border:1px solid var(--border); border-radius:4px; overflow:hidden;
+    gap:14px; background:transparent;
+    border:0; border-radius:0; overflow:visible;
   }
   .uc-card {
-    background:var(--bg); padding:28px 26px;
+    background:var(--paper); color:var(--ink); padding:28px 26px;
     transition:background 0.25s;
     position:relative; display:flex; flex-direction:column;
-    border-top:2px solid rgba(46,201,154,0.10);
+    border-top:3px solid rgba(47,161,126,0.35);
+    border-radius:4px;
   }
-  .uc-card:hover { background:var(--surface); }
+  .uc-card:hover { background:#fff8ed; }
   .uc-card:hover { border-top-color:rgba(46,201,154,0.5); }
   .uc-num {
     font-family:'DM Mono',monospace; font-size:11px;
-    color:var(--muted); letter-spacing:0.1em; margin-bottom:10px;
+    color:#8a7e6d; letter-spacing:0.1em; margin-bottom:10px;
   }
   .uc-badge {
     font-family:'DM Mono',monospace; font-size:8px;
     letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--purple2); border:1px solid rgba(158,126,216,0.25);
+    color:var(--coral); border:1px solid rgba(142,51,40,0.22);
     padding:3px 8px; border-radius:2px; display:inline-block; margin-bottom:12px;
     width:fit-content;
   }
   .uc-title {
     font-family:'DM Sans',sans-serif; font-weight:700;
     font-size:14px; letter-spacing:-0.01em; margin-bottom:14px;
-    color:var(--text); line-height:1.35; flex:1;
+    color:var(--ink); line-height:1.35; flex:1;
   }
   .uc-tools { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:14px; }
   .uc-tool {
     font-family:'DM Mono',monospace; font-size:8.5px;
     letter-spacing:0.07em; text-transform:uppercase;
-    padding:3px 7px; border:1px solid var(--border);
-    border-radius:2px; color:var(--muted); background:var(--surface);
+    padding:3px 7px; border:1px solid rgba(23,23,19,0.12);
+    border-radius:2px; color:#796f61; background:rgba(23,23,19,0.035);
   }
   .uc-outcome {
-    font-size:12px; color:var(--teal3); line-height:1.55;
-    padding-top:12px; border-top:1px solid var(--border);
+    font-size:12px; color:#2f6a59; line-height:1.55;
+    padding-top:12px; border-top:1px solid rgba(23,23,19,0.12);
     display:flex; gap:6px; align-items:flex-start;
     margin-top:auto;
   }
@@ -314,7 +442,7 @@
   /* ─── DIAGRAM CONTAINERS ─── */
   #diagrams { background:var(--bg2); }
   .diagram-container {
-    background:var(--surface); border:1px solid var(--border);
+    background:var(--surface-dark); border:1px solid var(--border);
     border-radius:6px; overflow:hidden; margin-bottom:24px;
   }
   .diagram-header {
@@ -370,7 +498,7 @@
   .trouble-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px; margin-bottom:3px; }
   .trouble-desc { font-size:12px; color:var(--muted2); line-height:1.5; }
   .trouble-tags { display:flex; gap:5px; flex-wrap:wrap; position:relative; z-index:1; }
-  .ttag { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:0.08em; text-transform:uppercase; padding:3px 7px; border-radius:2px; border:1px solid var(--border); color:var(--muted); background:var(--surface); white-space:nowrap; }
+  .ttag { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:0.08em; text-transform:uppercase; padding:3px 7px; border-radius:2px; border:1px solid var(--border); color:var(--muted2); background:rgba(244,238,229,0.04); white-space:nowrap; }
   .trouble-tier { font-family:'DM Mono',monospace; font-weight:700; font-size:10px; min-width:36px; text-align:right; position:relative; z-index:1; }
   .trouble-down { text-align:center; color:var(--muted); font-size:11px; padding:1px 0; }
 
@@ -380,7 +508,7 @@
   .intmap-layer-label::after { content:''; flex:1; height:1px; background:var(--border); }
   .intmap-row { display:flex; align-items:flex-start; gap:8px; padding:4px 0 12px; flex-wrap:wrap; }
   .intmap-node { display:flex; flex-direction:column; align-items:center; gap:4px; padding:10px 14px 8px; min-width:88px; background:var(--bg); border:1px solid var(--border); border-radius:3px; transition:border-color 0.2s, background 0.2s; cursor:default; }
-  .intmap-node:hover { border-color:var(--border2); background:var(--surface); }
+  .intmap-node:hover { border-color:var(--border2); background:rgba(244,238,229,0.045); }
   .intmap-node-icon { font-size:14px; line-height:1; }
   .intmap-node-name { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:500; color:var(--muted2); text-align:center; white-space:nowrap; }
   .intmap-node-tag { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted); }
@@ -403,12 +531,12 @@
   .ai-glow-strip { text-align:center; padding:10px 0 8px; background:linear-gradient(90deg, transparent, rgba(158,126,216,0.05) 20%, rgba(158,126,216,0.09) 50%, rgba(158,126,216,0.05) 80%, transparent); border-radius:4px; margin-bottom:4px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--purple2); }
 
   /* ─── CASE STUDIES ─── */
-  .projects-header { display:grid; grid-template-columns:170px 1fr 1fr 190px; background:var(--bg); border:1px solid var(--border); border-bottom:none; border-radius:4px 4px 0 0; }
+  .projects-header { display:grid; grid-template-columns:170px 1fr 1fr 190px; background:#0f0f0d; border:1px solid var(--border); border-bottom:none; border-radius:4px 4px 0 0; }
   .proj-th { padding:12px 20px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); border-right:1px solid var(--border); }
   .proj-th:last-child { border-right:none; }
   .projects-list { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:0 0 4px 4px; overflow:hidden; }
   .project-row { display:grid; grid-template-columns:170px 1fr 1fr 190px; background:var(--bg2); transition:background 0.2s; }
-  .project-row:hover { background:var(--surface); }
+  .project-row:hover { background:#202019; }
   .project-cell { padding:22px 20px; border-right:1px solid var(--border); font-size:13px; line-height:1.6; color:var(--text2); }
   .project-cell:last-child { border-right:none; }
   .project-cell-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
@@ -421,25 +549,25 @@
   #testimonials { background:var(--bg); }
   .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .testimonial-card {
-    background:var(--surface); border:1px solid var(--border);
-    border-top:2px solid var(--gold);
+    background:var(--paper); border:1px solid rgba(23,23,19,0.12);
+    border-top:3px solid var(--gold);
     padding:32px 28px;
     transition:background 0.25s, transform 0.2s, box-shadow 0.2s;
     border-radius:3px;
     display:flex; flex-direction:column;
   }
-  .testimonial-card:hover { background:var(--surface2); transform:translateY(-2px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+  .testimonial-card:hover { background:#fff8ed; transform:translateY(-2px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
   .testimonial-avatar {
     width:44px; height:44px; border-radius:50%;
     background:linear-gradient(135deg, var(--gold), var(--teal));
     display:flex; align-items:center; justify-content:center;
     font-family:'DM Sans',sans-serif; font-weight:800; font-size:13px;
-    color:#08080a; margin-bottom:20px; flex-shrink:0;
+    color:var(--ink); margin-bottom:20px; flex-shrink:0;
     letter-spacing:-0.02em;
   }
   .testimonial-quote {
     font-family:'Instrument Serif',serif; font-style:italic;
-    font-size:15px; line-height:1.78; color:var(--text);
+    font-size:15px; line-height:1.78; color:#302b24;
     margin-bottom:24px; flex:1;
     position:relative; padding-left:18px;
   }
@@ -448,9 +576,9 @@
     font-size:36px; color:rgba(212,168,83,0.22); line-height:1;
     font-family:'Instrument Serif',serif; font-style:normal;
   }
-  .testimonial-attr { border-top:1px solid var(--border); padding-top:16px; margin-top:auto; }
-  .testimonial-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:14px; color:var(--text); margin-bottom:3px; }
-  .testimonial-role { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.10em; text-transform:uppercase; color:var(--gold2); }
+  .testimonial-attr { border-top:1px solid rgba(23,23,19,0.13); padding-top:16px; margin-top:auto; }
+  .testimonial-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:14px; color:var(--ink); margin-bottom:3px; }
+  .testimonial-role { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.10em; text-transform:uppercase; color:#8a642b; }
 
   /* ─── TECH STACK ─── */
   #stack { background:var(--bg2); }
@@ -461,11 +589,11 @@
   .chip {
     font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500;
     padding:6px 14px; border:1px solid var(--border); border-radius:3px;
-    color:var(--muted2); background:var(--surface);
+    color:var(--text2); background:rgba(244,238,229,0.045);
     transition:border-color 0.2s, color 0.2s, background 0.2s, transform 0.15s;
     cursor:default;
   }
-  .chip:hover { border-color:var(--border2); color:var(--text); transform:translateY(-1px); }
+  .chip:hover { border-color:var(--border2); color:var(--text); transform:translateY(-1px); background:rgba(244,238,229,0.075); }
   .chip.gold   { border-color:rgba(212,168,83,0.28); color:var(--gold2); background:rgba(212,168,83,0.04); }
   .chip.gold:hover { border-color:rgba(212,168,83,0.5); background:rgba(212,168,83,0.07); }
   .chip.teal   { border-color:rgba(46,201,154,0.28); color:var(--teal2); background:rgba(46,201,154,0.04); }
@@ -476,17 +604,47 @@
 
   /* ─── PROCESS ─── */
   .process-flow { display:flex; align-items:stretch; }
-  .process-step { flex:1; padding:32px 28px; background:var(--surface); border:1px solid var(--border); border-right:none; transition:background 0.2s; }
+  .process-step { flex:1; padding:32px 28px; background:var(--paper); color:var(--ink); border:1px solid rgba(23,23,19,0.12); border-right:none; transition:background 0.2s; }
   .process-step:first-child { border-radius:4px 0 0 4px; }
   .process-step:last-child { border-right:1px solid var(--border); border-radius:0 4px 4px 0; }
-  .process-step:hover { background:var(--surface2); }
-  .process-num { font-family:'DM Sans',sans-serif; font-weight:800; font-size:48px; letter-spacing:-0.05em; color:rgba(212,168,83,0.09); line-height:1; margin-bottom:16px; }
+  .process-step:hover { background:#fff8ed; }
+  .process-num { font-family:'DM Sans',sans-serif; font-weight:800; font-size:48px; letter-spacing:-0.05em; color:rgba(142,51,40,0.13); line-height:1; margin-bottom:16px; }
   .process-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.01em; margin-bottom:10px; }
-  .process-desc { font-size:13px; color:var(--muted2); line-height:1.7; }
+  .process-desc { font-size:13px; color:#6f6558; line-height:1.7; }
   .process-connector { display:flex; align-items:center; color:var(--gold); font-size:16px; background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:0 4px; flex-shrink:0; }
 
-  /* ─── FREE CONSULTATION ─── */
+  /* ─── SERVICES / CONSULTATION ─── */
   #consultation { background:var(--bg2); }
+  .services-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px;
+  }
+  .service-card {
+    border-radius:6px; padding:36px 32px;
+    display:flex; flex-direction:column; gap:20px;
+    border:1px solid var(--border);
+    background:var(--bg);
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover { transform:translateY(-3px); box-shadow:0 16px 48px rgba(0,0,0,0.3); }
+  .service-card--free {
+    border-top:3px solid var(--teal2);
+  }
+  .service-card--fractional {
+    border-top:3px solid var(--gold2);
+    background:linear-gradient(160deg, rgba(212,168,83,0.04) 0%, var(--bg) 60%);
+  }
+  .service-card-header { display:flex; flex-direction:column; gap:10px; }
+  .service-price-wrap { margin-top:4px; }
+  .service-card-title {
+    font-family:'DM Sans',sans-serif; font-weight:800;
+    font-size:clamp(20px,2.5vw,26px); letter-spacing:-0.02em;
+    color:var(--text); line-height:1.15;
+  }
+  .service-card-title em { font-family:'Instrument Serif',serif; font-style:italic; color:var(--teal2); font-weight:400; }
+  .service-card--fractional .service-card-title em { color:var(--gold2); }
+  .service-card-desc { font-size:14px; color:var(--muted2); line-height:1.75; }
+  .service-card-footer { margin-top:auto; padding-top:16px; border-top:1px solid var(--border); }
+  @media(max-width:900px){ .services-grid { grid-template-columns:1fr; } }
   .consult-block {
     border:1px solid rgba(212,168,83,0.20);
     background:linear-gradient(135deg, rgba(212,168,83,0.05) 0%, rgba(46,201,154,0.03) 100%);
@@ -557,6 +715,9 @@
 
   /* ─── RESPONSIVE ─── */
   @media(max-width:1100px){
+    .hero-inner { grid-template-columns:1fr; gap:40px; }
+    .control-panel { max-width:560px; }
+    .services-grid { grid-template-columns:1fr; }
     .use-cases-grid { grid-template-columns:repeat(2,1fr); }
     .testimonials-grid { grid-template-columns:repeat(2,1fr); }
   }
@@ -565,7 +726,9 @@
     .nav-links { display:none; }
     .nav-brand-name { display:none; }
     section { padding:72px 24px; }
+    section[id] { scroll-margin-top:108px; }
     #hero { padding:100px 24px 64px; }
+    .hero-inner { gap:32px; }
     hr.divider { margin:0 24px; }
     footer { padding:18px 24px; }
     h1 { font-size:clamp(34px,8vw,54px); }
@@ -579,6 +742,11 @@
     .process-step:last-child { border-bottom:1px solid var(--border); border-radius:0 0 4px 4px; }
     .process-connector { display:none; }
     .metrics-bar { flex-wrap:wrap; }
+    .chapter-nav {
+      top:62px; justify-content:flex-start; overflow-x:auto;
+      padding:9px 24px; scrollbar-width:none;
+    }
+    .chapter-nav::-webkit-scrollbar { display:none; }
     .metric-item { min-width:50%; }
     .consult-block { grid-template-columns:1fr; padding:36px 24px; gap:32px; }
     .consult-features { grid-template-columns:1fr; }
@@ -591,14 +759,14 @@
     .orch-bridge-line::before { width:1px; height:100%; top:0; left:0; background:linear-gradient(to bottom,rgba(0,161,224,0.4),rgba(212,168,83,0.4)); }
   }
 
-  /* ─── CLAUDE AI SECTION ─── */
+  /* ─── AI OPERATING LAYER SECTION ─── */
   #claude { background:var(--bg2); }
 
   .claude-diagram {
     display:flex; flex-direction:column; align-items:center; gap:0;
   }
 
-  /* Bridge: Salesforce ←→ Claude */
+  /* Bridge: System of Record ←→ AI Workspace */
   .orch-bridge-row {
     display:flex; align-items:center; justify-content:center;
     gap:0; width:100%; max-width:680px; margin:0 auto;
@@ -689,11 +857,11 @@
   .biz-grid  { grid-template-columns:repeat(2,1fr); }
 
   .agent-card {
-    background:var(--surface); padding:18px 16px;
+    background:var(--surface-dark); padding:18px 16px;
     display:flex; flex-direction:column; gap:5px;
     transition:background 0.18s;
   }
-  .agent-card:hover { background:var(--surface2); }
+  .agent-card:hover { background:#28271f; }
 
   .agent-card-icon { font-size:17px; line-height:1; margin-bottom:2px; }
   .agent-card-name {
@@ -716,6 +884,134 @@
     border:1px solid rgba(46,201,154,0.2); border-radius:2px;
     padding:5px 12px; background:rgba(46,201,154,0.04);
   }
+
+  /* ─── HYBRID EDITORIAL / CONTROL ROOM THEME ─── */
+  #capabilities,
+  #services,
+  #projects,
+  #testimonials,
+  #process,
+  #consultation,
+  #contact {
+    background:var(--paper);
+    color:var(--ink);
+  }
+
+  #use-cases,
+  #stack {
+    background:#efe7d9;
+    color:var(--ink);
+  }
+
+  #claude,
+  #diagrams,
+  #integration {
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px) 0 0 / 120px 120px,
+      var(--bg2) !important;
+    color:var(--text);
+  }
+
+  #capabilities h2,
+  #services h2,
+  #use-cases h2,
+  #projects h2,
+  #testimonials h2,
+  #stack h2,
+  #process h2,
+  #consultation h2,
+  #contact h2 {
+    color:var(--ink);
+  }
+
+  #capabilities .section-sub,
+  #services .section-sub,
+  #use-cases .section-sub,
+  #projects .section-sub,
+  #testimonials .section-sub,
+  #stack .section-sub,
+  #process .section-sub,
+  #consultation .section-sub,
+  #contact .section-sub,
+  #capabilities .cap-bullets li {
+    color:#6f6558;
+  }
+
+  #capabilities .cap-card {
+    background:#fff8ed;
+    border-color:rgba(23,23,19,0.12);
+    border-top-color:rgba(180,135,67,0.55);
+    box-shadow:0 18px 46px rgba(23,23,19,0.06);
+  }
+  #capabilities .cap-card:hover { background:#fffdf6; }
+  #capabilities .cap-card h3 { color:var(--ink); }
+  #capabilities .cap-icon {
+    color:var(--ink);
+    background:#efe7d9;
+    border-color:rgba(23,23,19,0.12);
+  }
+
+  #projects .projects-list {
+    background:rgba(23,23,19,0.12);
+    border-color:rgba(23,23,19,0.12);
+  }
+  #projects .project-row {
+    background:#fff8ed;
+  }
+  #projects .project-row:hover {
+    background:#fffdf6;
+  }
+  #projects .project-cell {
+    color:#50483d;
+    border-right-color:rgba(23,23,19,0.10);
+  }
+  #projects .project-company { color:var(--ink); }
+  #projects .project-cell-label,
+  #projects .project-sector,
+  #projects .project-metric-label { color:#7b7163; }
+
+  #stack .stack-group-label {
+    color:#6f6558;
+    border-right-color:rgba(23,23,19,0.12);
+  }
+  #stack .chip {
+    background:#fff8ed;
+    color:#50483d;
+    border-color:rgba(23,23,19,0.13);
+  }
+  #stack .chip:hover {
+    background:#fffdf6;
+    color:var(--ink);
+  }
+
+  #consultation .consult-block {
+    background:#fff8ed;
+    border-color:rgba(23,23,19,0.12);
+    box-shadow:0 24px 70px rgba(23,23,19,0.08);
+  }
+  #consultation .consult-desc,
+  #consultation .consult-feature {
+    color:#5e554a;
+  }
+  #consultation .consult-side {
+    background:var(--ink);
+    color:var(--text);
+  }
+
+  #contact .contact-link {
+    color:#50483d;
+    border-color:rgba(23,23,19,0.14);
+  }
+  #contact .contact-link:hover {
+    color:var(--ink);
+    background:#fff8ed;
+  }
+
+  #claude .section-sub,
+  #diagrams .section-sub,
+  #integration .section-sub {
+    color:var(--muted2);
+  }
 </style>
 </head>
 <body>
@@ -728,12 +1024,13 @@
   </a>
   <ul class="nav-links">
     <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#use-cases">Use Cases</a></li>
-    <li><a href="#claude">Claude AI</a></li>
+    <li><a href="#claude">AI Layer</a></li>
     <li><a href="#diagrams">Architecture</a></li>
     <li><a href="#projects">Case Studies</a></li>
     <li><a href="#stack">Stack</a></li>
-    <li><a href="#consultation" class="nav-cta">Free Consultation</a></li>
+    <li><a href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener" class="nav-cta">Free Audit</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -744,31 +1041,82 @@
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div class="hero-inner">
-    <div class="hero-badge fade-up">Free 1-Week Revenue Diagnostic — Limited Slots</div>
-    <div class="hero-eyebrow fade-up">Revenue Systems · GTM Architecture · AI Automation</div>
-    <h1 class="fade-up">Revenue Systems.<br><em>Simplified.</em><br>Automated.<br>Aligned to Growth.</h1>
-    <p class="hero-sub fade-up">Building the operating layer between strategy and execution — Salesforce architecture, AI-driven automation, and GTM systems that scale without chaos.</p>
-    <div class="hero-tags fade-up">
-      <span class="tag">Salesforce CRM</span>
-      <span class="tag">Gong Revenue Intelligence</span>
-      <span class="tag">Clay Prospecting</span>
-      <span class="tag">Bowtie Revenue Model</span>
-      <span class="tag">AI Agents</span>
-      <span class="tag">Pipeline Forecasting</span>
+    <div class="hero-copy">
+      <div class="hero-badge fade-up">1-Week Free Audit · Fractional GTM Systems Support · Limited Slots</div>
+      <div class="hero-eyebrow fade-up">Systems of Record · GTM Architecture · AI Automation</div>
+      <h1 class="fade-up">I rebuild the <em>operating system</em> behind scale-up growth.</h1>
+      <p class="hero-sub fade-up">Systems-of-record architecture, Bowtie diagnostics, AI-assisted automation, and GTM systems designed to make forecast, pipeline, churn, and execution visible in one operating layer.</p>
+      <div class="hero-tags fade-up">
+        <span class="tag">Systems of Record</span>
+        <span class="tag">Salesforce / HubSpot</span>
+        <span class="tag">Gong Revenue Intelligence</span>
+        <span class="tag">Clay Prospecting</span>
+        <span class="tag">Bowtie Lifecycle Model</span>
+        <span class="tag">Claude Workspace</span>
+        <span class="tag">Pipeline Forecasting</span>
+      </div>
+      <div class="hero-ctas fade-up">
+        <a href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener" class="btn-teal">Book Free Audit →</a>
+        <a href="#consultation" class="btn-ghost">Fractional Services ↓</a>
+      </div>
     </div>
-    <div class="hero-ctas fade-up">
-      <a href="#consultation" class="btn-teal">Book Free Consultation →</a>
-      <a href="#diagrams" class="btn-ghost">View Architecture ↓</a>
+    <div class="control-panel fade-up" aria-label="GTM system health snapshot">
+      <div class="panel-kicker">GTM System Health</div>
+      <div class="panel-title">A control-room view of where growth is leaking.</div>
+      <div class="signal-list">
+        <div class="signal-row">
+          <div>
+            <div class="signal-name">Forecast Confidence</div>
+            <div class="signal-meta">CR4 · board number risk</div>
+          </div>
+          <div class="signal-status risk">Fix</div>
+        </div>
+        <div class="signal-row">
+          <div>
+            <div class="signal-name">Pipeline Conversion</div>
+            <div class="signal-meta">CR2–3 · qualification quality</div>
+          </div>
+          <div class="signal-status watch">Watch</div>
+        </div>
+        <div class="signal-row">
+          <div>
+            <div class="signal-name">System-of-Record Hygiene</div>
+            <div class="signal-meta">stage gates · data ownership</div>
+          </div>
+          <div class="signal-status risk">Fix</div>
+        </div>
+        <div class="signal-row">
+          <div>
+            <div class="signal-name">AI Automation Layer</div>
+            <div class="signal-meta">alerts · scoring · next actions</div>
+          </div>
+          <div class="signal-status live">Live</div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="panel-score">7d</div>
+        <div class="panel-caption">Systems audit to map the Bowtie, expose operational debt, and define the highest-value service path.</div>
+      </div>
     </div>
   </div>
 </section>
+
+<div class="chapter-nav" aria-label="Page chapters">
+  <a href="#capabilities">Audit</a>
+  <a href="#services">Services</a>
+  <a href="#use-cases">Use Cases</a>
+  <a href="#claude">AI Layer</a>
+  <a href="#diagrams">Architecture</a>
+  <a href="#projects">Outcomes</a>
+  <a href="#consultation">Offer</a>
+</div>
 
 <hr class="divider">
 
 <section style="padding:0 56px;">
   <div class="metrics-bar">
-    <div class="metric-item"><div class="metric-val">8<span>+</span></div><div class="metric-label">Years RevOps Experience</div></div>
-    <div class="metric-item"><div class="metric-val">£<span>120M</span></div><div class="metric-label">Revenue Under Management</div></div>
+    <div class="metric-item"><div class="metric-val">8<span>+</span></div><div class="metric-label">Years Systems Experience</div></div>
+    <div class="metric-item"><div class="metric-val">£<span>120M</span></div><div class="metric-label">Commercial Systems Managed</div></div>
     <div class="metric-item"><div class="metric-val">40<span>%</span></div><div class="metric-label">Avg Forecast Accuracy Gain</div></div>
     <div class="metric-item"><div class="metric-val">3<span>x</span></div><div class="metric-label">Pipeline Velocity Improvement</div></div>
   </div>
@@ -780,16 +1128,16 @@
 <section id="capabilities">
   <div class="section-label">Core Capabilities</div>
   <h2>Where I <em>operate</em></h2>
-  <p class="section-sub">End-to-end systems thinking across the full revenue stack — from architecture decisions to automation execution.</p>
+  <p class="section-sub">End-to-end systems thinking across the full GTM stack — from architecture decisions to automation execution.</p>
   <div class="caps-grid">
     <div class="cap-card">
       <div class="cap-icon">⬡</div>
-      <h3>Revenue Architecture</h3>
+      <h3>GTM Architecture</h3>
       <ul class="cap-bullets">
         <li>Bowtie model design & implementation</li>
         <li>GTM motion design (PLG, SLG, hybrid)</li>
-        <li>CRM design, data modelling & governance</li>
-        <li>Salesforce CPQ & opportunity management</li>
+        <li>System-of-record design, data modelling & governance</li>
+        <li>Opportunity, lifecycle, and commercial workflow design</li>
         <li>Cross-functional alignment frameworks</li>
       </ul>
     </div>
@@ -801,7 +1149,7 @@
         <li>Clay-powered prospecting & enrichment</li>
         <li>Quote & approval workflow automation</li>
         <li>AI-assisted call analysis via Gong</li>
-        <li>Agent orchestration (n8n, Agentforce, MuleSoft)</li>
+        <li>Agent orchestration (Claude Workspace, n8n, Agentforce, MuleSoft)</li>
       </ul>
     </div>
     <div class="cap-card">
@@ -819,7 +1167,7 @@
       <div class="cap-icon">⬟</div>
       <h3>Integrations & Data</h3>
       <ul class="cap-bullets">
-        <li>Salesforce ↔ Gong ↔ Clay ↔ warehouse</li>
+        <li>System of record ↔ Gong ↔ Clay ↔ warehouse</li>
         <li>BigQuery / Snowflake data pipelines</li>
         <li>MuleSoft & Zuora integration architecture</li>
         <li>Marketing attribution modelling</li>
@@ -831,11 +1179,55 @@
 
 <hr class="divider">
 
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">Fractional Services</div>
+  <h2>How I can <em>plug in</em></h2>
+  <p class="section-sub">Flexible support for founders, CROs, GTM leaders, and scale-up teams that need senior systems-of-record leadership without hiring a full-time operator.</p>
+  <div class="services-grid">
+    <div class="service-card featured">
+      <div class="service-kicker">Fractional Leadership</div>
+      <h3>Fractional Head of GTM Systems</h3>
+      <p>Ongoing strategic and operational ownership of the GTM stack: systems of record, forecasting, lifecycle reporting, governance, and the operating cadence around it.</p>
+      <ul class="service-list">
+        <li>Systems-of-record roadmap and prioritisation</li>
+        <li>System-of-record governance, data ownership, and stage logic</li>
+        <li>Weekly operating rhythm with Sales, CS, Finance, and leadership</li>
+        <li>Hands-on delivery across tooling, process, and reporting</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-kicker">Diagnostic Sprint</div>
+      <h3>Systems-of-Record Audit</h3>
+      <p>A focused diagnostic to find where pipeline, forecast, system-of-record hygiene, handoffs, or customer lifecycle motion are breaking.</p>
+      <ul class="service-list">
+        <li>Bowtie stage audit across CR1–CR8</li>
+        <li>System-of-record, data quality, and workflow review</li>
+        <li>Automation opportunity map</li>
+        <li>Executive-ready findings and fix roadmap</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-kicker">Build & Automate</div>
+      <h3>AI + GTM Systems Build</h3>
+      <p>Design and implementation of practical automations that reduce manual work, improve data quality, and surface revenue risk earlier.</p>
+      <ul class="service-list">
+        <li>Forecast, hygiene, churn, and deal-risk agents</li>
+        <li>Salesforce, HubSpot, Gong, Clay, Claude Workspace, n8n, MuleSoft, and warehouse integrations</li>
+        <li>Dashboards that support real operating decisions</li>
+        <li>Documentation and handover for internal ownership</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
 <!-- USE CASES -->
 <section id="use-cases">
   <div class="section-label">Applied AI & Automation</div>
   <h2>What I've <em>built</em> and shipped</h2>
-  <p class="section-sub">Real automation workflows across RevOps, Finance, Compliance, and CS. Tool-specific, outcome-driven, production-ready.</p>
+  <p class="section-sub">Real automation workflows across GTM operations, Finance, Compliance, and CS. Tool-specific, outcome-driven, production-ready.</p>
   <div class="use-cases-grid">
 
     <div class="uc-card">
@@ -843,7 +1235,7 @@
       <div class="uc-badge">Lead Management</div>
       <div class="uc-title">Inbound Lead Qualification & SDR Routing</div>
       <div class="uc-tools">
-        <span class="uc-tool">n8n</span><span class="uc-tool">OpenAI API</span><span class="uc-tool">HubSpot</span><span class="uc-tool">Salesforce</span>
+        <span class="uc-tool">n8n</span><span class="uc-tool">OpenAI API</span><span class="uc-tool">HubSpot</span><span class="uc-tool">CRM</span>
       </div>
       <div class="uc-outcome"><span class="uc-arrow">↑</span>AI scores inbound by ICP fit, urgency, and source — routes to SDR with full context attached. Improved qualification accuracy and eliminated manual triage.</div>
     </div>
@@ -853,9 +1245,9 @@
       <div class="uc-badge">Finance Ops</div>
       <div class="uc-title">Purchase Order Extraction & Auto-Sync</div>
       <div class="uc-tools">
-        <span class="uc-tool">MuleSoft</span><span class="uc-tool">IDP</span><span class="uc-tool">Salesforce</span><span class="uc-tool">Finance Systems</span>
+        <span class="uc-tool">MuleSoft</span><span class="uc-tool">IDP</span><span class="uc-tool">System of Record</span><span class="uc-tool">Finance Systems</span>
       </div>
-      <div class="uc-outcome"><span class="uc-arrow">↑</span>IDP extracts PO data from inbound email — MuleSoft syncs to Salesforce and Finance automatically. 70% faster processing, near-zero manual entry.</div>
+      <div class="uc-outcome"><span class="uc-arrow">↑</span>IDP extracts PO data from inbound email — MuleSoft syncs to the system of record and Finance automatically. 70% faster processing, near-zero manual entry.</div>
     </div>
 
     <div class="uc-card">
@@ -873,7 +1265,7 @@
       <div class="uc-badge">Sales Ops</div>
       <div class="uc-title">AI Agent-Driven Quote Generation</div>
       <div class="uc-tools">
-        <span class="uc-tool">Agentforce</span><span class="uc-tool">Salesforce CPQ</span>
+        <span class="uc-tool">Agentforce</span><span class="uc-tool">CPQ</span>
       </div>
       <div class="uc-outcome"><span class="uc-arrow">↑</span>Agentforce gathers account context, product config, and pricing rules — auto-generates draft quote routed for approval. Faster turnaround, fewer errors.</div>
     </div>
@@ -883,7 +1275,7 @@
       <div class="uc-badge">Pipeline Ops</div>
       <div class="uc-title">Email-to-Opportunity Auto-Creation</div>
       <div class="uc-tools">
-        <span class="uc-tool">n8n</span><span class="uc-tool">OpenAI</span><span class="uc-tool">Salesforce</span><span class="uc-tool">Slack</span>
+        <span class="uc-tool">n8n</span><span class="uc-tool">OpenAI</span><span class="uc-tool">CRM</span><span class="uc-tool">Slack</span>
       </div>
       <div class="uc-outcome"><span class="uc-arrow">↑</span>Inbound emails parsed by GPT for intent and value. When criteria met, an Opportunity is created automatically and the AE notified. Zero missed inbound pipeline.</div>
     </div>
@@ -893,9 +1285,9 @@
       <div class="uc-badge">Deal Governance</div>
       <div class="uc-title">Multi-Step Deal Approval Automation</div>
       <div class="uc-tools">
-        <span class="uc-tool">n8n</span><span class="uc-tool">Slack</span><span class="uc-tool">Salesforce</span>
+        <span class="uc-tool">n8n</span><span class="uc-tool">Slack</span><span class="uc-tool">CRM</span>
       </div>
-      <div class="uc-outcome"><span class="uc-arrow">↑</span>Opportunity criteria trigger a Slack-based approval chain. Every decision logged back to Salesforce with a full audit trail. No lost threads.</div>
+      <div class="uc-outcome"><span class="uc-arrow">↑</span>Opportunity criteria trigger a Slack-based approval chain. Every decision is logged back to the system of record with a full audit trail. No lost threads.</div>
     </div>
 
   </div>
@@ -903,26 +1295,26 @@
 
 <hr class="divider">
 
-<!-- CLAUDE AI MULTI-AGENT SECTION -->
+<!-- AI OPERATING LAYER SECTION -->
 <section id="claude">
-  <div class="section-label">Claude AI Integration</div>
-  <h2>Salesforce <em>×</em> Claude</h2>
-  <p class="section-sub">Certified Salesforce architect + Claude integration specialist. Multi-agent orchestration built natively — CRM data feeds Claude context in real time, Claude routes decisions and actions across 10 specialised agents.</p>
+  <div class="section-label">AI Operating Layer</div>
+  <h2>Intelligence embedded <em>inside</em> the operating layer</h2>
+  <p class="section-sub">AI is treated as infrastructure, not theatre: system-of-record context, workflow triggers, deal intelligence, and Claude Workspace playbooks routed through the tools teams already use.</p>
 
   <div class="claude-diagram">
 
-    <!-- Bridge: Salesforce ←→ Claude Orchestrator -->
+    <!-- Bridge: System of Record ←→ AI Workspace -->
     <div class="orch-bridge-row">
       <div class="orch-node orch-node-sf">
         <div class="orch-node-icon">☁</div>
-        <div class="orch-node-name">Salesforce CRM</div>
-        <div class="orch-node-desc">Live data · Triggers · Objects</div>
+        <div class="orch-node-name">System of Record</div>
+        <div class="orch-node-desc">CRM · Warehouse · Finance · CS</div>
       </div>
       <div class="orch-bridge-line" data-label="Context flow"></div>
       <div class="orch-node orch-node-claude">
         <div class="orch-node-icon">◆</div>
-        <div class="orch-node-name">Claude Orchestrator</div>
-        <div class="orch-node-desc">Routing · Reasoning · Execution</div>
+        <div class="orch-node-name">Claude Workspace</div>
+        <div class="orch-node-desc">Playbooks · Reasoning · Execution</div>
       </div>
     </div>
 
@@ -955,7 +1347,7 @@
           <div class="agent-card">
             <div class="agent-card-icon">💻</div>
             <div class="agent-card-name">Dev</div>
-            <div class="agent-card-role">Apex · LWC · Flows</div>
+            <div class="agent-card-role">Workflow · APIs · Automation</div>
           </div>
           <div class="agent-card">
             <div class="agent-card-icon">✅</div>
@@ -965,7 +1357,7 @@
           <div class="agent-card">
             <div class="agent-card-icon">⚙</div>
             <div class="agent-card-name">Admin</div>
-            <div class="agent-card-role">Config · Metadata · Perms</div>
+            <div class="agent-card-role">Config · Access · Governance</div>
           </div>
           <div class="agent-card">
             <div class="agent-card-icon">🧪</div>
@@ -1000,7 +1392,7 @@
           <div class="agent-card">
             <div class="agent-card-icon">📝</div>
             <div class="agent-card-name">Deal Administrator</div>
-            <div class="agent-card-role">CRM hygiene · Docs · Close plan</div>
+            <div class="agent-card-role">System hygiene · Docs · Close plan</div>
           </div>
         </div>
       </div>
@@ -1009,10 +1401,10 @@
 
     <!-- Capability badges -->
     <div class="claude-caps">
-      <span class="claude-cap">Agentforce Integration</span>
-      <span class="claude-cap">Native Salesforce Triggers</span>
+      <span class="claude-cap">Claude Workspace</span>
+      <span class="claude-cap">CRM / System Triggers</span>
       <span class="claude-cap">Multi-Agent Orchestration</span>
-      <span class="claude-cap">Real-time CRM Context</span>
+      <span class="claude-cap">Real-time System Context</span>
       <span class="claude-cap">MCP Protocol</span>
       <span class="claude-cap">Tool Use + Function Calling</span>
     </div>
@@ -1024,13 +1416,13 @@
 
 <!-- BOWTIE DIAGRAMS -->
 <section id="diagrams">
-  <div class="section-label">Revenue Architecture</div>
+  <div class="section-label">Operating Architecture</div>
   <h2>The <em>Bowtie</em> model</h2>
   <p class="section-sub">Revenue doesn't stop at closed-won. The Bowtie maps the full customer lifecycle — acquisition on the left, retention and expansion on the right.</p>
 
   <div class="diagram-container">
     <div class="diagram-header">
-      <div class="diagram-title">Bowtie of Revenue — Full Customer Lifecycle</div>
+      <div class="diagram-title">Bowtie Operating Model — Full Customer Lifecycle</div>
       <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--gold2);letter-spacing:0.1em;text-transform:uppercase;">Winning by Design Model</span>
     </div>
     <div class="diagram-body" style="padding:24px 20px;">
@@ -1108,7 +1500,7 @@
 
   <div class="diagram-container">
     <div class="diagram-header">
-      <div class="diagram-title">RevOps Troubleshooting — Where the Bowtie Breaks</div>
+      <div class="diagram-title">GTM Systems Troubleshooting — Where the Bowtie Breaks</div>
       <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--coral2);letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
         <span style="width:5px;height:5px;border-radius:50%;background:var(--coral2);box-shadow:0 0 6px var(--coral2);display:inline-block;animation:pulse 2s infinite;"></span>
         Diagnostic Map
@@ -1121,7 +1513,7 @@
           <div class="trouble-fill" style="width:95%;background:rgba(212,168,83,0.04);"></div>
           <div class="trouble-num">01</div>
           <div class="trouble-info"><div class="trouble-name">ICP & Awareness Misalignment</div><div class="trouble-desc">Wrong accounts entering the Bowtie. High volume, low CR1. Clay signals ignored. ICP criteria undefined in CRM.</div></div>
-          <div class="trouble-tags"><span class="ttag">Clay</span><span class="ttag">ICP scoring</span><span class="ttag">CRM segmentation</span></div>
+          <div class="trouble-tags"><span class="ttag">Clay</span><span class="ttag">ICP scoring</span><span class="ttag">Segment design</span></div>
           <div class="trouble-tier" style="color:var(--gold2);">TOP</div>
         </div>
         <div class="trouble-down">↓</div>
@@ -1136,8 +1528,8 @@
         <div class="trouble-row" style="border-left:3px solid rgba(200,85,48,0.6);">
           <div class="trouble-fill" style="width:68%;background:rgba(200,85,48,0.03);"></div>
           <div class="trouble-num">03</div>
-          <div class="trouble-info"><div class="trouble-name">Pipeline Hygiene & Forecast Failure (CR3–4)</div><div class="trouble-desc">Stale deals inflating pipeline. CRM fields empty. Forecast built on dirty data. Board numbers miss every quarter.</div></div>
-          <div class="trouble-tags"><span class="ttag">Salesforce</span><span class="ttag">Hygiene agent</span><span class="ttag">Forecast model</span></div>
+          <div class="trouble-info"><div class="trouble-name">Pipeline Hygiene & Forecast Failure (CR3–4)</div><div class="trouble-desc">Stale deals inflating pipeline. Core fields empty. Forecast built on dirty data. Board numbers miss every quarter.</div></div>
+          <div class="trouble-tags"><span class="ttag">System of record</span><span class="ttag">Hygiene agent</span><span class="ttag">Forecast model</span></div>
           <div class="trouble-tier" style="color:var(--coral2);">L2</div>
         </div>
         <div class="trouble-down">↓</div>
@@ -1218,10 +1610,10 @@
           <div style="display:flex;justify-content:center;margin:4px 0;">
             <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:1px;height:14px;background:var(--border2);"></div><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--gold);letter-spacing:0.1em;">Normalised to CRM</div><div style="width:1px;height:10px;background:var(--border2);"></div><div style="font-size:9px;color:var(--gold);">▼</div></div>
           </div>
-          <div class="intmap-layer-label" style="color:var(--gold2);">Tier 3 — CRM Core + Data Warehouse</div>
+          <div class="intmap-layer-label" style="color:var(--gold2);">Tier 3 — Systems of Record + Data Warehouse</div>
           <div class="intmap-row">
-            <div class="intmap-node tier-crm" style="border-color:rgba(212,168,83,0.5);box-shadow:0 0 14px rgba(212,168,83,0.07);"><div class="intmap-node-icon">⬡</div><div class="intmap-node-name" style="color:var(--gold2);font-weight:700;">Salesforce</div><div class="intmap-node-tag">CRM of record</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">◈</div><div class="intmap-node-name">HubSpot</div><div class="intmap-node-tag">Marketing CRM</div></div>
+            <div class="intmap-node tier-crm" style="border-color:rgba(212,168,83,0.5);box-shadow:0 0 14px rgba(212,168,83,0.07);"><div class="intmap-node-icon">⬡</div><div class="intmap-node-name" style="color:var(--gold2);font-weight:700;">CRM</div><div class="intmap-node-tag">Salesforce / HubSpot</div></div>
+            <div class="intmap-node tier-crm"><div class="intmap-node-icon">◈</div><div class="intmap-node-name">Finance</div><div class="intmap-node-tag">Billing / ARR</div></div>
             <div class="intmap-node tier-crm"><div class="intmap-node-icon">◎</div><div class="intmap-node-name">BigQuery</div><div class="intmap-node-tag">Warehouse</div></div>
             <div class="intmap-node tier-crm"><div class="intmap-node-icon">⬟</div><div class="intmap-node-name">Snowflake</div><div class="intmap-node-tag">Data lake</div></div>
             <div class="intmap-node tier-crm"><div class="intmap-node-icon">◉</div><div class="intmap-node-name">Tableau</div><div class="intmap-node-tag">BI</div></div>
@@ -1272,8 +1664,8 @@
   <div class="projects-list">
     <div class="project-row">
       <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">FinTech Scale-up</div><div class="project-sector">Series B · SaaS · London</div></div>
-      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>Forecast missing by 40%+ (CR4 broken). No single source of truth. Rebuilt Salesforce data model, stage-gate logic, deployed AI forecast agent layered on rep input.</div>
-      <div class="project-cell"><div class="project-cell-label">Systems Built</div>Salesforce CPQ · AI Forecast Agent · Gong integration · Board dashboard</div>
+      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>Forecast missing by 40%+ (CR4 broken). No single source of truth. Rebuilt the system-of-record data model, stage-gate logic, and AI forecast agent layered on rep input.</div>
+      <div class="project-cell"><div class="project-cell-label">Systems Built</div>CPQ · AI Forecast Agent · Gong integration · Board dashboard</div>
       <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">+40%</div><div class="project-metric-label">Forecast accuracy in 90 days</div></div>
     </div>
     <div class="project-row">
@@ -1284,25 +1676,25 @@
     </div>
     <div class="project-row">
       <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">Growth Co.</div><div class="project-sector">Scale-up · PLG + SLG · 120 reps</div></div>
-      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>CS and Sales in silos, churn invisible (CR6–7 broken). Built unified data layer, connected Gainsight to Salesforce and warehouse. Deployed churn risk agent.</div>
+      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>CS and Sales in silos, churn invisible (CR6–7 broken). Built unified data layer, connected Gainsight to the CRM and warehouse. Deployed churn risk agent.</div>
       <div class="project-cell"><div class="project-cell-label">Systems Built</div>Gainsight health agent · Churn risk model · CS-to-Sales handoff · BigQuery</div>
       <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">-28%</div><div class="project-metric-label">Gross revenue churn</div></div>
     </div>
     <div class="project-row">
       <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">SaaS Scale-up</div><div class="project-sector">Series B · Finance & Billing ops</div></div>
-      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>High manual effort recovering failed payments with no visibility across Finance, CS, and Sales. Integrated Zuora with Salesforce via MuleSoft to surface failed payments and trigger automated dunning workflows.</div>
-      <div class="project-cell"><div class="project-cell-label">Systems Built</div>Zuora ↔ Salesforce · MuleSoft middleware · CS recovery dashboard</div>
+      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>High manual effort recovering failed payments with no visibility across Finance, CS, and Sales. Integrated billing with the CRM via MuleSoft to surface failed payments and trigger automated dunning workflows.</div>
+      <div class="project-cell"><div class="project-cell-label">Systems Built</div>Billing ↔ CRM · MuleSoft middleware · CS recovery dashboard</div>
       <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">↓ 65%</div><div class="project-metric-label">Manual dunning workload</div></div>
     </div>
     <div class="project-row">
       <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">Commercial Team</div><div class="project-sector">Scale-up · PO automation</div></div>
-      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>PO processing was manual, error-prone, and slow. Deployed IDP to extract and validate purchase order data from email; synced to Salesforce and Finance via MuleSoft.</div>
-      <div class="project-cell"><div class="project-cell-label">Systems Built</div>MuleSoft · IDP extraction · Salesforce auto-sync · Finance integration</div>
+      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>PO processing was manual, error-prone, and slow. Deployed IDP to extract and validate purchase order data from email; synced to the CRM and Finance via MuleSoft.</div>
+      <div class="project-cell"><div class="project-cell-label">Systems Built</div>MuleSoft · IDP extraction · CRM auto-sync · Finance integration</div>
       <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">70%</div><div class="project-metric-label">Faster PO processing</div></div>
     </div>
     <div class="project-row">
       <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">Enterprise SaaS</div><div class="project-sector">Multi-system GTM stack</div></div>
-      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>Conflicting data across Salesforce, Zuora, marketing, and finance. Defined a source-of-truth model for core entities with clear ownership, sync rules, and governance.</div>
+      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>Conflicting data across CRM, billing, marketing, and finance. Defined a source-of-truth model for core entities with clear ownership, sync rules, and governance.</div>
       <div class="project-cell"><div class="project-cell-label">Systems Built</div>Data ownership model · CRM governance · Single source of truth</div>
       <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">1 SoT</div><div class="project-metric-label">Trusted across exec & board</div></div>
     </div>
@@ -1358,12 +1750,12 @@
   <p class="section-sub">Opinionated on tooling. I pick systems operators can maintain — not just engineers.</p>
   <div class="stack-groups">
     <div class="stack-group">
-      <div class="stack-group-label">CRM</div>
+      <div class="stack-group-label">Systems of Record</div>
       <div class="stack-chips">
         <span class="chip gold">Salesforce</span>
-        <span class="chip gold">Salesforce CPQ</span>
-        <span class="chip">HubSpot</span>
-        <span class="chip">Salesforce Flow</span>
+        <span class="chip gold">HubSpot</span>
+        <span class="chip">CPQ</span>
+        <span class="chip">Workflow Automation</span>
       </div>
     </div>
     <div class="stack-group">
@@ -1407,7 +1799,7 @@
     <div class="stack-group">
       <div class="stack-group-label">AI</div>
       <div class="stack-chips">
-        <span class="chip purple">Claude</span>
+        <span class="chip purple">Claude Workspace</span>
         <span class="chip purple">GPT-4o</span>
         <span class="chip purple">Agentforce</span>
         <span class="chip">Cursor</span>
@@ -1436,13 +1828,13 @@
     <div class="process-step">
       <div class="process-num">01</div>
       <div class="process-name">Diagnose</div>
-      <div class="process-desc">Map the Bowtie. Find the broken CR. Audit CRM data, process gaps, system misalignment. No assumptions.</div>
+      <div class="process-desc">Map the Bowtie. Find the broken CR. Audit system data, process gaps, system misalignment. No assumptions.</div>
     </div>
     <div class="process-connector">›</div>
     <div class="process-step">
       <div class="process-num">02</div>
       <div class="process-name">Simplify</div>
-      <div class="process-desc">Remove bloat. Eliminate CRM fields nobody uses. Rebuild process logic to match how people actually sell and retain.</div>
+      <div class="process-desc">Remove bloat. Eliminate fields nobody uses. Rebuild process logic to match how people actually sell and retain.</div>
     </div>
     <div class="process-connector">›</div>
     <div class="process-step">
@@ -1461,30 +1853,64 @@
 
 <hr class="divider">
 
-<!-- FREE CONSULTATION -->
+<!-- SERVICES / CONSULTATION -->
 <section id="consultation">
-  <div class="consult-block">
-    <div style="position:relative;z-index:1;">
-      <div class="consult-offer-tag">Free Offer · No Obligation · No Pitch</div>
-      <h2>1-Week Free <em>Diagnostic</em></h2>
-      <p class="consult-desc">Not sure where your revenue system is breaking? I'll spend a week inside your stack, map your Bowtie, identify the biggest conversion gaps, and hand you a prioritised roadmap — completely free.</p>
+  <div class="section-label">How to Work Together</div>
+  <h2>Two ways to <em>start</em></h2>
+  <p class="section-sub">Start free to understand where your GTM system is breaking. Then choose the right engagement model to fix it.</p>
+
+  <div class="services-grid">
+
+    <!-- Card 1: Free Audit -->
+    <div class="service-card service-card--free">
+      <div class="service-card-header">
+        <div class="consult-offer-tag">Free · No Obligation · No Pitch</div>
+        <div class="service-price-wrap">
+          <div class="consult-price">Free</div>
+          <div class="consult-price-sub">1-week · audit · roadmap</div>
+        </div>
+      </div>
+      <h3 class="service-card-title">GTM Systems <em>Audit</em></h3>
+      <p class="service-card-desc">Not sure where your GTM operating system is breaking? I map your Bowtie, identify the biggest conversion gaps, and hand you a prioritised roadmap — at no cost.</p>
       <div class="consult-features">
         <div class="consult-feature">Bowtie stage audit (CR1–CR8)</div>
-        <div class="consult-feature">CRM & data quality review</div>
+        <div class="consult-feature">System-of-record & data quality review</div>
         <div class="consult-feature">AI automation opportunity map</div>
         <div class="consult-feature">Stack overlap & cost analysis</div>
         <div class="consult-feature">Prioritised fix roadmap</div>
         <div class="consult-feature">Executive-ready summary</div>
       </div>
+      <div class="service-card-footer">
+        <div class="consult-slots">Limited free slots — 2 remaining</div>
+        <a href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener" class="btn-teal" style="margin-top:16px;width:100%;text-align:center;display:block;">Book Free Audit →</a>
+      </div>
     </div>
-    <div class="consult-side">
-      <div class="consult-price-tag">Your investment</div>
-      <div class="consult-price">£0</div>
-      <div class="consult-price-sub">1 week · fully committed</div>
-      <div class="consult-slots">2 slots available now</div>
-      <a href="#contact" class="btn-teal" style="margin-top:20px;width:100%;text-align:center;display:block;">Book Your Free Week →</a>
-      <a href="#contact" class="btn-ghost" style="margin-top:8px;width:100%;text-align:center;display:block;padding:10px 24px;font-size:10px;">Or send a message</a>
+
+    <!-- Card 2: Fractional -->
+    <div class="service-card service-card--fractional">
+      <div class="service-card-header">
+        <div class="consult-offer-tag" style="color:var(--gold2);border-color:rgba(212,168,83,0.3);">Ongoing · Retainer · Embedded</div>
+        <div class="service-price-wrap">
+          <div class="consult-price" style="font-size:clamp(28px,3vw,42px);color:var(--gold2);">Fractional</div>
+          <div class="consult-price-sub">monthly · part-time · embedded</div>
+        </div>
+      </div>
+      <h3 class="service-card-title">GTM Systems <em>Support</em></h3>
+      <p class="service-card-desc">Embedded fractional GTM systems architect — I design, build, and operate your revenue operating system on an ongoing basis. No full-time hire required.</p>
+      <div class="consult-features">
+        <div class="consult-feature">CRM architecture & ongoing governance</div>
+        <div class="consult-feature">AI agent builds & automation rollouts</div>
+        <div class="consult-feature">Bowtie model implementation & tuning</div>
+        <div class="consult-feature">Pipeline & forecast system ownership</div>
+        <div class="consult-feature">GTM stack integration & ops</div>
+        <div class="consult-feature">Weekly exec reporting & diagnostics</div>
+      </div>
+      <div class="service-card-footer">
+        <div class="consult-slots" style="color:var(--gold2);">2 fractional slots available</div>
+        <a href="mailto:f.magas@gmail.com" class="btn-primary" style="margin-top:16px;width:100%;text-align:center;display:block;">Enquire About Fractional →</a>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -1495,13 +1921,19 @@
   <div class="contact-inner">
     <div class="section-label">Contact</div>
     <h2>Let's <em>build</em> something</h2>
-    <p class="section-sub">Open to senior RevOps, Head of Revenue Systems, or AI GTM architecture roles — and selective consulting with founders building serious go-to-market operations.</p>
+    <p class="section-sub">For fractional GTM systems support, systems audits, or AI/GTM systems builds, send a short note with the problem you are trying to solve and the systems currently in place.</p>
     <div class="contact-links">
-      <a class="contact-link" href="#" onclick="this.href=atob('bWFpbHRvOmYubWFnYXNAZ21haWwuY29t');return true;" title="Get in touch">
+      <a class="contact-link" href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+        </svg>
+        Book a Call
+      </a>
+      <a class="contact-link" href="mailto:f.magas@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
         </svg>
-        Send a Message
+        f.magas@gmail.com
       </a>
       <a class="contact-link" href="https://www.linkedin.com/in/fabio-pinto-magalhaes-4a812940/" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1517,10 +1949,22 @@
 <footer>
   <div class="footer-left">
     <div class="footer-logo">FM</div>
-    <span class="footer-text">© 2026 Fábio Magalhães · Revenue Systems & AI Architecture</span>
+    <span class="footer-text">© 2026 Fábio Magalhães · Systems of Record & AI GTM Architecture</span>
   </div>
   <div class="footer-status">Available for engagements</div>
 </footer>
+
+<script>
+  const bookingUrl = 'https://calendar.app.google/jTo2VGZAuLmgHv3L9';
+  if (bookingUrl) {
+    document.querySelectorAll('.calendar-cta').forEach((link) => {
+      link.href = bookingUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.removeAttribute('data-calendar-pending');
+    });
+  }
+</script>
 
 </body>
 </html>
