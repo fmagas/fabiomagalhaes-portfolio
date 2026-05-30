@@ -110,22 +110,24 @@
     --surface-dark:#202019;
     --border:  rgba(216,205,185,0.16);
     --border2: rgba(143,125,91,0.34);
-    --gold:    #b48743;
-    --gold2:   #d3aa63;
-    --gold3:   #f0d69a;
-    --teal:    #166d58;
-    --teal2:   #2fa17e;
-    --teal3:   #77d0b3;
-    --coral:   #8e3328;
-    --coral2:  #c95644;
-    --coral3:  #e88b74;
-    --purple:  #48506a;
-    --purple2: #7d86a6;
+    --gold:    oklch(0.62 0.090 73);
+    --gold2:   oklch(0.77 0.105 78);
+    --gold3:   oklch(0.88 0.080 85);
+    --teal:    oklch(0.50 0.090 168);
+    --teal2:   oklch(0.70 0.105 168);
+    --teal3:   oklch(0.83 0.080 172);
+    --coral:   oklch(0.50 0.120 33);
+    --coral2:  oklch(0.66 0.135 35);
+    --coral3:  oklch(0.79 0.100 38);
+    --purple:  oklch(0.48 0.080 282);
+    --purple2: oklch(0.68 0.090 282);
     --ink:     #171713;
     --paper:   #f7f1e7;
+    --radius:   3px;
+    --radius-pill: 999px;
     --text:    #f5efe5;
     --text2:   #d9d0c2;
-    --muted:   #80776a;
+    --muted:   #978c79;
     --muted2:  #b9ad9b;
     --glow-gold: rgba(180,135,67,0.10);
     --glow-teal: rgba(47,161,126,0.08);
@@ -192,7 +194,7 @@
     width:34px; height:34px; background:var(--paper); color:var(--ink);
     font-family:'DM Sans',sans-serif; font-weight:900; font-size:12px;
     letter-spacing:-0.03em; display:flex; align-items:center; justify-content:center;
-    border-radius:2px; flex-shrink:0;
+    border-radius:3px; flex-shrink:0;
   }
   .nav-brand-name {
     font-family:'DM Sans',sans-serif; font-weight:600; font-size:14px;
@@ -213,6 +215,33 @@
   }
   .nav-links .nav-cta:hover { background:rgba(211,170,99,0.10); border-color:var(--gold2); }
 
+  /* Hamburger toggle (mobile only) */
+  .nav-toggle {
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:38px; height:38px; padding:9px; background:transparent;
+    border:1px solid var(--border); border-radius:var(--radius); cursor:pointer;
+  }
+  .nav-toggle span {
+    display:block; height:1.5px; width:100%; background:var(--text2);
+    transition:transform 0.25s, opacity 0.2s;
+  }
+  nav.open .nav-toggle span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+  nav.open .nav-toggle span:nth-child(2) { opacity:0; }
+  nav.open .nav-toggle span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+  /* Sticky audit CTA — appears after hero */
+  .sticky-cta {
+    position:fixed; bottom:24px; right:24px; z-index:90;
+    font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px;
+    letter-spacing:0.01em; padding:14px 24px;
+    background:var(--gold2); color:#0c0b08; text-decoration:none;
+    border-radius:var(--radius); box-shadow:0 14px 34px rgba(0,0,0,0.34);
+    opacity:0; transform:translateY(14px); pointer-events:none;
+    transition:opacity 0.35s ease, transform 0.35s ease, background 0.2s;
+  }
+  .sticky-cta.show { opacity:1; transform:none; pointer-events:auto; }
+  .sticky-cta:hover { background:var(--gold3); }
+
   /* ─── BUTTONS ─── */
   .btn-primary {
     font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px;
@@ -226,7 +255,7 @@
   .btn-teal {
     font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px;
     letter-spacing:0.02em; padding:13px 28px; background:var(--paper);
-    color:var(--ink); border:none; cursor:pointer; border-radius:2px;
+    color:var(--ink); border:none; cursor:pointer; border-radius:3px;
     text-decoration:none; display:inline-block;
     transition:background 0.2s, transform 0.15s, box-shadow 0.2s;
   }
@@ -236,7 +265,7 @@
     font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em;
     text-transform:uppercase; padding:13px 24px;
     background:transparent; color:var(--text2);
-    border:1px solid var(--border2); cursor:pointer; border-radius:2px;
+    border:1px solid var(--border2); cursor:pointer; border-radius:3px;
     text-decoration:none; display:inline-block;
     transition:border-color 0.2s, color 0.2s;
   }
@@ -306,10 +335,10 @@
   }
   .hero-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:44px; }
   .tag {
-    font-family:'DM Mono',monospace; font-size:9.5px;
+    font-family:'DM Mono',monospace; font-size:10px;
     letter-spacing:0.10em; text-transform:uppercase;
     padding:5px 11px; border:1px solid var(--border2);
-    border-radius:999px; color:var(--text2); background:rgba(244,238,229,0.035);
+    border-radius:var(--radius); color:var(--text2); background:rgba(244,238,229,0.035);
   }
   .hero-ctas { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
 
@@ -323,8 +352,8 @@
     border-bottom:1px solid rgba(23,23,19,0.12);
   }
   .chapter-nav a {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em;
-    text-transform:uppercase; text-decoration:none; color:#746a5c;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em;
+    text-transform:uppercase; text-decoration:none; color:#675e50;
     padding:7px 12px; border-radius:999px; transition:background 0.2s, color 0.2s;
     white-space:nowrap;
   }
@@ -335,15 +364,15 @@
   .control-panel {
     background:var(--paper); color:var(--ink);
     border:1px solid rgba(244,238,229,0.72);
-    border-radius:4px; box-shadow:0 34px 80px rgba(0,0,0,0.32);
+    border-radius:3px; box-shadow:0 34px 80px rgba(0,0,0,0.32);
     padding:22px; position:relative; overflow:hidden;
   }
   .control-panel::before {
-    content:''; position:absolute; inset:0 0 auto 0; height:5px;
-    background:linear-gradient(90deg,var(--coral2),var(--gold2),var(--teal2));
+    content:''; position:absolute; inset:0 0 auto 0; height:2px;
+    background:var(--gold2); opacity:0.7;
   }
   .panel-kicker {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.16em;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em;
     text-transform:uppercase; color:#796b58; margin:10px 0 14px;
   }
   .panel-title {
@@ -359,13 +388,13 @@
     font-size:13px; font-weight:700; color:#25231f; line-height:1.25;
   }
   .signal-meta {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.08em;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em;
     text-transform:uppercase; color:#7e7464; margin-top:3px;
   }
   .signal-status {
-    font-family:'DM Mono',monospace; font-size:9px; font-weight:700;
+    font-family:'DM Mono',monospace; font-size:10px; font-weight:700;
     letter-spacing:0.09em; text-transform:uppercase;
-    padding:5px 7px; border-radius:2px;
+    padding:5px 7px; border-radius:3px;
   }
   .signal-status.risk { background:rgba(201,86,68,0.14); color:var(--coral); }
   .signal-status.watch { background:rgba(180,135,67,0.17); color:#805c23; }
@@ -416,7 +445,7 @@
     transition:background 0.25s, transform 0.2s;
     position:relative; overflow:hidden;
     border:1px solid var(--border); border-top:2px solid rgba(211,170,99,0.34);
-    border-radius:4px;
+    border-radius:3px;
   }
   .cap-card::after {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
@@ -427,7 +456,7 @@
   .cap-card:hover::after { opacity:1; }
   .cap-icon {
     width:40px; height:40px; border:1px solid var(--border2);
-    border-radius:6px; display:flex; align-items:center; justify-content:center;
+    border-radius:3px; display:flex; align-items:center; justify-content:center;
     margin-bottom:22px; font-size:17px;
     background:rgba(244,238,229,0.04);
   }
@@ -450,16 +479,16 @@
   .service-card {
     background:#fff8ed; color:var(--ink);
     border:1px solid rgba(23,23,19,0.12);
-    border-radius:4px; padding:32px 28px;
+    border-radius:3px; padding:32px 28px;
     display:flex; flex-direction:column; min-height:100%;
-    box-shadow:0 18px 46px rgba(23,23,19,0.06);
+    box-shadow:none;
   }
   .service-card.featured {
     background:var(--ink); color:var(--text);
     border-color:rgba(211,170,99,0.38);
   }
   .service-kicker {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em;
     text-transform:uppercase; color:var(--gold); margin-bottom:14px;
   }
   .service-card.featured .service-kicker { color:var(--gold2); }
@@ -498,20 +527,20 @@
     background:var(--paper); color:var(--ink); padding:28px 26px;
     transition:background 0.25s;
     position:relative; display:flex; flex-direction:column;
-    border-top:3px solid rgba(47,161,126,0.35);
-    border-radius:4px;
+    border:1px solid rgba(23,23,19,0.10);
+    border-radius:3px;
   }
   .uc-card:hover { background:#fff8ed; }
-  .uc-card:hover { border-top-color:rgba(46,201,154,0.5); }
+  .uc-card:hover { border-color:rgba(23,23,19,0.20); }
   .uc-num {
     font-family:'DM Mono',monospace; font-size:11px;
     color:#8a7e6d; letter-spacing:0.1em; margin-bottom:10px;
   }
   .uc-badge {
-    font-family:'DM Mono',monospace; font-size:8px;
+    font-family:'DM Mono',monospace; font-size:9.5px;
     letter-spacing:0.14em; text-transform:uppercase;
     color:var(--coral); border:1px solid rgba(142,51,40,0.22);
-    padding:3px 8px; border-radius:2px; display:inline-block; margin-bottom:12px;
+    padding:3px 8px; border-radius:3px; display:inline-block; margin-bottom:12px;
     width:fit-content;
   }
   .uc-title {
@@ -521,10 +550,10 @@
   }
   .uc-tools { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:14px; }
   .uc-tool {
-    font-family:'DM Mono',monospace; font-size:8.5px;
+    font-family:'DM Mono',monospace; font-size:9.5px;
     letter-spacing:0.07em; text-transform:uppercase;
     padding:3px 7px; border:1px solid rgba(23,23,19,0.12);
-    border-radius:2px; color:#796f61; background:rgba(23,23,19,0.035);
+    border-radius:3px; color:#796f61; background:rgba(23,23,19,0.035);
   }
   .uc-outcome {
     font-size:12px; color:#2f6a59; line-height:1.55;
@@ -538,7 +567,7 @@
   #diagrams { background:var(--bg2); }
   .diagram-container {
     background:var(--surface-dark); border:1px solid var(--border);
-    border-radius:6px; overflow:hidden; margin-bottom:24px;
+    border-radius:3px; overflow:hidden; margin-bottom:24px;
   }
   .diagram-header {
     padding:14px 24px; border-bottom:1px solid var(--border);
@@ -573,10 +602,10 @@
   .bt-stage.advocate { background:rgba(29,148,112,0.22); border:1px solid rgba(29,148,112,0.42); border-left:none; padding-top:20px; padding-bottom:20px; }
   .bt-stage-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:5px; }
   .bt-stage-metric { font-family:'DM Sans',sans-serif; font-weight:800; font-size:22px; letter-spacing:-0.03em; line-height:1; margin-bottom:3px; }
-  .bt-stage-cvr { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.08em; color:var(--muted); }
-  .bt-stage-tool { font-family:'DM Mono',monospace; font-size:8px; color:var(--muted); margin-top:8px; line-height:1.5; border-top:1px solid var(--border); padding-top:6px; }
-  .bt-knot { background:linear-gradient(135deg, rgba(212,168,83,0.20), rgba(29,148,112,0.20)); border:1px solid rgba(212,168,83,0.4); border-radius:4px; padding:20px 16px; text-align:center; min-width:96px; z-index:2; box-shadow:0 0 32px rgba(212,168,83,0.10); }
-  .bt-knot-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold3); margin-bottom:6px; }
+  .bt-stage-cvr { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--muted); }
+  .bt-stage-tool { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--muted); margin-top:8px; line-height:1.5; border-top:1px solid var(--border); padding-top:6px; }
+  .bt-knot { background:linear-gradient(135deg, rgba(212,168,83,0.20), rgba(29,148,112,0.20)); border:1px solid rgba(212,168,83,0.4); border-radius:3px; padding:20px 16px; text-align:center; min-width:96px; z-index:2; box-shadow:0 0 32px rgba(212,168,83,0.10); }
+  .bt-knot-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold3); margin-bottom:6px; }
   .bt-knot-val { font-family:'DM Sans',sans-serif; font-weight:800; font-size:28px; letter-spacing:-0.04em; color:var(--gold2); line-height:1; }
   .bt-knot-sub { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); margin-top:4px; }
   .bowtie-legend { display:flex; gap:20px; flex-wrap:wrap; margin-top:20px; padding-top:16px; border-top:1px solid var(--border); }
@@ -593,20 +622,20 @@
   .trouble-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px; margin-bottom:3px; }
   .trouble-desc { font-size:12px; color:var(--muted2); line-height:1.5; }
   .trouble-tags { display:flex; gap:5px; flex-wrap:wrap; position:relative; z-index:1; }
-  .ttag { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:0.08em; text-transform:uppercase; padding:3px 7px; border-radius:2px; border:1px solid var(--border); color:var(--muted2); background:rgba(244,238,229,0.04); white-space:nowrap; }
+  .ttag { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; padding:3px 7px; border-radius:3px; border:1px solid var(--border); color:var(--muted2); background:rgba(244,238,229,0.04); white-space:nowrap; }
   .trouble-tier { font-family:'DM Mono',monospace; font-weight:700; font-size:10px; min-width:36px; text-align:right; position:relative; z-index:1; }
   .trouble-down { text-align:center; color:var(--muted); font-size:11px; padding:1px 0; }
 
   /* ─── INTEGRATION MAP ─── */
   .intmap-wrap { overflow-x:auto; }
-  .intmap-layer-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); padding:8px 0 6px; display:flex; align-items:center; gap:8px; }
+  .intmap-layer-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); padding:8px 0 6px; display:flex; align-items:center; gap:8px; }
   .intmap-layer-label::after { content:''; flex:1; height:1px; background:var(--border); }
   .intmap-row { display:flex; align-items:flex-start; gap:8px; padding:4px 0 12px; flex-wrap:wrap; }
   .intmap-node { display:flex; flex-direction:column; align-items:center; gap:4px; padding:10px 14px 8px; min-width:88px; background:var(--bg); border:1px solid var(--border); border-radius:3px; transition:border-color 0.2s, background 0.2s; cursor:default; }
   .intmap-node:hover { border-color:var(--border2); background:rgba(244,238,229,0.045); }
   .intmap-node-icon { font-size:14px; line-height:1; }
   .intmap-node-name { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:500; color:var(--muted2); text-align:center; white-space:nowrap; }
-  .intmap-node-tag { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted); }
+  .intmap-node-tag { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted); }
   .intmap-node.tier-data  { border-color:rgba(46,201,154,0.22); }
   .intmap-node.tier-data:hover { border-color:rgba(46,201,154,0.5); }
   .intmap-node.tier-crm   { border-color:rgba(212,168,83,0.25); }
@@ -617,24 +646,24 @@
   .intmap-node.tier-output:hover { border-color:rgba(200,85,48,0.5); }
   .agent-mini { background:rgba(158,126,216,0.05); border:1px solid rgba(158,126,216,0.25); border-radius:3px; padding:12px 14px; min-width:130px; flex:1; transition:border-color 0.2s, background 0.2s; cursor:default; }
   .agent-mini:hover { border-color:rgba(158,126,216,0.55); background:rgba(158,126,216,0.09); }
-  .agent-mini-badge { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.1em; text-transform:uppercase; color:var(--purple2); margin-bottom:6px; opacity:0.8; }
+  .agent-mini-badge { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--purple2); margin-bottom:6px; opacity:0.8; }
   .agent-mini-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:12px; letter-spacing:-0.01em; margin-bottom:6px; color:var(--purple2); }
   .agent-mini-in  { font-size:10px; color:var(--muted); line-height:1.5; margin-bottom:2px; }
   .agent-mini-out { font-size:10px; color:var(--teal3); line-height:1.5; }
   .agent-mini-val { font-size:10px; color:var(--teal2); margin-top:6px; padding-top:6px; border-top:1px solid rgba(158,126,216,0.15); }
   .agent-mini-val::before { content:'↑ '; }
-  .ai-glow-strip { text-align:center; padding:10px 0 8px; background:linear-gradient(90deg, transparent, rgba(158,126,216,0.05) 20%, rgba(158,126,216,0.09) 50%, rgba(158,126,216,0.05) 80%, transparent); border-radius:4px; margin-bottom:4px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--purple2); }
+  .ai-glow-strip { text-align:center; padding:10px 0 8px; background:linear-gradient(90deg, transparent, rgba(158,126,216,0.05) 20%, rgba(158,126,216,0.09) 50%, rgba(158,126,216,0.05) 80%, transparent); border-radius:3px; margin-bottom:4px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--purple2); }
 
   /* ─── CASE STUDIES ─── */
-  .projects-header { display:grid; grid-template-columns:170px 1fr 1fr 190px; background:#0f0f0d; border:1px solid var(--border); border-bottom:none; border-radius:4px 4px 0 0; }
-  .proj-th { padding:12px 20px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); border-right:1px solid var(--border); }
+  .projects-header { display:grid; grid-template-columns:170px 1fr 1fr 190px; background:#0f0f0d; border:1px solid var(--border); border-bottom:none; border-radius:3px 3px 0 0; }
+  .proj-th { padding:12px 20px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); border-right:1px solid var(--border); }
   .proj-th:last-child { border-right:none; }
-  .projects-list { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:0 0 4px 4px; overflow:hidden; }
+  .projects-list { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:0 0 3px 3px; overflow:hidden; }
   .project-row { display:grid; grid-template-columns:170px 1fr 1fr 190px; background:var(--bg2); transition:background 0.2s; }
   .project-row:hover { background:#202019; }
   .project-cell { padding:22px 20px; border-right:1px solid var(--border); font-size:13px; line-height:1.6; color:var(--text2); }
   .project-cell:last-child { border-right:none; }
-  .project-cell-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
+  .project-cell-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
   .project-company { font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px; letter-spacing:-0.01em; margin-bottom:3px; color:var(--text); }
   .project-sector { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); }
   .project-metric { font-family:'DM Sans',sans-serif; font-weight:800; font-size:26px; color:var(--teal2); letter-spacing:-0.03em; margin-top:5px; }
@@ -645,13 +674,13 @@
   .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .testimonial-card {
     background:var(--paper); border:1px solid rgba(23,23,19,0.12);
-    border-top:3px solid var(--gold);
+    border-top:1px solid rgba(23,23,19,0.12);
     padding:32px 28px;
     transition:background 0.25s, transform 0.2s, box-shadow 0.2s;
     border-radius:3px;
     display:flex; flex-direction:column;
   }
-  .testimonial-card:hover { background:#fff8ed; transform:translateY(-2px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+  .testimonial-card:hover { background:#fff8ed; transform:translateY(-2px); }
   .testimonial-avatar {
     width:44px; height:44px; border-radius:50%;
     background:linear-gradient(135deg, var(--gold), var(--teal));
@@ -679,7 +708,7 @@
   #stack { background:var(--bg2); }
   .stack-groups { display:flex; flex-direction:column; gap:18px; }
   .stack-group { display:flex; align-items:flex-start; gap:24px; }
-  .stack-group-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); min-width:110px; padding-top:8px; flex-shrink:0; border-right:1px solid var(--border); padding-right:24px; }
+  .stack-group-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); min-width:110px; padding-top:8px; flex-shrink:0; border-right:1px solid var(--border); padding-right:24px; }
   .stack-chips { display:flex; flex-wrap:wrap; gap:8px; }
   .chip {
     font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500;
@@ -700,8 +729,8 @@
   /* ─── PROCESS ─── */
   .process-flow { display:flex; align-items:stretch; }
   .process-step { flex:1; padding:32px 28px; background:var(--paper); color:var(--ink); border:1px solid rgba(23,23,19,0.12); border-right:none; transition:background 0.2s; }
-  .process-step:first-child { border-radius:4px 0 0 4px; }
-  .process-step:last-child { border-right:1px solid var(--border); border-radius:0 4px 4px 0; }
+  .process-step:first-child { border-radius:3px 0 0 3px; }
+  .process-step:last-child { border-right:1px solid var(--border); border-radius:0 3px 3px 0; }
   .process-step:hover { background:#fff8ed; }
   .process-num { font-family:'DM Sans',sans-serif; font-weight:800; font-size:48px; letter-spacing:-0.05em; color:rgba(142,51,40,0.13); line-height:1; margin-bottom:16px; }
   .process-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.01em; margin-bottom:10px; }
@@ -714,19 +743,19 @@
     display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px;
   }
   .service-card {
-    border-radius:6px; padding:36px 32px;
+    border-radius:3px; padding:36px 32px;
     display:flex; flex-direction:column; gap:20px;
     border:1px solid var(--border);
     background:var(--bg);
     transition:transform 0.2s, box-shadow 0.2s;
   }
-  .service-card:hover { transform:translateY(-3px); box-shadow:0 16px 48px rgba(0,0,0,0.3); }
+  .service-card:hover { transform:translateY(-3px); }
   .service-card--free {
     border-top:3px solid var(--teal2);
   }
   .service-card--fractional {
     border-top:3px solid var(--gold2);
-    background:linear-gradient(160deg, rgba(212,168,83,0.04) 0%, var(--bg) 60%);
+    background:var(--bg);
   }
   .service-card-header { display:flex; flex-direction:column; gap:10px; }
   .service-price-wrap { margin-top:4px; }
@@ -743,7 +772,7 @@
   .consult-block {
     border:1px solid rgba(212,168,83,0.20);
     background:linear-gradient(135deg, rgba(212,168,83,0.05) 0%, rgba(46,201,154,0.03) 100%);
-    border-radius:6px; padding:64px 56px;
+    border-radius:3px; padding:64px 56px;
     display:grid; grid-template-columns:1fr 230px;
     gap:60px; align-items:center;
     position:relative; overflow:hidden;
@@ -751,14 +780,14 @@
   .consult-block::before {
     content:''; position:absolute; top:-100px; right:-100px;
     width:400px; height:400px;
-    background:radial-gradient(ellipse, rgba(212,168,83,0.06) 0%, transparent 70%);
+    background:radial-gradient(ellipse, rgba(180,135,67,0.05) 0%, transparent 72%);
     pointer-events:none;
   }
   .consult-offer-tag {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.18em;
     text-transform:uppercase; color:var(--teal2);
     border:1px solid rgba(46,201,154,0.28); padding:4px 10px;
-    border-radius:2px; display:inline-block; margin-bottom:22px;
+    border-radius:3px; display:inline-block; margin-bottom:22px;
   }
   .consult-block h2 { margin-bottom:16px; }
   .consult-desc { font-size:15px; color:var(--muted2); line-height:1.75; max-width:500px; margin-bottom:32px; }
@@ -767,14 +796,14 @@
   .consult-feature::before { content:'✓'; color:var(--teal2); font-weight:800; flex-shrink:0; }
   .consult-side {
     text-align:center; padding:40px 28px;
-    border:1px solid rgba(212,168,83,0.18); border-radius:4px;
+    border:1px solid rgba(212,168,83,0.18); border-radius:3px;
     background:rgba(8,8,10,0.7);
     display:flex; flex-direction:column; align-items:center; gap:10px;
     position:relative; z-index:1;
   }
-  .consult-price-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+  .consult-price-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
   .consult-price { font-family:'DM Sans',sans-serif; font-weight:900; font-size:64px; color:var(--gold2); line-height:1; letter-spacing:-0.05em; }
-  .consult-price-sub { font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; }
+  .consult-price-sub { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; }
   .consult-slots { font-family:'DM Mono',monospace; font-size:10px; color:var(--teal2); display:flex; align-items:center; gap:6px; }
   .consult-slots::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--teal2); box-shadow:0 0 6px var(--teal2); animation:pulse 2s infinite; }
 
@@ -797,7 +826,7 @@
     display:flex; align-items:center; justify-content:space-between;
   }
   .footer-left { display:flex; align-items:center; gap:16px; }
-  .footer-logo { width:26px; height:26px; background:var(--gold); color:#08080a; font-family:'DM Sans',sans-serif; font-weight:900; font-size:10px; display:flex; align-items:center; justify-content:center; border-radius:2px; letter-spacing:-0.02em; }
+  .footer-logo { width:26px; height:26px; background:var(--gold); color:#08080a; font-family:'DM Sans',sans-serif; font-weight:900; font-size:10px; display:flex; align-items:center; justify-content:center; border-radius:3px; letter-spacing:-0.02em; }
   .footer-text { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.07em; color:var(--muted); }
   .footer-status { display:flex; align-items:center; gap:8px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--teal2); }
   .footer-status::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--teal2); box-shadow:0 0 8px var(--teal2); animation:pulse 2s ease-in-out infinite; }
@@ -818,8 +847,19 @@
   }
   @media(max-width:900px){
     nav { padding:14px 24px; }
-    .nav-links { display:none; }
-    .nav-brand-name { display:none; }
+    .nav-toggle { display:flex; }
+    .nav-links {
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; gap:0; align-items:stretch;
+      background:rgba(17,17,15,0.97); backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border); padding:8px 24px 18px;
+    }
+    nav.open .nav-links { display:flex; }
+    .nav-links li { width:100%; border-bottom:1px solid var(--border); }
+    .nav-links li:last-child { border-bottom:none; }
+    .nav-links a { display:block; padding:14px 2px; font-size:11px; }
+    .nav-links .nav-cta { text-align:center; margin-top:12px; padding:12px; border-radius:var(--radius); color:var(--gold2); border-color:var(--gold2); }
+    .nav-brand-name { display:inline; }
     section { padding:72px 24px; }
     section[id] { scroll-margin-top:108px; }
     #hero { padding:100px 24px 64px; }
@@ -833,8 +873,8 @@
     .project-cell:nth-child(3),.proj-th:nth-child(3) { display:none; }
     .process-flow { flex-direction:column; }
     .process-step { border-right:1px solid var(--border); border-bottom:none; border-radius:0; }
-    .process-step:first-child { border-radius:4px 4px 0 0; }
-    .process-step:last-child { border-bottom:1px solid var(--border); border-radius:0 0 4px 4px; }
+    .process-step:first-child { border-radius:3px 3px 0 0; }
+    .process-step:last-child { border-bottom:1px solid var(--border); border-radius:0 0 3px 3px; }
     .process-connector { display:none; }
     .metrics-bar { flex-wrap:wrap; }
     .chapter-nav {
@@ -868,7 +908,7 @@
   }
 
   .orch-node {
-    border-radius:4px; padding:22px 32px;
+    border-radius:3px; padding:22px 32px;
     display:flex; flex-direction:column; align-items:center; gap:6px;
     min-width:170px; text-align:center; position:relative; z-index:2;
   }
@@ -876,7 +916,7 @@
     background:rgba(0,161,224,0.07); border:1px solid rgba(0,161,224,0.28);
   }
   .orch-node-claude {
-    background:linear-gradient(135deg,rgba(212,168,83,0.11),rgba(212,168,83,0.05));
+    background:rgba(180,135,67,0.08);
     border:1px solid rgba(212,168,83,0.45);
     box-shadow:0 0 48px rgba(212,168,83,0.08);
   }
@@ -886,7 +926,7 @@
     color:var(--text); letter-spacing:-0.01em;
   }
   .orch-node-desc {
-    font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.13em;
+    font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.13em;
     text-transform:uppercase; color:var(--muted); line-height:1.5;
   }
 
@@ -900,7 +940,7 @@
   .orch-bridge-line::after {
     content:attr(data-label); position:absolute; top:-15px; left:50%;
     transform:translateX(-50%);
-    font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.1em;
+    font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.1em;
     text-transform:uppercase; color:var(--muted); white-space:nowrap;
     background:var(--bg2); padding:0 6px;
   }
@@ -926,7 +966,7 @@
   }
 
   .agent-panel {
-    border:1px solid var(--border); border-radius:4px; overflow:hidden;
+    border:1px solid var(--border); border-radius:3px; overflow:hidden;
   }
   .agent-panel-header {
     padding:13px 20px 11px; display:flex; align-items:center; gap:10px;
@@ -936,12 +976,12 @@
   .biz-panel-header  { background:rgba(112,80,184,0.07); border-bottom-color:rgba(112,80,184,0.16); }
 
   .panel-type-label {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
   }
   .tech-panel-header .panel-type-label { color:var(--teal2); }
   .biz-panel-header  .panel-type-label { color:var(--purple2); }
   .panel-agent-count {
-    font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.1em;
+    font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.1em;
     color:var(--muted); margin-left:auto;
   }
 
@@ -964,7 +1004,7 @@
     font-size:13px; color:var(--text); line-height:1.2;
   }
   .agent-card-role {
-    font-family:'DM Mono',monospace; font-size:8.5px;
+    font-family:'DM Mono',monospace; font-size:9.5px;
     letter-spacing:0.08em; text-transform:uppercase;
     color:var(--muted); line-height:1.45;
   }
@@ -974,9 +1014,9 @@
     margin-top:40px; display:flex; gap:12px; flex-wrap:wrap;
   }
   .claude-cap {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em;
     text-transform:uppercase; color:var(--teal2);
-    border:1px solid rgba(46,201,154,0.2); border-radius:2px;
+    border:1px solid rgba(46,201,154,0.2); border-radius:3px;
     padding:5px 12px; background:rgba(46,201,154,0.04);
   }
 
@@ -1036,7 +1076,7 @@
     background:#fff8ed;
     border-color:rgba(23,23,19,0.12);
     border-top-color:rgba(180,135,67,0.55);
-    box-shadow:0 18px 46px rgba(23,23,19,0.06);
+    box-shadow:none;
   }
   #capabilities .cap-card:hover { background:#fffdf6; }
   #capabilities .cap-card h3 { color:var(--ink); }
@@ -1082,7 +1122,7 @@
   #consultation .consult-block {
     background:#fff8ed;
     border-color:rgba(23,23,19,0.12);
-    box-shadow:0 24px 70px rgba(23,23,19,0.08);
+    box-shadow:none;
   }
   #consultation .consult-desc,
   #consultation .consult-feature {
@@ -1117,6 +1157,9 @@
     <div class="nav-logo">FM</div>
     <span class="nav-brand-name">Fábio Magalhães</span>
   </a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#capabilities">Capabilities</a></li>
     <li><a href="#services">Services</a></li>
@@ -1129,6 +1172,8 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+<a class="sticky-cta" href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener">Book Free Audit →</a>
 
 <!-- HERO -->
 <section id="hero">
@@ -1222,7 +1267,7 @@
 <!-- CAPABILITIES -->
 <section id="capabilities">
   <div class="section-label">Core Capabilities</div>
-  <h2>Where I <em>operate</em></h2>
+  <h2>Where I operate</h2>
   <p class="section-sub">End-to-end systems thinking across the full GTM stack — from architecture decisions to automation execution.</p>
   <div class="caps-grid">
     <div class="cap-card">
@@ -1277,7 +1322,7 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="section-label">Fractional Services</div>
-  <h2>How I can <em>plug in</em></h2>
+  <h2>How I can plug in</h2>
   <p class="section-sub">Flexible support for founders, CROs, GTM leaders, and scale-up teams that need senior systems-of-record leadership without hiring a full-time operator.</p>
   <div class="services-grid">
     <div class="service-card featured">
@@ -1321,7 +1366,7 @@
 <!-- USE CASES -->
 <section id="use-cases">
   <div class="section-label">Applied AI & Automation</div>
-  <h2>What I've <em>built</em> and shipped</h2>
+  <h2>What I've built and shipped</h2>
   <p class="section-sub">Real automation workflows across GTM operations, Finance, Compliance, and CS. Tool-specific, outcome-driven, production-ready.</p>
   <div class="use-cases-grid">
 
@@ -1393,7 +1438,7 @@
 <!-- AI OPERATING LAYER SECTION -->
 <section id="claude">
   <div class="section-label">AI Operating Layer</div>
-  <h2>Intelligence embedded <em>inside</em> the operating layer</h2>
+  <h2>Intelligence embedded inside the operating layer</h2>
   <p class="section-sub">AI is treated as infrastructure, not theatre: system-of-record context, workflow triggers, deal intelligence, and Claude Workspace playbooks routed through the tools teams already use.</p>
 
   <div class="claude-diagram">
@@ -1401,7 +1446,7 @@
     <!-- Bridge: System of Record ←→ AI Workspace -->
     <div class="orch-bridge-row">
       <div class="orch-node orch-node-sf">
-        <div class="orch-node-icon">☁</div>
+        <div class="orch-node-icon">⬡</div>
         <div class="orch-node-name">System of Record</div>
         <div class="orch-node-desc">CRM · Warehouse · Finance · CS</div>
       </div>
@@ -1430,32 +1475,26 @@
         </div>
         <div class="agent-grid tech-grid">
           <div class="agent-card">
-            <div class="agent-card-icon">🏗</div>
             <div class="agent-card-name">Architect</div>
             <div class="agent-card-role">Data model · System design</div>
           </div>
           <div class="agent-card">
-            <div class="agent-card-icon">📋</div>
             <div class="agent-card-name">Manager</div>
             <div class="agent-card-role">Sprint · Coordination</div>
           </div>
           <div class="agent-card">
-            <div class="agent-card-icon">💻</div>
             <div class="agent-card-name">Dev</div>
             <div class="agent-card-role">Workflow · APIs · Automation</div>
           </div>
           <div class="agent-card">
-            <div class="agent-card-icon">✅</div>
             <div class="agent-card-name">QA</div>
             <div class="agent-card-role">Test plans · Coverage</div>
           </div>
           <div class="agent-card">
-            <div class="agent-card-icon">⚙</div>
             <div class="agent-card-name">Admin</div>
             <div class="agent-card-role">Config · Access · Governance</div>
           </div>
           <div class="agent-card">
-            <div class="agent-card-icon">🧪</div>
             <div class="agent-card-name">UAT</div>
             <div class="agent-card-role">User testing · Sign-off</div>
           </div>
@@ -1470,22 +1509,18 @@
         </div>
         <div class="agent-grid biz-grid">
           <div class="agent-card">
-            <div class="agent-card-icon">⚠</div>
             <div class="agent-card-name">Deal at Risk</div>
             <div class="agent-card-role">Stall detection · Alerts · Next step</div>
           </div>
           <div class="agent-card">
-            <div class="agent-card-icon">📊</div>
             <div class="agent-card-name">Deal Review</div>
             <div class="agent-card-role">Pipeline review · Coaching</div>
           </div>
           <div class="agent-card">
-            <div class="agent-card-icon">👥</div>
             <div class="agent-card-name">Buying Group</div>
             <div class="agent-card-role">Stakeholder mapping · Gaps</div>
           </div>
           <div class="agent-card">
-            <div class="agent-card-icon">📝</div>
             <div class="agent-card-name">Deal Administrator</div>
             <div class="agent-card-role">System hygiene · Docs · Close plan</div>
           </div>
@@ -1518,7 +1553,7 @@
   <div class="diagram-container">
     <div class="diagram-header">
       <div class="diagram-title">Bowtie Operating Model — Full Customer Lifecycle</div>
-      <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--gold2);letter-spacing:0.1em;text-transform:uppercase;">Winning by Design Model</span>
+      <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);letter-spacing:0.1em;text-transform:uppercase;">Winning by Design Model</span>
     </div>
     <div class="diagram-body" style="padding:24px 20px;">
       <div class="bowtie-wrap">
@@ -1553,7 +1588,7 @@
             <div class="bt-knot-label">Closed Won</div>
             <div class="bt-knot-val">32</div>
             <div class="bt-knot-sub">22% CR4</div>
-            <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(212,168,83,0.2);font-family:'DM Mono',monospace;font-size:9px;color:var(--gold3);text-align:center;">ARR<br>£1.2M</div>
+            <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(212,168,83,0.2);font-family:'DM Mono',monospace;font-size:10px;color:var(--gold3);text-align:center;">ARR<br>£1.2M</div>
           </div>
           <div class="bt-side bt-right-side" style="display:flex;flex-direction:row;align-items:stretch;height:220px;">
             <div class="bt-stage adopt" style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:16px 12px;">
@@ -1596,7 +1631,7 @@
   <div class="diagram-container">
     <div class="diagram-header">
       <div class="diagram-title">GTM Systems Troubleshooting — Where the Bowtie Breaks</div>
-      <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--coral2);letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
+      <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--coral2);letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
         <span style="width:5px;height:5px;border-radius:50%;background:var(--coral2);box-shadow:0 0 6px var(--coral2);display:inline-block;animation:pulse 2s infinite;"></span>
         Diagnostic Map
       </span>
@@ -1665,86 +1700,6 @@
 
 <hr class="divider">
 
-<!-- INTEGRATION MAP -->
-<section id="integration" style="background:var(--bg2);">
-  <div class="section-label">Integration Architecture</div>
-  <h2>The <em>integration map</em></h2>
-  <p class="section-sub">Every data source, tool, and system — connected through an agentic layer that acts, not just observes.</p>
-  <div class="diagram-container">
-    <div class="diagram-header">
-      <div class="diagram-title">Full-Stack Integration Map — 5-Tier Agentic Architecture</div>
-      <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--purple2);letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
-        <span style="width:5px;height:5px;border-radius:50%;background:var(--purple2);box-shadow:0 0 6px var(--purple2);display:inline-block;animation:pulse 2s infinite;"></span>
-        Agentic
-      </span>
-    </div>
-    <div class="diagram-body" style="padding:28px;">
-      <div class="intmap-wrap">
-        <div style="min-width:700px;">
-          <div class="intmap-layer-label" style="color:var(--teal2);">Tier 1 — Data Sources</div>
-          <div class="intmap-row">
-            <div class="intmap-node tier-data"><div class="intmap-node-icon">🌐</div><div class="intmap-node-name">Website</div><div class="intmap-node-tag">Analytics</div></div>
-            <div class="intmap-node tier-data"><div class="intmap-node-icon">◎</div><div class="intmap-node-name">Clay</div><div class="intmap-node-tag">ICP enrichment</div></div>
-            <div class="intmap-node tier-data"><div class="intmap-node-icon">◈</div><div class="intmap-node-name">LinkedIn</div><div class="intmap-node-tag">Intent signals</div></div>
-            <div class="intmap-node tier-data"><div class="intmap-node-icon">⬟</div><div class="intmap-node-name">Outreach</div><div class="intmap-node-tag">Sequences</div></div>
-            <div class="intmap-node tier-data"><div class="intmap-node-icon">⬡</div><div class="intmap-node-name">Gong</div><div class="intmap-node-tag">Call recordings</div></div>
-            <div class="intmap-node tier-data"><div class="intmap-node-icon">◉</div><div class="intmap-node-name">Gainsight</div><div class="intmap-node-tag">Health scores</div></div>
-            <div class="intmap-node tier-data"><div class="intmap-node-icon">◌</div><div class="intmap-node-name">Billing</div><div class="intmap-node-tag">MRR / ARR</div></div>
-          </div>
-          <div style="display:flex;justify-content:center;margin:4px 0;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:1px;height:14px;background:var(--border2);"></div><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--teal);letter-spacing:0.1em;">API / ETL</div><div style="width:1px;height:10px;background:var(--border2);"></div><div style="font-size:9px;color:var(--gold);">▼</div></div>
-          </div>
-          <div class="intmap-layer-label" style="color:var(--gold2);">Tier 2 — Integration & ETL</div>
-          <div class="intmap-row">
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">⬡</div><div class="intmap-node-name">n8n</div><div class="intmap-node-tag">Orchestration</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">◈</div><div class="intmap-node-name">MuleSoft</div><div class="intmap-node-tag">Enterprise API</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">◎</div><div class="intmap-node-name">REST APIs</div><div class="intmap-node-tag">Native sync</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">⬟</div><div class="intmap-node-name">Webhooks</div><div class="intmap-node-tag">Real-time</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">◉</div><div class="intmap-node-name">dbt</div><div class="intmap-node-tag">Transforms</div></div>
-          </div>
-          <div style="display:flex;justify-content:center;margin:4px 0;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:1px;height:14px;background:var(--border2);"></div><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--gold);letter-spacing:0.1em;">Normalised to CRM</div><div style="width:1px;height:10px;background:var(--border2);"></div><div style="font-size:9px;color:var(--gold);">▼</div></div>
-          </div>
-          <div class="intmap-layer-label" style="color:var(--gold2);">Tier 3 — Systems of Record + Data Warehouse</div>
-          <div class="intmap-row">
-            <div class="intmap-node tier-crm" style="border-color:rgba(212,168,83,0.5);box-shadow:0 0 14px rgba(212,168,83,0.07);"><div class="intmap-node-icon">⬡</div><div class="intmap-node-name" style="color:var(--gold2);font-weight:700;">CRM</div><div class="intmap-node-tag">Salesforce / HubSpot</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">◈</div><div class="intmap-node-name">Finance</div><div class="intmap-node-tag">Billing / ARR</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">◎</div><div class="intmap-node-name">BigQuery</div><div class="intmap-node-tag">Warehouse</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">⬟</div><div class="intmap-node-name">Snowflake</div><div class="intmap-node-tag">Data lake</div></div>
-            <div class="intmap-node tier-crm"><div class="intmap-node-icon">◉</div><div class="intmap-node-name">Tableau</div><div class="intmap-node-tag">BI</div></div>
-          </div>
-          <div style="display:flex;justify-content:center;margin:4px 0;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:1px;height:14px;background:rgba(158,126,216,0.3);"></div><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--purple2);letter-spacing:0.1em;">Feeds AI agents</div><div style="width:1px;height:10px;background:rgba(158,126,216,0.3);"></div><div style="font-size:9px;color:var(--purple2);">▼</div></div>
-          </div>
-          <div class="ai-glow-strip">✦ Tier 4 — Agentic AI Layer</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px;">
-            <div class="agent-mini"><div class="agent-mini-badge">Prospecting</div><div class="agent-mini-name">Clay Enrichment Agent</div><div class="agent-mini-in">In: Domain, ICP criteria, role</div><div class="agent-mini-out">Out: Enriched contact + brief</div><div class="agent-mini-val">+38% reply rate</div></div>
-            <div class="agent-mini"><div class="agent-mini-badge">Qualification</div><div class="agent-mini-name">MEDDPIC Scoring Agent</div><div class="agent-mini-in">In: Call transcript, CRM stage</div><div class="agent-mini-out">Out: Score, gaps, actions</div><div class="agent-mini-val">+12pts CR2 conversion</div></div>
-            <div class="agent-mini"><div class="agent-mini-badge">Deal Intelligence</div><div class="agent-mini-name">Deal Risk Agent</div><div class="agent-mini-in">In: Gong signals, CRM, activity</div><div class="agent-mini-out">Out: Risk score 0–100</div><div class="agent-mini-val">-34% surprise losses</div></div>
-            <div class="agent-mini"><div class="agent-mini-badge">Forecasting</div><div class="agent-mini-name">Forecast Agent</div><div class="agent-mini-in">In: Pipeline state, rep history</div><div class="agent-mini-out">Out: Predicted close, flags</div><div class="agent-mini-val">+40% forecast accuracy</div></div>
-            <div class="agent-mini"><div class="agent-mini-badge">Pipeline Ops</div><div class="agent-mini-name">Hygiene Agent</div><div class="agent-mini-in">In: Stage velocity, stale flags</div><div class="agent-mini-out">Out: Alerts, auto-updates</div><div class="agent-mini-val">62% → 94% hygiene</div></div>
-            <div class="agent-mini"><div class="agent-mini-badge">Customer Success</div><div class="agent-mini-name">Churn Risk Agent</div><div class="agent-mini-in">In: Gainsight health, NPS</div><div class="agent-mini-out">Out: Risk tier, playbook</div><div class="agent-mini-val">-28% gross churn</div></div>
-          </div>
-          <div style="display:flex;justify-content:center;margin:4px 0;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:1px;height:14px;background:rgba(200,85,48,0.3);"></div><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--coral2);letter-spacing:0.1em;">Actioned outputs</div><div style="width:1px;height:10px;background:rgba(200,85,48,0.3);"></div><div style="font-size:9px;color:var(--coral2);">▼</div></div>
-          </div>
-          <div class="intmap-layer-label" style="color:var(--coral2);">Tier 5 — Business Outputs</div>
-          <div class="intmap-row">
-            <div class="intmap-node tier-output"><div class="intmap-node-icon">◎</div><div class="intmap-node-name">Board Forecast</div><div class="intmap-node-tag">Weekly commit</div></div>
-            <div class="intmap-node tier-output"><div class="intmap-node-icon">◈</div><div class="intmap-node-name">Pipeline Review</div><div class="intmap-node-tag">Coverage pack</div></div>
-            <div class="intmap-node tier-output"><div class="intmap-node-icon">⬡</div><div class="intmap-node-name">Rep Alerts</div><div class="intmap-node-tag">Slack / Email</div></div>
-            <div class="intmap-node tier-output"><div class="intmap-node-icon">⬟</div><div class="intmap-node-name">CS Playbooks</div><div class="intmap-node-tag">Auto-triggered</div></div>
-            <div class="intmap-node tier-output"><div class="intmap-node-icon">◉</div><div class="intmap-node-name">Exec Dashboard</div><div class="intmap-node-tag">Real-time</div></div>
-            <div class="intmap-node tier-output"><div class="intmap-node-icon">◌</div><div class="intmap-node-name">NRR Reports</div><div class="intmap-node-tag">ARR + churn</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
 <!-- CASE STUDIES -->
 <section id="projects">
   <div class="section-label">Case Studies</div>
@@ -1801,7 +1756,7 @@
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-label">What People Say</div>
-  <h2>From the <em>teams</em> I've worked with</h2>
+  <h2>From the teams I've worked with</h2>
   <p class="section-sub">Feedback from sales leaders, CROs, and CS teams on the systems we built together.</p>
   <div class="testimonials-grid">
 
@@ -1841,7 +1796,7 @@
 <!-- TOOL STACK -->
 <section id="stack">
   <div class="section-label">Tool Stack</div>
-  <h2>How I <em>build</em></h2>
+  <h2>How I build</h2>
   <p class="section-sub">Opinionated on tooling. I pick systems operators can maintain — not just engineers.</p>
   <div class="stack-groups">
     <div class="stack-group">
@@ -1917,7 +1872,7 @@
 <!-- PROCESS -->
 <section id="process">
   <div class="section-label">How I Work</div>
-  <h2>The <em>method</em></h2>
+  <h2>The method</h2>
   <p class="section-sub">Four phases. No wasted motion. Every engagement starts with diagnosis and ends with something the team can actually run.</p>
   <div class="process-flow">
     <div class="process-step">
@@ -1951,7 +1906,7 @@
 <!-- SERVICES / CONSULTATION -->
 <section id="consultation">
   <div class="section-label">How to Work Together</div>
-  <h2>Two ways to <em>start</em></h2>
+  <h2>Two ways to start</h2>
   <p class="section-sub">Start free to understand where your GTM system is breaking. Then choose the right engagement model to fix it.</p>
 
   <div class="services-grid">
@@ -2002,7 +1957,7 @@
       </div>
       <div class="service-card-footer">
         <div class="consult-slots" style="color:var(--gold2);">2 fractional slots available</div>
-        <a href="mailto:f.magas@gmail.com" class="btn-primary" style="margin-top:16px;width:100%;text-align:center;display:block;">Enquire About Fractional →</a>
+        <a href="/cdn-cgi/l/email-protection#c9afe7a4a8aea8ba89aea4a8a0a5e7aaa6a4" class="btn-primary" style="margin-top:16px;width:100%;text-align:center;display:block;">Enquire About Fractional →</a>
       </div>
     </div>
 
@@ -2024,11 +1979,11 @@
         </svg>
         Book a Call
       </a>
-      <a class="contact-link" href="mailto:f.magas@gmail.com">
+      <a class="contact-link" href="/cdn-cgi/l/email-protection#2c4a02414d4b4d5f6c4b414d4540024f4341">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
         </svg>
-        f.magas@gmail.com
+        <span class="__cf_email__" data-cfemail="187e3675797f796b587f75797174367b7775">[email&#160;protected]</span>
       </a>
       <a class="contact-link" href="https://www.linkedin.com/in/fabio-pinto-magalhaes-4a812940/" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2043,7 +1998,7 @@
 
 <!-- PRIVACY POLICY MODAL -->
 <div id="privacy-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(23,23,19,0.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:24px;overflow-y:auto;" onclick="if(event.target===this)closePrivacy()">
-  <div style="max-width:680px;margin:auto;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:48px 40px;position:relative;">
+  <div style="max-width:680px;margin:auto;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:48px 40px;position:relative;">
     <button onclick="closePrivacy()" style="position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;color:var(--muted);font-size:22px;line-height:1;" aria-label="Close">✕</button>
     <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Legal</div>
     <h2 style="font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--text);margin-bottom:6px;">Privacy Policy</h2>
@@ -2052,7 +2007,7 @@
     <div style="display:flex;flex-direction:column;gap:24px;font-size:14px;color:var(--muted2);line-height:1.75;">
       <div>
         <h3 style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;">1. Who we are</h3>
-        <p>This website is operated by Fábio Magalhães, a freelance GTM Systems Architect based in the United Kingdom. Contact: <a href="mailto:f.magas@gmail.com" style="color:var(--teal2);">f.magas@gmail.com</a></p>
+        <p>This website is operated by Fábio Magalhães, a freelance GTM Systems Architect based in the United Kingdom. Contact: <a href="/cdn-cgi/l/email-protection#1a7c34777b7d7b695a7d777b737634797577" style="color:var(--teal2);"><span class="__cf_email__" data-cfemail="a8ce86c5c9cfc9dbe8cfc5c9c1c486cbc7c5">[email&#160;protected]</span></a></p>
       </div>
 
       <div>
@@ -2093,7 +2048,7 @@
 
       <div>
         <h3 style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;">6. Your rights (UK &amp; EEA)</h3>
-        <p>Under the UK GDPR and GDPR, you have the right to access, correct, delete, or object to the processing of your personal data. To exercise any of these rights, please contact us at <a href="mailto:f.magas@gmail.com" style="color:var(--teal2);">f.magas@gmail.com</a>.</p>
+        <p>Under the UK GDPR and GDPR, you have the right to access, correct, delete, or object to the processing of your personal data. To exercise any of these rights, please contact us at <a href="/cdn-cgi/l/email-protection#c9afe7a4a8aea8ba89aea4a8a0a5e7aaa6a4" style="color:var(--teal2);"><span class="__cf_email__" data-cfemail="21470f4c4046405261464c40484d0f424e4c">[email&#160;protected]</span></a>.</p>
       </div>
 
       <div>
@@ -2103,11 +2058,11 @@
 
       <div>
         <h3 style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;">8. Contact</h3>
-        <p>For any privacy-related questions, please email <a href="mailto:f.magas@gmail.com" style="color:var(--teal2);">f.magas@gmail.com</a>.</p>
+        <p>For any privacy-related questions, please email <a href="/cdn-cgi/l/email-protection#b9df97d4d8ded8caf9ded4d8d0d597dad6d4" style="color:var(--teal2);"><span class="__cf_email__" data-cfemail="8ee8a0e3efe9effdcee9e3efe7e2a0ede1e3">[email&#160;protected]</span></a>.</p>
       </div>
     </div>
 
-    <button onclick="closePrivacy()" style="margin-top:36px;padding:12px 28px;background:var(--ink);color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;letter-spacing:0.02em;">Close</button>
+    <button onclick="closePrivacy()" style="margin-top:36px;padding:12px 28px;background:var(--ink);color:#fff;border:none;border-radius:3px;font-size:14px;font-weight:600;cursor:pointer;letter-spacing:0.02em;">Close</button>
   </div>
 </div>
 
@@ -2122,7 +2077,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const bookingUrl = 'https://calendar.app.google/jTo2VGZAuLmgHv3L9';
   if (bookingUrl) {
     document.querySelectorAll('.calendar-cta').forEach((link) => {
@@ -2144,8 +2099,32 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closePrivacy();
+    if (e.key === 'Escape') { closePrivacy(); closeNav(); }
   });
+  /* Mobile nav toggle */
+  const navEl = document.querySelector('nav');
+  function toggleNav() {
+    const open = navEl.classList.toggle('open');
+    navEl.querySelector('.nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeNav() {
+    navEl.classList.remove('open');
+    const t = navEl.querySelector('.nav-toggle');
+    if (t) t.setAttribute('aria-expanded', 'false');
+  }
+  navEl.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', closeNav); });
+
+  /* Sticky CTA reveal after hero, hide over contact */
+  const stickyCta = document.querySelector('.sticky-cta');
+  const heroEl = document.getElementById('hero');
+  const contactEl = document.getElementById('contact');
+  function updateStickyCta() {
+    const past = window.scrollY > (heroEl.offsetHeight * 0.85);
+    const atContact = contactEl && contactEl.getBoundingClientRect().top < window.innerHeight * 0.85;
+    stickyCta.classList.toggle('show', past && !atContact);
+  }
+  window.addEventListener('scroll', updateStickyCta, { passive: true });
+  updateStickyCta();
 </script>
 
 </body>
