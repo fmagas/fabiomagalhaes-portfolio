@@ -1,17 +1,63 @@
 User-agent: *
 Allow: /
 
-# AI crawlers
+# ── Google ──────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+# Google AI training (Gemini / Bard)
+User-agent: Google-Extended
+Allow: /
+
+# ── OpenAI / ChatGPT ────────────────────
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ── Anthropic / Claude ──────────────────
 User-agent: Claude-Web
 Allow: /
 
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# ── Perplexity ──────────────────────────
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Anthropic-AI
+# ── Apple Intelligence ──────────────────
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ── Meta AI ─────────────────────────────
+User-agent: FacebookBot
+Allow: /
+
+# ── You.com ─────────────────────────────
+User-agent: YouBot
+Allow: /
+
+# ── DuckDuckGo AI ───────────────────────
+User-agent: DuckAssistBot
+Allow: /
+
+# ── Common Crawl (AI training datasets) ─
+User-agent: CCBot
+Allow: /
+
+# ── Cohere ──────────────────────────────
+User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://fabiomagalhaes.co.uk/sitemap.xml
