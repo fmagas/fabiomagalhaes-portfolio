@@ -307,6 +307,27 @@
     border-radius:999px; color:var(--text2); background:rgba(244,238,229,0.035);
   }
   .hero-ctas { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  .btn-mega {
+    display:inline-block; text-decoration:none;
+    font-family:'DM Sans',sans-serif; font-weight:800; font-size:clamp(16px,1.8vw,19px);
+    letter-spacing:0.01em; color:#ffffff;
+    background:linear-gradient(118deg,#0d6b53 0%,#1d8a6b 38%,#3d4f79 75%,#5d3f85 100%);
+    padding:22px 46px; border-radius:8px;
+    box-shadow:0 18px 50px rgba(22,109,88,0.35), 0 4px 14px rgba(93,63,133,0.25);
+    transition:transform 0.18s, box-shadow 0.25s, filter 0.2s;
+  }
+  .btn-mega:hover {
+    transform:translateY(-2px); filter:brightness(1.08);
+    box-shadow:0 24px 64px rgba(22,109,88,0.45), 0 6px 18px rgba(93,63,133,0.3);
+  }
+  /* Compact hero: keep the mega CTA above the fold */
+  #hero { padding:100px 56px 64px; }
+  #hero h1 { font-size:clamp(34px,4.6vw,58px); margin-bottom:18px; }
+  .hero-headshot { margin-bottom:16px; }
+  .hero-badge { margin-bottom:16px; }
+  .hero-eyebrow { margin-bottom:14px; }
+  .hero-sub { margin-bottom:26px; }
+  .hero-tags { margin-bottom:0; margin-top:32px; }
 
   /* ─── CHAPTER NAV ─── */
   .chapter-nav {
@@ -1206,6 +1227,13 @@
       <div class="hero-eyebrow fade-up">Systems of Record · GTM Architecture · AI Automation</div>
       <h1 class="fade-up">I rebuild the <em>operating system</em> behind scale-up growth.</h1>
       <p class="hero-sub fade-up">Systems-of-record architecture, Bowtie diagnostics, AI-assisted automation, and GTM systems designed to make forecast, pipeline, churn, and execution visible in one operating layer.</p>
+      <div class="hero-ctas fade-up" style="flex-direction:column;align-items:flex-start;gap:16px;">
+        <a href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener" class="btn-mega">Get Your AI Transformation Audit →</a>
+        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#746a5c;">Free · 1 week · AI-readiness roadmap included</span>
+          <a href="#ai-transformation" class="btn-ghost" style="padding:9px 18px;font-size:10px;">See the full programme ↓</a>
+        </div>
+      </div>
       <div class="hero-tags fade-up">
         <span class="tag">Systems of Record</span>
         <span class="tag">Salesforce / HubSpot</span>
@@ -1214,10 +1242,6 @@
         <span class="tag">Bowtie Lifecycle Model</span>
         <span class="tag">Claude Workspace</span>
         <span class="tag">Pipeline Forecasting</span>
-      </div>
-      <div class="hero-ctas fade-up">
-        <a href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener" class="btn-teal">Book Free Audit →</a>
-        <a href="#consultation" class="btn-ghost">Fractional Services ↓</a>
       </div>
     </div>
     <div class="control-panel fade-up" aria-label="GTM system health snapshot">
