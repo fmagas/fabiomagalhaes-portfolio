@@ -191,11 +191,11 @@
   }
   .nav-brand { display:flex; align-items:center; gap:11px; text-decoration:none; }
   .nav-logo {
-    width:34px; height:34px; background:var(--paper); color:var(--ink);
-    font-family:'DM Sans',sans-serif; font-weight:900; font-size:12px;
-    letter-spacing:-0.03em; display:flex; align-items:center; justify-content:center;
-    border-radius:3px; flex-shrink:0;
+    width:34px; height:34px; background:transparent;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
   }
+  .nav-logo svg { width:34px; height:34px; display:block; }
   .nav-brand-name {
     font-family:'DM Sans',sans-serif; font-weight:600; font-size:14px;
     color:var(--text); letter-spacing:-0.01em;
@@ -826,7 +826,8 @@
     display:flex; align-items:center; justify-content:space-between;
   }
   .footer-left { display:flex; align-items:center; gap:16px; }
-  .footer-logo { width:26px; height:26px; background:var(--gold); color:#08080a; font-family:'DM Sans',sans-serif; font-weight:900; font-size:10px; display:flex; align-items:center; justify-content:center; border-radius:3px; letter-spacing:-0.02em; }
+  .footer-logo { width:26px; height:26px; background:transparent; display:flex; align-items:center; justify-content:center; }
+  .footer-logo svg { width:26px; height:26px; display:block; }
   .footer-text { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.07em; color:var(--muted); }
   .footer-status { display:flex; align-items:center; gap:8px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--teal2); }
   .footer-status::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--teal2); box-shadow:0 0 8px var(--teal2); animation:pulse 2s ease-in-out infinite; }
@@ -1154,7 +1155,14 @@
 <!-- NAV -->
 <nav>
   <a class="nav-brand" href="#">
-    <div class="nav-logo">FM</div>
+    <div class="nav-logo">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Headless Revenue mark">
+        <path d="M12 8 H7 V26 H12" stroke="#f5efe5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 8 H27 V26 H22" stroke="#f5efe5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="17" cy="17" r="6" stroke="#2fa17e" stroke-width="1.6"/>
+        <circle cx="17" cy="17" r="3.1" fill="#d3aa63"/>
+      </svg>
+    </div>
     <span class="nav-brand-name">Fábio Magalhães</span>
   </a>
   <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
@@ -2068,7 +2076,14 @@
 
 <footer>
   <div class="footer-left">
-    <div class="footer-logo">FM</div>
+    <div class="footer-logo">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Headless Revenue mark">
+        <path d="M12 8 H7 V26 H12" stroke="#f5efe5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 8 H27 V26 H22" stroke="#f5efe5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="17" cy="17" r="6" stroke="#2fa17e" stroke-width="1.7"/>
+        <circle cx="17" cy="17" r="3.2" fill="#d3aa63"/>
+      </svg>
+    </div>
     <span class="footer-text">© 2026 Fábio Magalhães · Systems of Record & AI GTM Architecture</span>
   </div>
   <div style="display:flex;align-items:center;gap:20px;">
