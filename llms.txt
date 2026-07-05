@@ -26,6 +26,11 @@ Engagement models:
 - Revenue stack integrations (Clay, Gong, ZoomInfo, BigQuery, Snowflake, n8n, MuleSoft)
 - Revenue process discovery, documentation, and business analysis (BRDs, data dictionaries, ownership matrices)
 
+## Guides
+- Fractional RevOps consultant UK: https://fabiomagalhaes.co.uk/fractional-revops.html
+- AI transformation for revenue teams: https://fabiomagalhaes.co.uk/ai-transformation.html
+- Headless CRM architecture: https://fabiomagalhaes.co.uk/headless-crm.html
+
 ## Case studies
 - Revenue Process Discovery (SDR → AE handover assessment): https://fabiomagalhaes.co.uk/revenue-process-discovery.html
 - Headless Strategy reference architecture: https://fabiomagalhaes.co.uk/headless-strategy.html
