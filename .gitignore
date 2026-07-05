@@ -1,4 +1,3 @@
-.claude/
-*.local
-.env*
-node_modules/
+﻿node_modules/
+.netlify/
+index.backup.html

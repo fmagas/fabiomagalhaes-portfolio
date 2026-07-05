@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revenue Process Discovery — Case Study | Fábio Magalhães</title>
+<meta name="description" content="SDR to AE handover assessment: revenue systems discovery, documentation and change management approach. A worked case study by Fábio Magalhães.">
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #EEEAF6; font-family: 'Plus Jakarta Sans', sans-serif; color: #1b1a22; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .doc-bg { background: #fff !important; padding: 0 !important; min-height: 0 !important; }
+    .page { box-shadow: none !important; margin: 0 !important; border-radius: 0 !important; width: 816px !important; height: 1056px !important; min-height: 1056px !important; overflow: hidden; break-after: page; page-break-after: always; }
+    .page:last-child { break-after: auto; page-break-after: auto; }
+    .no-print { display: none !important; }
+  }
+</style>
+</helmet>
+<div class="doc-bg" style="--accent: {{ accentColor }}; background:#EEEAF6; padding:40px 0 64px; min-height:100vh;">
+
+  <!-- ============ PAGE 1, COVER ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:0 auto 36px; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:88px 84px 72px; position:relative; display:flex; flex-direction:column;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div style="width:26px; height:26px; border-radius:6px; background:var(--accent,#5E33D6); display:flex; align-items:center; justify-content:center;">
+        <div style="width:9px; height:9px; background:#fff; border-radius:2px;"></div>
+      </div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; letter-spacing:0.22em; color:#6b6680; font-weight:500;">REVENUE&nbsp;SYSTEMS&nbsp;&nbsp;Â·&nbsp;&nbsp;CASE&nbsp;STUDY</div>
+    </div>
+
+    <div style="margin-top:74px;">
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:52px; line-height:1.07; letter-spacing:-0.02em; color:#1b1a22; margin:0; max-width:640px; text-wrap:balance;">SDR&nbsp;&rarr;&nbsp;AE Handover Assessment</h1>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:19px; font-weight:500; line-height:1.4; color:#54505f; margin:16px 0 0; max-width:580px;">Revenue Systems Discovery, Documentation &amp; Change Management Approach</div>
+      <div style="width:64px; height:3px; background:var(--accent,#5E33D6); margin:32px 0 0;"></div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin:30px 0 0;">OBJECTIVE</div>
+      <p style="font-size:16px; line-height:1.62; color:#3d3a49; max-width:580px; margin:12px 0 0;">Assess the current SDR&nbsp;&rarr;&nbsp;AE handover process and establish an approach that enables continuous innovation <em style="font-style:italic;">without compromising operational stability</em>.</p>
+    </div>
+
+    <div style="margin-top:50px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; letter-spacing:0.18em; color:#6b6680; font-weight:500; margin-bottom:18px;">EIGHT AREAS OF INQUIRY</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:11px 40px;">
+        <div style="display:flex; gap:14px; align-items:baseline; padding-bottom:11px; border-bottom:1px solid #eceaf1;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:500;">01</span><span style="font-size:14px; color:#2a2833;">Governance &amp; Ownership</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline; padding-bottom:11px; border-bottom:1px solid #eceaf1;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:500;">02</span><span style="font-size:14px; color:#2a2833;">Data &amp; Process Enforcement</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline; padding-bottom:11px; border-bottom:1px solid #eceaf1;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:500;">03</span><span style="font-size:14px; color:#2a2833;">Systems &amp; Architecture</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline; padding-bottom:11px; border-bottom:1px solid #eceaf1;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:500;">04</span><span style="font-size:14px; color:#2a2833;">Automation &amp; Routing</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline; padding-bottom:11px; border-bottom:1px solid #eceaf1;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:500;">05</span><span style="font-size:14px; color:#2a2833;">Attribution &amp; Compensation</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline; padding-bottom:11px; border-bottom:1px solid #eceaf1;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:500;">06</span><span style="font-size:14px; color:#2a2833;">State Changes &amp; Lifecycle</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline; padding-bottom:11px; border-bottom:1px solid #eceaf1;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:500;">07</span><span style="font-size:14px; color:#2a2833;">Reporting &amp; Analytics</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline; padding-bottom:11px; border-bottom:1px solid #eceaf1;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:500;">08</span><span style="font-size:14px; color:#2a2833;">Change Management &amp; Governance</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:auto; padding-top:50px; display:flex; gap:48px; align-items:flex-end;">
+      <div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; margin-bottom:6px;">PREPARED BY</div>
+        <div style="font-size:15px; font-weight:600; color:#1b1a22; white-space:nowrap;">{{ authorName }}</div>
+        <div style="font-size:13px; color:#6b6680; margin-top:2px;">Revenue Systems</div>
+      </div>
+      <div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; margin-bottom:6px;">PREPARED FOR</div>
+        <div style="font-size:15px; font-weight:600; color:#1b1a22; white-space:nowrap;">{{ preparedFor }}</div>
+        <div style="font-size:13px; color:#6b6680; margin-top:2px;">June 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PAGE 2, FRAMING + HYPOTHESIS ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:0 auto 36px; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:48px 84px 40px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:18px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">PROCESS INQUIRY</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">02</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:22px;">INITIAL ASSESSMENT</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:25px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:8px 0 0; max-width:580px; text-wrap:balance;">The documentation describes the <em style="font-style:italic;">what</em>, not the <em style="font-style:italic;">how</em>.</h2>
+
+    <p style="font-size:15px; line-height:1.6; color:#3d3a49; max-width:610px; margin:16px 0 0;">Based on the documentation provided, the business process appears relatively mature, with defined ownership transitions, qualification criteria and governance controls. My concern is not the process design itself, but the limited visibility into how it is implemented across the Revenue Systems ecosystem. Today the documentation does not yet explain:</p>
+
+    <div style="margin:13px 0 0; padding:14px 26px; background:#faf9fc; border:1px solid #ece9f3; border-radius:12px;">
+      <ul style="list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px 36px;">
+        <li style="display:flex; gap:12px; font-size:14px; line-height:1.45; color:#3a3744;"><span style="width:6px; height:6px; border:1.5px solid #b6b0c4; border-radius:1px; margin-top:6px; flex:0 0 auto;"></span>How the process is implemented in systems</li>
+        <li style="display:flex; gap:12px; font-size:14px; line-height:1.45; color:#3a3744;"><span style="width:6px; height:6px; border:1.5px solid #b6b0c4; border-radius:1px; margin-top:6px; flex:0 0 auto;"></span>Which Salesforce objects and fields are involved</li>
+        <li style="display:flex; gap:12px; font-size:14px; line-height:1.45; color:#3a3744;"><span style="width:6px; height:6px; border:1.5px solid #b6b0c4; border-radius:1px; margin-top:6px; flex:0 0 auto;"></span>Which automations execute at each stage</li>
+        <li style="display:flex; gap:12px; font-size:14px; line-height:1.45; color:#3a3744;"><span style="width:6px; height:6px; border:1.5px solid #b6b0c4; border-radius:1px; margin-top:6px; flex:0 0 auto;"></span>Which downstream systems consume this data</li>
+        <li style="display:flex; gap:12px; font-size:14px; line-height:1.45; color:#3a3744; grid-column:1 / -1;"><span style="width:6px; height:6px; border:1.5px solid #b6b0c4; border-radius:1px; margin-top:6px; flex:0 0 auto;"></span>Which reporting, attribution or compensation models depend on it</li>
+      </ul>
+    </div>
+
+    <p style="font-size:15px; line-height:1.6; color:#3d3a49; max-width:610px; margin:10px 0 0;">As a result, any future change carries risk, because its full impact cannot be understood before it is implemented, which reduces the organisation&rsquo;s ability to innovate safely.</p>
+
+    <!-- Hypothesis chain -->
+    <div style="margin-top:10px; padding-top:11px; border-top:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:500; text-align:center;">WORKING HYPOTHESIS</div>
+      <p style="font-size:13.5px; color:#6b6680; text-align:center; margin:5px 0 11px;">The absence of documentation compounds, step by step, into business risk.</p>
+
+      <div style="max-width:470px; margin:0 auto;">
+        <div style="display:flex; align-items:center; gap:16px; padding:7px 22px; background:#f6f3fb; border:1px solid #e7e1f1; border-radius:11px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:600;">01</span><span style="font-size:15px; font-weight:500; color:#2a2833;">Lack of Documentation</span></div>
+        <div style="text-align:center; color:var(--accent,#5E33D6); font-size:12px; line-height:1; padding:1px 0;">â¼</div>
+        <div style="display:flex; align-items:center; gap:16px; padding:7px 22px; background:#f6f3fb; border:1px solid #e7e1f1; border-radius:11px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:600;">02</span><span style="font-size:15px; font-weight:500; color:#2a2833;">Lack of Visibility</span></div>
+        <div style="text-align:center; color:var(--accent,#5E33D6); font-size:12px; line-height:1; padding:1px 0;">â¼</div>
+        <div style="display:flex; align-items:center; gap:16px; padding:7px 22px; background:#f6f3fb; border:1px solid #e7e1f1; border-radius:11px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:600;">03</span><span style="font-size:15px; font-weight:500; color:#2a2833;">Unknown Dependencies</span></div>
+        <div style="text-align:center; color:var(--accent,#5E33D6); font-size:12px; line-height:1; padding:1px 0;">â¼</div>
+        <div style="display:flex; align-items:center; gap:16px; padding:7px 22px; background:#f6f3fb; border:1px solid #e7e1f1; border-radius:11px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--accent,#5E33D6); font-weight:600;">04</span><span style="font-size:15px; font-weight:500; color:#2a2833;">High Change Risk</span></div>
+        <div style="text-align:center; color:var(--accent,#5E33D6); font-size:12px; line-height:1; padding:1px 0;">â¼</div>
+        <div style="display:flex; align-items:center; gap:16px; padding:10px 22px; background:var(--accent,#5E33D6); border:1px solid var(--accent,#5E33D6); border-radius:11px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:rgba(255,255,255,0.7); font-weight:600;">05</span><span style="font-size:15px; font-weight:600; color:#fff;">Reduced Ability to Innovate</span></div>
+      </div>
+
+      <div style="margin:12px auto 0; max-width:600px; display:flex; gap:18px; align-items:flex-start; padding:13px 24px; background:#faf9fc; border:1px solid #ece9f3; border-left:3px solid var(--accent,#5E33D6); border-radius:4px 12px 12px 4px;">
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:500; margin-bottom:7px;">APPROACH</div>
+          <p style="font-size:14px; line-height:1.6; color:#3a3744; margin:0;">The biggest risk is not the handover itself; it is hidden interdependency across Salesforce, LeanData, routing, attribution, activity logging, SLA tracking, notifications and reporting. My approach would be to <strong style="font-weight:600; color:#2a2734;">stabilise understanding first</strong>, document the real system behaviour, then improve selectively through controlled change management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PAGE 3, DISCOVERY FRAMEWORK ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:0 auto 36px; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:64px 84px 64px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:22px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">PROCESS INQUIRY</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">03</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:34px;">QUESTION 01 &middot; DISCOVERY FRAMEWORK</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:32px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:12px 0 0; max-width:610px; text-wrap:balance;">What questions would you have on this process?</h2>
+    <p style="font-size:15px; line-height:1.64; color:#3d3a49; max-width:600px; margin:22px 0 0;">These questions are not a checklist, they form a structured way to make change safe. Before recommending anything, I would establish how the process <em style="font-style:italic; font-family:'Plus Jakarta Sans',sans-serif;">actually</em> runs, in three moves.</p>
+
+    <div style="display:flex; gap:16px; margin-top:34px;">
+      <div style="flex:1; padding:24px 22px; border:1px solid #ece9f3; border-top:3px solid var(--accent,#5E33D6); border-radius:4px 4px 14px 14px; background:#fcfbfe;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; letter-spacing:0.16em; color:var(--accent,#5E33D6); font-weight:600;">PHASE 01</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:24px; color:#1b1a22; margin:8px 0 10px;">Map</div>
+        <p style="font-size:13px; line-height:1.55; color:#54505f; margin:0;">Build the full picture of the system behind the process, every object, automation and dependency.</p>
+      </div>
+      <div style="flex:1; padding:24px 22px; border:1px solid #ece9f3; border-top:3px solid var(--accent,#5E33D6); border-radius:4px 4px 14px 14px; background:#fcfbfe;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; letter-spacing:0.16em; color:var(--accent,#5E33D6); font-weight:600;">PHASE 02</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:24px; color:#1b1a22; margin:8px 0 10px;">Document</div>
+        <p style="font-size:13px; line-height:1.55; color:#54505f; margin:0;">Create the system-of-record documentation and a dependency map for the SDR&nbsp;â&nbsp;AE handover.</p>
+      </div>
+      <div style="flex:1; padding:24px 22px; border:1px solid #ece9f3; border-top:3px solid var(--accent,#5E33D6); border-radius:4px 4px 14px 14px; background:#fcfbfe;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; letter-spacing:0.16em; color:var(--accent,#5E33D6); font-weight:600;">PHASE 03</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:24px; color:#1b1a22; margin:8px 0 10px;">Prioritise</div>
+        <p style="font-size:13px; line-height:1.55; color:#54505f; margin:0;">Target the highest-risk automation and data dependencies through controlled change management.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:30px; padding:26px 28px; background:#faf9fc; border:1px solid #ece9f3; border-radius:14px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.18em; color:#6b6680; font-weight:500; margin-bottom:16px;">THE MAPPING SCOPE, WHAT &ldquo;MAP&rdquo; COVERS</div>
+      <div style="display:flex; flex-wrap:wrap; gap:9px;">
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Process</span>
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Systems</span>
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Ownership</span>
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Decision logic</span>
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Field dependencies</span>
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Automations</span>
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Data-quality risks</span>
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Attribution rules</span>
+        <span style="display:inline-flex; align-items:center; padding:8px 15px; background:#f3eff9; border:1px solid #e7e1f1; border-radius:999px; font-size:13px; color:#3a3744; font-weight:500;">Failure points</span>
+      </div>
+    </div>
+
+    <p style="font-size:14px; line-height:1.6; color:#54505f; max-width:610px; margin:28px 0 0;">The eight areas that follow are how I would put this framework into practice, beginning with governance and ownership, and ending with the controls that keep change safe over time.</p>
+  </div>
+
+  <!-- ============ PAGE 4, Sections 01â03 ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:0 auto 36px; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:64px 84px 64px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:22px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">PROCESS INQUIRY</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">04</div>
+    </div>
+
+    <section style="display:flex; gap:30px; padding:30px 0 4px;">
+      <div style="flex:0 0 56px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:25px; font-weight:500; color:var(--accent,#5E33D6); letter-spacing:-0.02em;">01</div></div>
+      <div style="flex:1;">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#1b1a22; margin:1px 0 12px;">Governance &amp; Ownership</h2>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Who owns the business process, and who approves changes to it?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Who owns the Salesforce implementation, the LeanData configuration and the attribution logic?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>How are process, system and routing changes documented, reviewed and approved today?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Is there an existing architecture repository, data dictionary or automation inventory supporting this process?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="display:flex; gap:30px; padding:26px 0 4px; border-top:1px solid #ece9f1; margin-top:26px;">
+      <div style="flex:0 0 56px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:25px; font-weight:500; color:var(--accent,#5E33D6); letter-spacing:-0.02em;">02</div></div>
+      <div style="flex:1;">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#1b1a22; margin:1px 0 8px;">Data &amp; Process Enforcement</h2>
+        <p style="font-size:14px; line-height:1.55; color:#54505f; margin:0 0 12px; max-width:540px;">Several business rules are defined in the documentation. For each, I would want to understand whether it is <strong style="font-weight:600; color:#2c2a35;">system-enforced</strong> or dependent on user behaviour.</p>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Only one opportunity should exist regardless of product count, is this enforced through validation rules, duplicate management, automation, or user guidance?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>The fields required before Discovery appear to be critical controls, are they enforced through validation rules, or are they documented expectations?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>What is the current level of data completeness and compliance against these required fields?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="display:flex; gap:30px; padding:26px 0 4px; border-top:1px solid #ece9f1; margin-top:26px;">
+      <div style="flex:0 0 56px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:25px; font-weight:500; color:var(--accent,#5E33D6); letter-spacing:-0.02em;">03</div></div>
+      <div style="flex:1;">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#1b1a22; margin:1px 0 12px;">Systems &amp; Architecture</h2>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Which systems participate in this process beyond Salesforce and LeanData?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Which systems consume qualification, ownership, attribution and routing data?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Which systems act as systems of record for the key objects involved?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Which integrations are triggered throughout the opportunity lifecycle?</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ PAGE 4, Sections 04â06 ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:0 auto 36px; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:40px 84px 40px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:16px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">PROCESS INQUIRY</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">05</div>
+    </div>
+
+    <section style="display:flex; gap:30px; padding:30px 0 4px;">
+      <div style="flex:0 0 56px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:25px; font-weight:500; color:var(--accent,#5E33D6); letter-spacing:-0.02em;">04</div></div>
+      <div style="flex:1;">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#1b1a22; margin:1px 0 12px;">Automation &amp; Routing</h2>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Which Salesforce Flows, Apex automations and LeanData rules support this process?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Is the routing logic implemented declaratively, programmatically, or through a combination of both?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>What happens when routing rules fail, or when no routing match is found?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>How are pod, territory and ownership changes managed within the routing framework?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="display:flex; gap:30px; padding:26px 0 4px; border-top:1px solid #ece9f1; margin-top:26px;">
+      <div style="flex:0 0 56px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:25px; font-weight:500; color:var(--accent,#5E33D6); letter-spacing:-0.02em;">05</div></div>
+      <div style="flex:1;">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#1b1a22; margin:1px 0 8px;">Attribution &amp; Compensation Dependencies</h2>
+        <p style="font-size:14px; line-height:1.55; color:#54505f; margin:0 0 12px; max-width:540px;">Attribution is one of the most complex and business-critical areas of the process. I would seek to understand:</p>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>How the OSDR, ISR and grace-period attribution logic is implemented.</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Whether attribution relies on Salesforce Activities, and how activity capture is governed and standardised.</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Whether manual compensation adjustments exist, and how they are tracked, audited and controlled.</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Which downstream compensation and reporting processes depend on these attribution rules.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="display:flex; gap:30px; padding:26px 0 4px; border-top:1px solid #ece9f1; margin-top:26px;">
+      <div style="flex:0 0 56px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:25px; font-weight:500; color:var(--accent,#5E33D6); letter-spacing:-0.02em;">06</div></div>
+      <div style="flex:1;">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#1b1a22; margin:1px 0 8px;">State Changes &amp; Lifecycle Management</h2>
+        <p style="font-size:14px; line-height:1.55; color:#54505f; margin:0 0 12px; max-width:540px;">The process references account and opportunity state transitions that may carry broader system implications.</p>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>What triggers the transition from Prospect to Customer?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Is this transition reversible?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>What downstream processes, automations, routing rules or reports depend on this state change?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>How are reopened, disqualified or re-qualified opportunities handled?</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ PAGE 5, Sections 07â08 + Closing ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:0 auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:64px 84px 64px; position:relative; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:22px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">PROCESS INQUIRY</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">06</div>
+    </div>
+
+    <section style="display:flex; gap:30px; padding:30px 0 4px;">
+      <div style="flex:0 0 56px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:25px; font-weight:500; color:var(--accent,#5E33D6); letter-spacing:-0.02em;">07</div></div>
+      <div style="flex:1;">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#1b1a22; margin:1px 0 12px;">Reporting &amp; Analytics</h2>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Which dashboards, reports and executive metrics rely on these fields and automations?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Which reports monitor SLA adherence, routing exceptions and attribution outcomes?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Are these controls automated, or dependent on manual review?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>What reporting would be impacted if routing, attribution or qualification logic changed?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="display:flex; gap:30px; padding:26px 0 4px; border-top:1px solid #ece9f1; margin-top:26px;">
+      <div style="flex:0 0 56px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:25px; font-weight:500; color:var(--accent,#5E33D6); letter-spacing:-0.02em;">08</div></div>
+      <div style="flex:1;">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#1b1a22; margin:1px 0 12px;">Change Management &amp; Technical Governance</h2>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>How is impact analysis performed before process changes are deployed?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>How is regression testing performed across Salesforce, LeanData and integrated systems?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>How are dependencies documented today, and how are releases governed and communicated?</li>
+          <li style="display:flex; gap:13px; padding:7px 0; font-size:14px; line-height:1.48; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>How are historical records handled when business rules change over time?</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============ PAGE 7, QUESTION 02 ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:60px 84px 60px; position:relative; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:20px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">DOCUMENTATION MODEL</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">07</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:500; margin-top:30px;">QUESTION 02</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:30px; line-height:1.13; letter-spacing:-0.01em; color:#1b1a22; margin:11px 0 0; max-width:600px; text-wrap:balance;">How would you fully document what&rsquo;s happening in the systems?</h2>
+    <p style="font-size:14.5px; line-height:1.6; color:#3d3a49; max-width:600px; margin:18px 0 0;">I&rsquo;d treat this handover document as <strong style="font-weight:600; color:#2a2734;">Layer 1 of a five-layer model</strong>, and build the rest as <em style="font-style:italic; font-family:'Plus Jakarta Sans',sans-serif;">living</em> artifacts, not a one-time document. A process this interconnected goes stale within a quarter if the documentation is static.</p>
+
+    <!-- five-layer model -->
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:7px;">
+      <div style="display:flex; align-items:center; gap:16px; padding:11px 20px; border:1px solid #ddd3ef; border-radius:11px; background:#fcfbfe;">
+        <div style="flex:0 0 50px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.14em; color:#9893a6; font-weight:600;">LAYER</div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:700; color:var(--accent,#5E33D6); line-height:1;">5</div></div>
+        <div style="flex:0 0 162px; font-size:14.5px; font-weight:600; color:#1b1a22; white-space:nowrap;">Data &amp; Reporting</div>
+        <div style="flex:1; font-size:12px; line-height:1.4; color:#54505f;">What&rsquo;s measured, who owns it, and what it drives, including compensation.</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#fff; background:var(--accent,#5E33D6); border-radius:5px; padding:3px 9px;">BUILD</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:11px 20px; border:1px solid #ddd3ef; border-radius:11px; background:#fcfbfe;">
+        <div style="flex:0 0 50px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.14em; color:#9893a6; font-weight:600;">LAYER</div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:700; color:var(--accent,#5E33D6); line-height:1;">4</div></div>
+        <div style="flex:0 0 162px; font-size:14.5px; font-weight:600; color:#1b1a22; white-space:nowrap;">Integration</div>
+        <div style="flex:1; font-size:12px; line-height:1.4; color:#54505f;">Tools outside core Salesforce and their mapping, LeanData Bookit routing &harr; Rules of Engagement.</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#fff; background:var(--accent,#5E33D6); border-radius:5px; padding:3px 9px;">BUILD</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:11px 20px; border:1px solid #ddd3ef; border-radius:11px; background:#fcfbfe;">
+        <div style="flex:0 0 50px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.14em; color:#9893a6; font-weight:600;">LAYER</div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:700; color:var(--accent,#5E33D6); line-height:1;">3</div></div>
+        <div style="flex:0 0 162px; font-size:14.5px; font-weight:600; color:#1b1a22; white-space:nowrap;">Configuration</div>
+        <div style="flex:1; font-size:12px; line-height:1.4; color:#54505f;">How Salesforce actually enforces the process, fields, validation rules, Flows, assignment rules.</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#fff; background:var(--accent,#5E33D6); border-radius:5px; padding:3px 9px;">BUILD</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:11px 20px; border:1px solid #ddd3ef; border-radius:11px; background:#fcfbfe;">
+        <div style="flex:0 0 50px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.14em; color:#9893a6; font-weight:600;">LAYER</div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:700; color:var(--accent,#5E33D6); line-height:1;">2</div></div>
+        <div style="flex:0 0 162px; font-size:14.5px; font-weight:600; color:#1b1a22; white-space:nowrap;">Ownership &amp; Governance</div>
+        <div style="flex:1; font-size:12px; line-height:1.4; color:#54505f;">Who owns each layer, and how changes are reviewed, approved and communicated.</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#fff; background:var(--accent,#5E33D6); border-radius:5px; padding:3px 9px;">BUILD</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:13px 20px; border:1px solid var(--accent,#5E33D6); border-radius:11px; background:var(--accent,#5E33D6);">
+        <div style="flex:0 0 50px;"><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.14em; color:rgba(255,255,255,0.7); font-weight:600;">LAYER</div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:700; color:#fff; line-height:1;">1</div></div>
+        <div style="flex:0 0 162px; font-size:14.5px; font-weight:600; color:#fff; white-space:nowrap;">Process</div>
+        <div style="flex:1; font-size:12px; line-height:1.4; color:rgba(255,255,255,0.88);">What people should do, in plain language, this handover document.</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:var(--accent,#5E33D6); background:#fff; border-radius:5px; padding:3px 9px; font-weight:700;">FOUNDATION</div>
+      </div>
+    </div>
+
+    <!-- three artifacts -->
+    <div style="margin-top:24px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.18em; color:#6b6680; font-weight:500; margin-bottom:13px;">THREE ARTIFACTS I&rsquo;D BUILD FIRST</div>
+      <div style="display:flex; gap:14px;">
+        <div style="flex:1; padding:17px 18px; border:1px solid #ece9f3; border-radius:12px; background:#fcfbfe;">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600; margin-bottom:7px;">A</div>
+          <div style="font-size:13.5px; font-weight:600; color:#1b1a22; margin-bottom:6px;">Traceability matrix</div>
+          <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">One row per process step &rarr; objects, fields, automations and downstream consumers. Makes &ldquo;what&rsquo;s happening&rdquo; queryable, not archaeology.</p>
+        </div>
+        <div style="flex:1; padding:17px 18px; border:1px solid #ece9f3; border-radius:12px; background:#fcfbfe;">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600; margin-bottom:7px;">B</div>
+          <div style="font-size:13.5px; font-weight:600; color:#1b1a22; margin-bottom:6px;">Attribution decision tables</div>
+          <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">The SAA rules rebuilt as explicit decision tables, each row a test case, and the artifact to settle &ldquo;why X got credit&rdquo; disputes fast.</p>
+        </div>
+        <div style="flex:1; padding:17px 18px; border:1px solid #ece9f3; border-radius:12px; background:#fcfbfe;">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600; margin-bottom:7px;">C</div>
+          <div style="font-size:13.5px; font-weight:600; color:#1b1a22; margin-bottom:6px;">Field-level data dictionary</div>
+          <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">Every referenced field: type, system of record and consumers, so a change surfaces its full blast radius before it ships.</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px; line-height:1.55; color:#6b6680; max-width:640px; margin:22px 0 0;">Built by reverse-engineering Salesforce metadata, Flows, validation rules, LeanData config, cross-checked by shadowing 2&ndash;3 SDRs and AEs. The metadata shows what is <em style="font-style:italic; font-family:'Plus Jakarta Sans',sans-serif;">configured</em>; shadowing shows what people actually <em style="font-style:italic; font-family:'Plus Jakarta Sans',sans-serif;">do</em>, and that gap is where the documentation needs to live.</p>
+
+  </div>
+
+  <!-- ============ PAGE 8, QUESTION 03 ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:60px 84px 60px; position:relative; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:20px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">FORWARD STRATEGY</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">08</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:500; margin-top:30px;">QUESTION 03</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:30px; line-height:1.13; letter-spacing:-0.01em; color:#1b1a22; margin:11px 0 0; max-width:610px; text-wrap:balance;">How would you take this forward, innovating without breaking what&rsquo;s in place?</h2>
+
+    <div style="margin-top:22px; padding:22px 28px; background:var(--accent,#5E33D6); border-radius:14px;">
+      <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; line-height:1.34; color:#fff; margin:0; font-weight:400;">The challenge is not preventing change. It is understanding the <em style="font-style:italic; color:#fff;">impact</em> of a change <em style="font-style:italic; color:#fff;">before</em> it is made.</p>
+    </div>
+
+    <p style="font-size:14.5px; line-height:1.6; color:#3d3a49; max-width:610px; margin:18px 0 0;">The core idea: make the <strong style="font-weight:600; color:#2a2734;">blast radius</strong> of any field or automation visible up front, then move fast on low-risk items, and gate the high-risk ones with a regression safety net.</p>
+
+    <!-- blast-radius tiers -->
+    <div style="margin-top:24px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.18em; color:#6b6680; font-weight:500; margin-bottom:13px;">BLAST-RADIUS TIERS</div>
+      <div style="border:1px solid #ece9f3; border-radius:14px; overflow:hidden;">
+        <div style="display:flex; align-items:center; gap:18px; padding:13px 22px; background:#f7f6f9; border-bottom:1px solid #ece9f3;">
+          <div style="flex:0 0 86px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.1em; color:#9893a6; border:1px solid #d8d4e0; border-radius:5px; padding:4px 11px; font-weight:600;">LOW</span></div>
+          <div style="flex:1; font-size:12.5px; line-height:1.45; color:#6b6680;">Cosmetic fields, isolated reports, lightweight peer review, ship quickly.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:18px; padding:13px 22px; background:#faf8fd; border-bottom:1px solid #ece9f3;">
+          <div style="flex:0 0 86px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.1em; color:var(--accent,#5E33D6); background:#efe9f7; border-radius:5px; padding:4px 11px; font-weight:600;">MEDIUM</span></div>
+          <div style="flex:1; font-size:12.5px; line-height:1.45; color:#54505f;">Routing tweaks, SLA &amp; attribution dashboards, standard review and a sandbox test.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:18px; padding:14px 22px;">
+          <div style="flex:0 0 86px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.1em; color:#fff; background:var(--accent,#5E33D6); border-radius:5px; padding:4px 12px; font-weight:600;">HIGH</span></div>
+          <div style="flex:1; font-size:12.5px; line-height:1.45; color:#2c2a35;"><strong style="font-weight:600;">SAA Date Â· Outbound SDR Â· Account Type Â· Stage Â· LeanData Â· comp</strong>, RFC with Sales Ops, Compensation &amp; Finance sign-off, and shadow-mode a full comp cycle before cutover.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- safety net -->
+    <div style="margin-top:24px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.18em; color:#6b6680; font-weight:500; margin-bottom:12px;">THE REGRESSION SAFETY NET</div>
+      <ul style="list-style:none; margin:0; padding:0;">
+        <li style="display:flex; gap:13px; padding:6px 0; font-size:13.5px; line-height:1.5; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Classify every field and automation by blast radius, using the traceability matrix from Question&nbsp;02.</li>
+        <li style="display:flex; gap:13px; padding:6px 0; font-size:13.5px; line-height:1.5; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>A regression suite around the attribution decision table, each row a test, including grace-period and reopened-after-disqualified edge cases.</li>
+        <li style="display:flex; gap:13px; padding:6px 0; font-size:13.5px; line-height:1.5; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>An edge-case sandbox seeded with real scenarios, multi-opportunity, grace-period, winback accounts, not happy-path demo data.</li>
+        <li style="display:flex; gap:13px; padding:6px 0; font-size:13.5px; line-height:1.5; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Configuration as code, SFDX-tracked Flows and rules, so &ldquo;why did this break&rdquo; is a git lookup, not forensics.</li>
+        <li style="display:flex; gap:13px; padding:6px 0; font-size:13.5px; line-height:1.5; color:#2c2a35;"><span style="width:5px; height:5px; background:var(--accent,#5E33D6); border-radius:1px; margin-top:7px; flex:0 0 auto;"></span>Pilot on one pod before org-wide, a bad routing rule on one pod for a day is recoverable; org-wide for a week is a compensation incident.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ============ PAGE 9, QUESTION 04 ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:60px 84px 60px; position:relative; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:20px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">ROADMAP &amp; RISK</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">09</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:500; margin-top:30px;">QUESTION 04</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:30px; line-height:1.13; letter-spacing:-0.01em; color:#1b1a22; margin:11px 0 0; max-width:600px; text-wrap:balance;">What would you improve first, and what are the risks?</h2>
+    <p style="font-size:14.5px; line-height:1.6; color:#3d3a49; max-width:610px; margin:16px 0 0;">Sequenced deliberately, earn trust on something low-risk before touching anything that affects how people get paid.</p>
+
+    <!-- sequenced roadmap -->
+    <div style="margin-top:22px; display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:flex-start; gap:18px; padding:14px 20px; border:1px solid #ece9f3; border-radius:12px; background:#fcfbfe;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:600; color:var(--accent,#5E33D6); flex:0 0 28px; line-height:1.2;">01</div>
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:3px;"><span style="font-size:14.5px; font-weight:600; color:#1b1a22;">Instrument the 24-hour AE SLA</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#9893a6; border:1px solid #d8d4e0; border-radius:5px; padding:2px 8px;">LOW RISK Â· FIRST</span></div>
+          <p style="font-size:12.5px; line-height:1.45; color:#54505f; margin:0;">Turn &ldquo;Check THIS report&rdquo; into an automated, time-bound alert. No comp impact, and it gives a baseline of <em style="font-style:italic; font-family:'Plus Jakarta Sans',sans-serif;">documented vs. actual</em>, plus an early credibility win.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:18px; padding:14px 20px; border:1px solid #e7e1f1; border-radius:12px; background:#f8f5fc;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:600; color:var(--accent,#5E33D6); flex:0 0 28px; line-height:1.2;">02</div>
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:3px;"><span style="font-size:14.5px; font-weight:600; color:#1b1a22;">Rebuild the SAA attribution logic</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#fff; background:var(--accent,#5E33D6); border-radius:5px; padding:2px 8px;">HIGH VALUE Â· HIGH RISK</span></div>
+          <p style="font-size:12.5px; line-height:1.45; color:#54505f; margin:0;">Rebuild it as the Question&nbsp;02 decision table, the most complex, least-documented logic, and the one most directly tied to comp, where trust in RevOps is won or lost.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:18px; padding:14px 20px; border:1px solid #ece9f3; border-radius:12px; background:#fcfbfe;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:600; color:var(--accent,#5E33D6); flex:0 0 28px; line-height:1.2;">03</div>
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:3px;"><span style="font-size:14.5px; font-weight:600; color:#1b1a22;">Close the Discovery field-enforcement gap</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#9893a6; border:1px solid #d8d4e0; border-radius:5px; padding:2px 8px;">LOW RISK</span></div>
+          <p style="font-size:12.5px; line-height:1.45; color:#54505f; margin:0;">Replace layout-only &ldquo;required&rdquo; fields with a validation rule, bypassable today via API. A single change with measurable before/after and no comp implications.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:18px; padding:14px 20px; border:1px solid #ece9f3; border-radius:12px; background:#fcfbfe;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:600; color:var(--accent,#5E33D6); flex:0 0 28px; line-height:1.2;">04</div>
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:3px;"><span style="font-size:14.5px; font-weight:600; color:#1b1a22;">Review the attribution model for simplification</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#9893a6; border:1px solid #d8d4e0; border-radius:5px; padding:2px 8px;">STRATEGIC</span></div>
+          <p style="font-size:12.5px; line-height:1.45; color:#54505f; margin:0;">With the model documented and regression-tested, ask Sales leadership, decision table in hand, whether the same outcomes need fewer branches. A conversation with evidence, not a unilateral call.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- risks on the rebuild -->
+    <div style="margin-top:24px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.18em; color:#6b6680; font-weight:500; margin-bottom:12px;">KEY RISKS ON THE ATTRIBUTION REBUILD &amp; MITIGATIONS</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:11px;">
+        <div style="padding:14px 16px; border:1px solid #ece9f3; border-radius:10px;">
+          <div style="font-size:13px; font-weight:600; color:#1b1a22; margin-bottom:5px;">Retroactive comp impact</div>
+          <p style="font-size:12px; line-height:1.45; color:#54505f; margin:0;"><span style="color:var(--accent,#5E33D6); font-weight:600;">Mitigate:</span> shadow-mode the new logic for a full comp cycle; review discrepancies, never auto-apply.</p>
+        </div>
+        <div style="padding:14px 16px; border:1px solid #ece9f3; border-radius:10px;">
+          <div style="font-size:13px; font-weight:600; color:#1b1a22; margin-bottom:5px;">Political sensitivity</div>
+          <p style="font-size:12px; line-height:1.45; color:#54505f; margin:0;"><span style="color:var(--accent,#5E33D6); font-weight:600;">Mitigate:</span> have Sales leadership and a sample of OSDRs/ISRs validate the decision table before build.</p>
+        </div>
+        <div style="padding:14px 16px; border:1px solid #ece9f3; border-radius:10px;">
+          <div style="font-size:13px; font-weight:600; color:#1b1a22; margin-bottom:5px;">Hidden behavioural dependencies</div>
+          <p style="font-size:12px; line-height:1.45; color:#54505f; margin:0;"><span style="color:var(--accent,#5E33D6); font-weight:600;">Mitigate:</span> use the phase-1 SLA data to spot gamed activity or grace-period windows first.</p>
+        </div>
+        <div style="padding:14px 16px; border:1px solid #ece9f3; border-radius:10px;">
+          <div style="font-size:13px; font-weight:600; color:#1b1a22; margin-bottom:5px;">Scope creep into Account-type logic</div>
+          <p style="font-size:12px; line-height:1.45; color:#54505f; margin:0;"><span style="color:var(--accent,#5E33D6); font-weight:600;">Mitigate:</span> explicitly scope it out of phase one; document as a known follow-on.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ PAGE 10, IMPACT Ã COMPLEXITY REFERENCE ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:60px 84px 60px; position:relative; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:20px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">PRIORITISATION</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">10</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:30px;">REFERENCE</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:30px; line-height:1.13; letter-spacing:-0.01em; color:#1b1a22; margin:11px 0 0;">Impact &times; Complexity</h2>
+    <p style="font-size:14.5px; line-height:1.6; color:#3d3a49; max-width:620px; margin:16px 0 0;">How the roadmap is sequenced: high-impact, low-complexity work earns trust and baseline data first, the complex, comp-critical rebuild is a planned major bet, never a quick edit.</p>
+
+    <!-- matrix -->
+    <div style="margin-top:26px; display:flex; gap:14px;">
+      <div style="display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl; transform:rotate(180deg); font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.2em; color:#9893a6; font-weight:600; flex:0 0 22px;">LOWER&nbsp;&nbsp;&larr;&nbsp;&nbsp;IMPACT&nbsp;&nbsp;&rarr;&nbsp;&nbsp;HIGHER</div>
+      <div style="flex:1;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:12px;">
+          <!-- TL: high impact / low complexity -->
+          <div style="min-height:158px; padding:18px 20px; border:1.5px solid var(--accent,#5E33D6); border-radius:13px; background:#f4f0fb; display:flex; flex-direction:column;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.14em; color:var(--accent,#5E33D6); font-weight:700;">QUICK WINS &middot; DO FIRST</div>
+            <div style="font-size:11.5px; color:#6b6680; margin:3px 0 12px;">High impact &middot; low complexity</div>
+            <div style="display:flex; flex-direction:column; gap:7px; margin-top:auto;">
+              <span style="font-size:12.5px; font-weight:600; color:#2a2833; background:#fff; border:1px solid #e2d9f3; border-radius:7px; padding:6px 11px;">Instrument the 24-hour AE SLA</span>
+              <span style="font-size:12.5px; font-weight:600; color:#2a2833; background:#fff; border:1px solid #e2d9f3; border-radius:7px; padding:6px 11px;">Discovery field validation rule</span>
+            </div>
+          </div>
+          <!-- TR: high impact / high complexity -->
+          <div style="min-height:158px; padding:18px 20px; border:1px solid #ddd3ef; border-radius:13px; background:#fcfbfe; display:flex; flex-direction:column;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.14em; color:#1b1a22; font-weight:700;">MAJOR BETS &middot; PLAN CAREFULLY</div>
+            <div style="font-size:11.5px; color:#6b6680; margin:3px 0 12px;">High impact &middot; high complexity</div>
+            <div style="display:flex; flex-direction:column; gap:7px; margin-top:auto;">
+              <span style="font-size:12.5px; font-weight:600; color:#fff; background:var(--accent,#5E33D6); border-radius:7px; padding:6px 11px;">Rebuild the SAA attribution logic</span>
+              <span style="font-size:12.5px; font-weight:600; color:#2a2833; background:#fff; border:1px solid #e2d9f3; border-radius:7px; padding:6px 11px;">Simplify the attribution model</span>
+            </div>
+          </div>
+          <!-- BL: low impact / low complexity -->
+          <div style="min-height:128px; padding:18px 20px; border:1px solid #ece9f3; border-radius:13px; background:#f7f6f9; display:flex; flex-direction:column;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.14em; color:#9893a6; font-weight:700;">FILL-INS &middot; AS CAPACITY ALLOWS</div>
+            <div style="font-size:11.5px; color:#9893a6; margin:3px 0 12px;">Lower impact &middot; low complexity</div>
+            <div style="display:flex; flex-direction:column; gap:7px; margin-top:auto;">
+              <span style="font-size:12.5px; font-weight:500; color:#54505f; background:#fff; border:1px solid #e7e3ee; border-radius:7px; padding:6px 11px;">Minor field &amp; report tidy-ups</span>
+            </div>
+          </div>
+          <!-- BR: low impact / high complexity -->
+          <div style="min-height:128px; padding:18px 20px; border:1px solid #ece9f3; border-radius:13px; background:#f7f6f9; display:flex; flex-direction:column;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.14em; color:#9893a6; font-weight:700;">DEFER</div>
+            <div style="font-size:11.5px; color:#9893a6; margin:3px 0 12px;">Lower impact &middot; high complexity</div>
+            <div style="display:flex; flex-direction:column; gap:7px; margin-top:auto;">
+              <span style="font-size:12.5px; font-weight:500; color:#54505f; background:#fff; border:1px solid #e7e3ee; border-radius:7px; padding:6px 11px;">Net-new tooling without a clear owner</span>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.2em; color:#9893a6; font-weight:600; margin-top:12px;">LOWER&nbsp;&nbsp;&larr;&nbsp;&nbsp;COMPLEXITY&nbsp;&nbsp;&rarr;&nbsp;&nbsp;HIGHER</div>
+      </div>
+    </div>
+
+    <div style="margin-top:auto; padding-top:30px;">
+      <div style="display:flex; align-items:flex-start; gap:14px; padding:18px 22px; background:#faf9fc; border:1px solid #ece9f3; border-left:3px solid var(--accent,#5E33D6); border-radius:4px 12px 12px 4px;">
+        <p style="font-size:13.5px; line-height:1.55; color:#3a3744; margin:0;">The sequence follows the diagonal, secure low-complexity, high-impact wins to build trust and a real baseline <em style="font-style:italic;">before</em> touching the complex, compensation-critical attribution logic.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PAGE 11, QUESTION 05 ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:60px 84px 60px; position:relative; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:20px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">WAYS OF WORKING</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">11</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:500; margin-top:30px;">QUESTION 05</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:30px; line-height:1.13; letter-spacing:-0.01em; color:#1b1a22; margin:11px 0 0; max-width:610px; text-wrap:balance;">How would you keep RevOps and its partners aligned on interconnectivity?</h2>
+    <p style="font-size:14.5px; line-height:1.6; color:#3d3a49; max-width:610px; margin:16px 0 0;">Six practices keep the picture shared, so cross-functional teams understand how the system connects <em style="font-style:italic; font-family:'Plus Jakarta Sans',sans-serif;">before</em> change happens, not after.</p>
+
+    <div style="margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div style="padding:15px 17px; border:1px solid #ece9f3; border-radius:11px; background:#fcfbfe;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:5px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600;">01</span><span style="font-size:13.5px; font-weight:600; color:#1b1a22;">Living documentation</span></div>
+        <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">A named owner per layer of the five-layer set, on a quarterly cadence. Stale docs are worse than none, people trust them.</p>
+      </div>
+      <div style="padding:15px 17px; border:1px solid #ece9f3; border-radius:11px; background:#fcfbfe;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:5px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600;">02</span><span style="font-size:13.5px; font-weight:600; color:#1b1a22;">RevOps release notes</span></div>
+        <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">For any change to shared fields or automations, in the channel Sales, Comp &amp; Finance already watch, framed as &ldquo;what this means for your day-to-day.&rdquo;</p>
+      </div>
+      <div style="padding:15px 17px; border:1px solid #ece9f3; border-radius:11px; background:#fcfbfe;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:5px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600;">03</span><span style="font-size:13.5px; font-weight:600; color:#1b1a22;">Quarterly architecture review</span></div>
+        <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">A cross-functional walk of the traceability matrix under active change, so Compensation never learns of a change from a payout discrepancy.</p>
+      </div>
+      <div style="padding:15px 17px; border:1px solid #ece9f3; border-radius:11px; background:#fcfbfe;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:5px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600;">04</span><span style="font-size:13.5px; font-weight:600; color:#1b1a22;">Embed in pod rituals</span></div>
+        <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">Sit in SDR/AE pods periodically, not just on request, the fastest way to catch documented-vs-actual drift at the source.</p>
+      </div>
+      <div style="padding:15px 17px; border:1px solid #ece9f3; border-radius:11px; background:#fcfbfe;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:5px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600;">05</span><span style="font-size:13.5px; font-weight:600; color:#1b1a22;">Two formats, two audiences</span></div>
+        <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">Pair the process narrative with an annotated &ldquo;what this looks like in Salesforce&rdquo; walkthrough, explicitly cross-referenced.</p>
+      </div>
+      <div style="padding:15px 17px; border:1px solid #ece9f3; border-radius:11px; background:#fcfbfe;">
+        <div style="display:flex; align-items:baseline; gap:9px; margin-bottom:5px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; color:var(--accent,#5E33D6); font-weight:600;">06</span><span style="font-size:13.5px; font-weight:600; color:#1b1a22;">A shared language</span></div>
+        <p style="font-size:12px; line-height:1.5; color:#54505f; margin:0;">Decision tables and the traceability matrix let technical and non-technical stakeholders reason about the same system.</p>
+      </div>
+    </div>
+
+    <!-- closing statement -->
+    <div style="margin-top:auto; padding-top:28px;">
+      <div style="display:flex; gap:24px; align-items:flex-start; padding:24px 30px; background:#faf9fc; border:1px solid #ece9f3; border-left:3px solid var(--accent,#5E33D6); border-radius:4px 12px 12px 4px;">
+        <div style="flex:1;">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-bottom:10px;">OBJECTIVE</div>
+          <p style="font-size:20px; line-height:1.42; color:#2a2734; margin:0; font-weight:500;">My objective is not to challenge the business process itself, but to understand how it is implemented, governed and connected across the Revenue Systems ecosystem, so that future changes can be made <em style="font-style:italic; color:var(--accent,#5E33D6);">safely</em> and <em style="font-style:italic; color:var(--accent,#5E33D6);">predictably</em>.</p>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:22px; padding-top:20px; border-top:1px solid #ece9f1;">
+        <div>
+          <div style="font-size:14px; font-weight:600; color:#1b1a22;">{{ authorName }}</div>
+          <div style="font-size:12.5px; color:#6b6680; margin-top:1px;">Revenue Systems</div>
+        </div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#b3aec0;">REVENUE SYSTEMS Â· CASE STUDY Â· 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ANNEX A â TRACEABILITY MATRIX ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:48px 64px 48px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:16px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">ANNEX Â· ARTIFACT MOCKUP</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">A1</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:26px;">ANNEX A</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:28px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:8px 0 0;">Traceability Matrix</h2>
+    <p style="font-size:13.5px; line-height:1.55; color:#54505f; max-width:600px; margin:12px 0 0;">One row per process step, mapping it to the objects, fields and automations that implement it, and the systems downstream that depend on it. Makes &ldquo;what&rsquo;s happening&rdquo; queryable instead of tribal knowledge.</p>
+
+    <div style="margin-top:22px; border:1px solid #e7e1f1; border-radius:12px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.5fr 1.5fr 1.5fr 1.4fr 0.7fr; background:#f3eff9; font-family:'Plus Jakarta Sans',sans-serif; font-size:9.5px; letter-spacing:0.08em; font-weight:700; color:#5b5470; text-transform:uppercase;">
+        <div style="padding:11px 13px;">Process Step</div>
+        <div style="padding:11px 13px;">Object &amp; Key Fields</div>
+        <div style="padding:11px 13px;">Automation</div>
+        <div style="padding:11px 13px;">Downstream Consumer</div>
+        <div style="padding:11px 13px;">Blast</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1.5fr 1.5fr 1.4fr 0.7fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 13px; font-weight:600;">Lead created</div>
+        <div style="padding:11px 13px; color:#54505f;">Lead Â· <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">Lead_Source</span>, <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">Country</span></div>
+        <div style="padding:11px 13px; color:#54505f;">LeanData Lead Routing</div>
+        <div style="padding:11px 13px; color:#54505f;">SDR queue assignment</div>
+        <div style="padding:11px 13px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.06em; color:#9893a6; border:1px solid #d8d4e0; border-radius:4px; padding:2px 7px; font-weight:600;">LOW</span></div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1.5fr 1.5fr 1.4fr 0.7fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:11px 13px; font-weight:600;">SDR qualifies lead</div>
+        <div style="padding:11px 13px; color:#54505f;">Lead Â· <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">Qual_Status</span>, <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">SAA_Date</span></div>
+        <div style="padding:11px 13px; color:#54505f;">Validation Rule + Flow</div>
+        <div style="padding:11px 13px; color:#54505f;">Attribution engine</div>
+        <div style="padding:11px 13px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.06em; color:#fff; background:var(--accent,#5E33D6); border-radius:4px; padding:2px 7px; font-weight:600;">HIGH</span></div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1.5fr 1.5fr 1.4fr 0.7fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 13px; font-weight:600;">Opportunity created</div>
+        <div style="padding:11px 13px; color:#54505f;">Opportunity Â· <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">Stage</span>, <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">Outbound_SDR</span></div>
+        <div style="padding:11px 13px; color:#54505f;">Flow (auto-create)</div>
+        <div style="padding:11px 13px; color:#54505f;">Forecast Â· Compensation</div>
+        <div style="padding:11px 13px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.06em; color:#fff; background:var(--accent,#5E33D6); border-radius:4px; padding:2px 7px; font-weight:600;">HIGH</span></div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1.5fr 1.5fr 1.4fr 0.7fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:11px 13px; font-weight:600;">SDR &rarr; AE handover</div>
+        <div style="padding:11px 13px; color:#54505f;">Opportunity Â· <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">Owner</span>, <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">AE_Assigned</span></div>
+        <div style="padding:11px 13px; color:#54505f;">LeanData BookIt routing</div>
+        <div style="padding:11px 13px; color:#54505f;">AE queue Â· SLA timer</div>
+        <div style="padding:11px 13px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.06em; color:#fff; background:var(--accent,#5E33D6); border-radius:4px; padding:2px 7px; font-weight:600;">HIGH</span></div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1.5fr 1.5fr 1.4fr 0.7fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 13px; font-weight:600;">Advance to Discovery</div>
+        <div style="padding:11px 13px; color:#54505f;">Opportunity Â· required-field gate</div>
+        <div style="padding:11px 13px; color:#54505f;">Validation Rule</div>
+        <div style="padding:11px 13px; color:#54505f;">Pipeline reports</div>
+        <div style="padding:11px 13px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.06em; color:var(--accent,#5E33D6); background:#efe9f7; border-radius:4px; padding:2px 7px; font-weight:600;">MED</span></div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1.5fr 1.5fr 1.4fr 0.7fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:11px 13px; font-weight:600;">Prospect &rarr; Customer</div>
+        <div style="padding:11px 13px; color:#54505f;">Account Â· <span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6);">Account_Type</span></div>
+        <div style="padding:11px 13px; color:#54505f;">Flow + Apex trigger</div>
+        <div style="padding:11px 13px; color:#54505f;">CS Ops Â· Billing</div>
+        <div style="padding:11px 13px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.06em; color:#fff; background:var(--accent,#5E33D6); border-radius:4px; padding:2px 7px; font-weight:600;">HIGH</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; display:flex; gap:10px; align-items:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.12em; color:#fff; background:#b3aec0; border-radius:4px; padding:3px 9px; font-weight:700;">ILLUSTRATIVE MOCKUP</div>
+      <p style="font-size:11.5px; line-height:1.5; color:#8b8699; margin:0;">Sample structure and field names shown to illustrate the artifact &mdash; not Remote production data. Each row would be validated against live Salesforce metadata.</p>
+    </div>
+  </div>
+
+  <!-- ============ ANNEX B â ATTRIBUTION DECISION TABLE ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:48px 64px 48px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:16px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">ANNEX Â· ARTIFACT MOCKUP</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">B1</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:26px;">ANNEX B</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:28px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:8px 0 0;">Attribution Decision Table</h2>
+    <p style="font-size:13.5px; line-height:1.55; color:#54505f; max-width:600px; margin:12px 0 0;">The SAA attribution rules rebuilt as explicit conditions &rarr; outcome. Each row is a test case, and the shared artifact that settles &ldquo;why did X get the credit?&rdquo; before it becomes a payout dispute.</p>
+
+    <div style="margin-top:22px; border:1px solid #e7e1f1; border-radius:12px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:0.5fr 1.3fr 1.2fr 1.1fr 1.6fr; background:#f3eff9; font-family:'Plus Jakarta Sans',sans-serif; font-size:9.5px; letter-spacing:0.07em; font-weight:700; color:#5b5470; text-transform:uppercase;">
+        <div style="padding:11px 12px;">#</div>
+        <div style="padding:11px 12px;">Outbound SDR set?</div>
+        <div style="padding:11px 12px;">Inbound â¤ grace?</div>
+        <div style="padding:11px 12px;">Account Type</div>
+        <div style="padding:11px 12px;">&rarr; Credited Role</div>
+      </div>
+      <div style="display:grid; grid-template-columns:0.5fr 1.3fr 1.2fr 1.1fr 1.6fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 12px; font-family:ui-monospace,monospace; color:#9893a6;">1</div>
+        <div style="padding:11px 12px;"><span style="color:#1b7a4b; font-weight:600;">Yes</span></div>
+        <div style="padding:11px 12px; color:#8b8699;">â</div>
+        <div style="padding:11px 12px; color:#54505f;">New Business</div>
+        <div style="padding:11px 12px; font-weight:600;">Outbound SDR</div>
+      </div>
+      <div style="display:grid; grid-template-columns:0.5fr 1.3fr 1.2fr 1.1fr 1.6fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:11px 12px; font-family:ui-monospace,monospace; color:#9893a6;">2</div>
+        <div style="padding:11px 12px;"><span style="color:#b4453a; font-weight:600;">No</span></div>
+        <div style="padding:11px 12px;"><span style="color:#1b7a4b; font-weight:600;">Yes</span></div>
+        <div style="padding:11px 12px; color:#54505f;">New Business</div>
+        <div style="padding:11px 12px; font-weight:600;">Inbound SDR (ISR)</div>
+      </div>
+      <div style="display:grid; grid-template-columns:0.5fr 1.3fr 1.2fr 1.1fr 1.6fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 12px; font-family:ui-monospace,monospace; color:#9893a6;">3</div>
+        <div style="padding:11px 12px;"><span style="color:#b4453a; font-weight:600;">No</span></div>
+        <div style="padding:11px 12px;"><span style="color:#b4453a; font-weight:600;">No</span></div>
+        <div style="padding:11px 12px; color:#54505f;">New Business</div>
+        <div style="padding:11px 12px; font-weight:600;">No SDR credit (AE-sourced)</div>
+      </div>
+      <div style="display:grid; grid-template-columns:0.5fr 1.3fr 1.2fr 1.1fr 1.6fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:11px 12px; font-family:ui-monospace,monospace; color:#9893a6;">4</div>
+        <div style="padding:11px 12px;"><span style="color:#1b7a4b; font-weight:600;">Yes</span></div>
+        <div style="padding:11px 12px;"><span style="color:#1b7a4b; font-weight:600;">Yes</span></div>
+        <div style="padding:11px 12px; color:#54505f;">New Business</div>
+        <div style="padding:11px 12px; font-weight:600;">Outbound SDR <span style="color:#8b8699; font-weight:400;">(OSDR precedence)</span></div>
+      </div>
+      <div style="display:grid; grid-template-columns:0.5fr 1.3fr 1.2fr 1.1fr 1.6fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 12px; font-family:ui-monospace,monospace; color:#9893a6;">5</div>
+        <div style="padding:11px 12px;"><span style="color:#8b8699;">Any</span></div>
+        <div style="padding:11px 12px; color:#8b8699;">â</div>
+        <div style="padding:11px 12px; color:#54505f;">Winback / Existing</div>
+        <div style="padding:11px 12px; font-weight:600;">Routed to CS-aligned rules</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px; padding:13px 18px; background:#faf9fc; border:1px solid #ece9f3; border-radius:10px;">
+      <p style="font-size:11.5px; line-height:1.5; color:#54505f; margin:0;"><strong style="color:#2c2a35;">Edge cases under test:</strong> grace-period boundary (activity dated exactly at cutoff), opportunity reopened after disqualification, and multi-touch where OSDR and ISR differ. Each becomes a regression row in the safety net (Question 03).</p>
+    </div>
+
+    <div style="margin-top:16px; display:flex; gap:10px; align-items:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.12em; color:#fff; background:#b3aec0; border-radius:4px; padding:3px 9px; font-weight:700;">ILLUSTRATIVE MOCKUP</div>
+      <p style="font-size:11.5px; line-height:1.5; color:#8b8699; margin:0;">Conditions and precedence shown to illustrate format &mdash; actual rules to be confirmed against the live attribution configuration.</p>
+    </div>
+  </div>
+
+  <!-- ============ ANNEX C â DATA DICTIONARY ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:48px 64px 48px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:16px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">ANNEX Â· ARTIFACT MOCKUP</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">C1</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:26px;">ANNEX C</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:28px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:8px 0 0;">Field-Level Data Dictionary</h2>
+    <p style="font-size:13.5px; line-height:1.55; color:#54505f; max-width:600px; margin:12px 0 0;">Every field the process touches: its type, system of record and the teams that consume it &mdash; so any change surfaces its full blast radius <em style="font-style:italic;">before</em> it ships.</p>
+
+    <div style="margin-top:22px; border:1px solid #e7e1f1; border-radius:12px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1.5fr; background:#f3eff9; font-family:'Plus Jakarta Sans',sans-serif; font-size:9.5px; letter-spacing:0.07em; font-weight:700; color:#5b5470; text-transform:uppercase;">
+        <div style="padding:11px 12px;">Field</div>
+        <div style="padding:11px 12px;">Object</div>
+        <div style="padding:11px 12px;">Type</div>
+        <div style="padding:11px 12px;">System of Record</div>
+        <div style="padding:11px 12px;">Consumed By</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1.5fr; font-size:10.5px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:10px 12px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">SAA_Date__c</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Opportunity</div>
+        <div style="padding:10px 12px; color:#54505f;">Date</div>
+        <div style="padding:10px 12px; color:#54505f;">Salesforce</div>
+        <div style="padding:10px 12px; color:#54505f;">Comp Â· Attribution</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1.5fr; font-size:10.5px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:10px 12px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">Outbound_SDR__c</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Opportunity</div>
+        <div style="padding:10px 12px; color:#54505f;">Lookup(User)</div>
+        <div style="padding:10px 12px; color:#54505f;">Salesforce</div>
+        <div style="padding:10px 12px; color:#54505f;">Compensation</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1.5fr; font-size:10.5px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:10px 12px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">AE_Assigned__c</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Opportunity</div>
+        <div style="padding:10px 12px; color:#54505f;">Lookup(User)</div>
+        <div style="padding:10px 12px; color:#54505f;">LeanData</div>
+        <div style="padding:10px 12px; color:#54505f;">SLA Â· Forecast</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1.5fr; font-size:10.5px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:10px 12px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">Account_Type__c</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Account</div>
+        <div style="padding:10px 12px; color:#54505f;">Picklist</div>
+        <div style="padding:10px 12px; color:#54505f;">Salesforce</div>
+        <div style="padding:10px 12px; color:#54505f;">CS Ops Â· Billing</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1.5fr; font-size:10.5px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:10px 12px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">Qual_Status__c</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Lead</div>
+        <div style="padding:10px 12px; color:#54505f;">Picklist</div>
+        <div style="padding:10px 12px; color:#54505f;">Salesforce</div>
+        <div style="padding:10px 12px; color:#54505f;">Routing gate</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1.5fr; font-size:10.5px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:10px 12px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">StageName</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Opportunity</div>
+        <div style="padding:10px 12px; color:#54505f;">Picklist (std)</div>
+        <div style="padding:10px 12px; color:#54505f;">Salesforce</div>
+        <div style="padding:10px 12px; color:#54505f;">Forecast Â· Comp</div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; display:flex; gap:10px; align-items:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.12em; color:#fff; background:#b3aec0; border-radius:4px; padding:3px 9px; font-weight:700;">ILLUSTRATIVE MOCKUP</div>
+      <p style="font-size:11.5px; line-height:1.5; color:#8b8699; margin:0;">API names and consumers shown to illustrate the artifact &mdash; the production dictionary would be generated from Salesforce metadata and kept current per Annex&nbsp;A.</p>
+    </div>
+
+  </div>
+
+  <!-- ============ ANNEX D â OWNERSHIP MATRIX ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:48px 64px 48px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:16px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">ANNEX Â· ARTIFACT MOCKUP</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">D1</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:26px;">ANNEX D</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:28px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:8px 0 0;">Ownership Matrix</h2>
+    <p style="font-size:13.5px; line-height:1.55; color:#54505f; max-width:600px; margin:12px 0 0;">A named owner and approver for each layer of the model, with a review cadence. Removes the &ldquo;who decides this?&rdquo; ambiguity that lets change slip through ungoverned.</p>
+
+    <div style="margin-top:22px; border:1px solid #e7e1f1; border-radius:12px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.6fr 1.3fr 1.3fr 1.1fr; background:#f3eff9; font-family:'Plus Jakarta Sans',sans-serif; font-size:9.5px; letter-spacing:0.08em; font-weight:700; color:#5b5470; text-transform:uppercase;">
+        <div style="padding:11px 13px;">Layer / Area</div>
+        <div style="padding:11px 13px;">Owner</div>
+        <div style="padding:11px 13px;">Approver</div>
+        <div style="padding:11px 13px;">Cadence</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.6fr 1.3fr 1.3fr 1.1fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 13px; font-weight:600;">Process</div>
+        <div style="padding:11px 13px; color:#54505f;">Sales Enablement</div>
+        <div style="padding:11px 13px; color:#54505f;">VP Sales</div>
+        <div style="padding:11px 13px; color:#54505f;">Quarterly</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.6fr 1.3fr 1.3fr 1.1fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:11px 13px; font-weight:600;">Ownership &amp; Governance</div>
+        <div style="padding:11px 13px; color:#54505f;">RevOps</div>
+        <div style="padding:11px 13px; color:#54505f;">SVP Rev Ops</div>
+        <div style="padding:11px 13px; color:#54505f;">Quarterly</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.6fr 1.3fr 1.3fr 1.1fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 13px; font-weight:600;">Configuration</div>
+        <div style="padding:11px 13px; color:#54505f;">RevOps Systems</div>
+        <div style="padding:11px 13px; color:#54505f;">RevOps Lead</div>
+        <div style="padding:11px 13px; color:#54505f;">Per release</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.6fr 1.3fr 1.3fr 1.1fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:11px 13px; font-weight:600;">Integration</div>
+        <div style="padding:11px 13px; color:#54505f;">RevOps Systems</div>
+        <div style="padding:11px 13px; color:#54505f;">RevOps Lead</div>
+        <div style="padding:11px 13px; color:#54505f;">Per release</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.6fr 1.3fr 1.3fr 1.1fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:11px 13px; font-weight:600;">Data &amp; Reporting</div>
+        <div style="padding:11px 13px; color:#54505f;">RevOps Analytics</div>
+        <div style="padding:11px 13px; color:#54505f;">Finance</div>
+        <div style="padding:11px 13px; color:#54505f;">Monthly</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.6fr 1.3fr 1.3fr 1.1fr; font-size:11px; line-height:1.4; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:11px 13px; font-weight:600;">Attribution rules</div>
+        <div style="padding:11px 13px; color:#54505f;">RevOps &mdash; Comp</div>
+        <div style="padding:11px 13px; color:#54505f;">Compensation &amp; Finance</div>
+        <div style="padding:11px 13px; color:#54505f;">Per comp cycle</div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; display:flex; gap:10px; align-items:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.12em; color:#fff; background:#b3aec0; border-radius:4px; padding:3px 9px; font-weight:700;">ILLUSTRATIVE MOCKUP</div>
+      <p style="font-size:11.5px; line-height:1.5; color:#8b8699; margin:0;">Roles shown to illustrate the structure &mdash; actual owners to be confirmed with Rev Ops leadership.</p>
+    </div>
+  </div>
+
+  <!-- ============ ANNEX E â DEPENDENCY MATRIX ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:48px 64px 48px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:16px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">ANNEX Â· ARTIFACT MOCKUP</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">E1</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:26px;">ANNEX E</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:28px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:8px 0 0;">Dependency Matrix</h2>
+    <p style="font-size:13.5px; line-height:1.55; color:#54505f; max-width:600px; margin:12px 0 0;">Reads as &ldquo;if I change this field, what breaks?&rdquo; &mdash; each row a field, each column a downstream system. The visible map of interconnectivity that makes blast radius obvious before a change.</p>
+
+    <div style="margin-top:22px; border:1px solid #e7e1f1; border-radius:12px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr 1fr 1fr; background:#f3eff9; font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.05em; font-weight:700; color:#5b5470; text-transform:uppercase;">
+        <div style="padding:11px 13px;">Field &darr; Â· System &rarr;</div>
+        <div style="padding:11px 6px; text-align:center;">Routing</div>
+        <div style="padding:11px 6px; text-align:center;">Attribution</div>
+        <div style="padding:11px 6px; text-align:center;">SLA</div>
+        <div style="padding:11px 6px; text-align:center;">Forecast</div>
+        <div style="padding:11px 6px; text-align:center;">Comp</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr 1fr 1fr; font-size:11px; line-height:1.4; border-top:1px solid #efeaf6; align-items:center;">
+        <div style="padding:10px 13px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">SAA_Date</span></div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr 1fr 1fr; font-size:11px; line-height:1.4; border-top:1px solid #efeaf6; align-items:center; background:#fcfbfe;">
+        <div style="padding:10px 13px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">Outbound_SDR</span></div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr 1fr 1fr; font-size:11px; line-height:1.4; border-top:1px solid #efeaf6; align-items:center;">
+        <div style="padding:10px 13px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">AE_Assigned</span></div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr 1fr 1fr; font-size:11px; line-height:1.4; border-top:1px solid #efeaf6; align-items:center; background:#fcfbfe;">
+        <div style="padding:10px 13px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">Account_Type</span></div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr 1fr 1fr; font-size:11px; line-height:1.4; border-top:1px solid #efeaf6; align-items:center;">
+        <div style="padding:10px 13px;"><span style="font-family:ui-monospace,monospace; font-size:10px; color:var(--accent,#5E33D6); font-weight:600;">StageName</span></div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:#cfc8de;">&ndash;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+        <div style="padding:10px 6px; text-align:center; color:var(--accent,#5E33D6); font-size:13px;">&#9679;</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px; display:flex; gap:18px; align-items:center;">
+      <div style="display:flex; gap:7px; align-items:center;"><span style="color:var(--accent,#5E33D6); font-size:13px;">&#9679;</span><span style="font-size:11px; color:#6b6680;">Direct dependency</span></div>
+      <div style="display:flex; gap:7px; align-items:center;"><span style="color:#cfc8de; font-size:13px;">&ndash;</span><span style="font-size:11px; color:#6b6680;">No dependency</span></div>
+    </div>
+
+    <div style="margin-top:16px; display:flex; gap:10px; align-items:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.12em; color:#fff; background:#b3aec0; border-radius:4px; padding:3px 9px; font-weight:700;">ILLUSTRATIVE MOCKUP</div>
+      <p style="font-size:11.5px; line-height:1.5; color:#8b8699; margin:0;">Dependencies shown to illustrate the format &mdash; mapped from the traceability matrix (Annex&nbsp;A) and validated against live metadata.</p>
+    </div>
+  </div>
+
+  <!-- ============ ANNEX F â ARCHITECTURE REPOSITORY ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:48px 64px 48px; position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:16px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">ANNEX Â· ARTIFACT MOCKUP</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">F1</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:26px;">ANNEX F</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:28px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:8px 0 0;">Architecture Repository</h2>
+    <p style="font-size:13.5px; line-height:1.55; color:#54505f; max-width:600px; margin:12px 0 0;">A single indexed home for the artifacts above &mdash; versioned, owned and searchable, so the system of record for &ldquo;how Revenue Systems works&rdquo; is one place, not scattered across decks and tribal memory.</p>
+
+    <div style="margin-top:20px; display:flex; gap:18px;">
+      <!-- repo tree -->
+      <div style="flex:0 0 220px; border:1px solid #e7e1f1; border-radius:12px; padding:16px 18px; background:#fcfbfe; align-self:flex-start;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.1em; color:#9893a6; font-weight:700; text-transform:uppercase; margin-bottom:11px;">Repository Structure</div>
+        <div style="font-family:ui-monospace,monospace; font-size:11px; line-height:2; color:#54505f;">
+          <div style="color:var(--accent,#5E33D6); font-weight:600;">revenue-systems/</div>
+          <div style="padding-left:12px;">ââ process/</div>
+          <div style="padding-left:12px;">ââ ownership/</div>
+          <div style="padding-left:12px;">ââ configuration/</div>
+          <div style="padding-left:12px;">ââ integration/</div>
+          <div style="padding-left:12px;">ââ data-reporting/</div>
+          <div style="padding-left:12px;">ââ diagrams/</div>
+        </div>
+      </div>
+      <!-- repo entries -->
+      <div style="flex:1; border:1px solid #e7e1f1; border-radius:12px; overflow:hidden; align-self:flex-start;">
+        <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 0.9fr; background:#f3eff9; font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.06em; font-weight:700; color:#5b5470; text-transform:uppercase;">
+          <div style="padding:10px 12px;">Entry</div>
+          <div style="padding:10px 12px;">Type</div>
+          <div style="padding:10px 12px;">Owner</div>
+          <div style="padding:10px 12px;">Updated</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6;">
+          <div style="padding:10px 12px; font-weight:600;">Handover flow spec</div>
+          <div style="padding:10px 12px; color:#54505f;">Diagram</div>
+          <div style="padding:10px 12px; color:#54505f;">RevOps</div>
+          <div style="padding:10px 12px; color:#54505f;">Q2 &rsquo;26</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+          <div style="padding:10px 12px; font-weight:600;">Traceability matrix</div>
+          <div style="padding:10px 12px; color:#54505f;">Sheet</div>
+          <div style="padding:10px 12px; color:#54505f;">RevOps Sys</div>
+          <div style="padding:10px 12px; color:#54505f;">Q2 &rsquo;26</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6;">
+          <div style="padding:10px 12px; font-weight:600;">Attribution rules</div>
+          <div style="padding:10px 12px; color:#54505f;">Decision tbl</div>
+          <div style="padding:10px 12px; color:#54505f;">RevOps&ndash;Comp</div>
+          <div style="padding:10px 12px; color:#54505f;">Q2 &rsquo;26</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+          <div style="padding:10px 12px; font-weight:600;">Data dictionary</div>
+          <div style="padding:10px 12px; color:#54505f;">Sheet</div>
+          <div style="padding:10px 12px; color:#54505f;">RevOps Sys</div>
+          <div style="padding:10px 12px; color:#54505f;">Q2 &rsquo;26</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6;">
+          <div style="padding:10px 12px; font-weight:600;">Automation inventory</div>
+          <div style="padding:10px 12px; color:#54505f;">Register</div>
+          <div style="padding:10px 12px; color:#54505f;">RevOps Sys</div>
+          <div style="padding:10px 12px; color:#54505f;">Q2 &rsquo;26</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+          <div style="padding:10px 12px; font-weight:600;">Config as code (SFDX)</div>
+          <div style="padding:10px 12px; color:#54505f;">Git repo</div>
+          <div style="padding:10px 12px; color:#54505f;">RevOps Sys</div>
+          <div style="padding:10px 12px; color:#54505f;">Live</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; padding:13px 18px; background:#faf9fc; border:1px solid #ece9f3; border-radius:10px;">
+      <p style="font-size:11.5px; line-height:1.5; color:#54505f; margin:0;"><strong style="color:#2c2a35;">Principle:</strong> each entry has one owner, a version history and a last-reviewed date. Stale entries are flagged automatically &mdash; documentation people can&rsquo;t trust is worse than none.</p>
+    </div>
+
+    <div style="margin-top:16px; display:flex; gap:10px; align-items:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.12em; color:#fff; background:#b3aec0; border-radius:4px; padding:3px 9px; font-weight:700;">ILLUSTRATIVE MOCKUP</div>
+      <p style="font-size:11.5px; line-height:1.5; color:#8b8699; margin:0;">Structure shown to illustrate the repository concept &mdash; tooling and hosting to be agreed with Rev Ops.</p>
+    </div>
+  </div>
+
+  <!-- ============ ANNEX G â AUTOMATION INVENTORY ============ -->
+  <div class="page" style="width:816px; min-height:1056px; margin:36px auto 0; background:#fff; border-radius:3px; box-shadow:0 2px 18px rgba(40,30,70,0.10); padding:48px 64px 48px; position:relative; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:16px; border-bottom:1px solid #ece9f1;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">ANNEX Â· ARTIFACT MOCKUP</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#9893a6; white-space:nowrap;">G1</div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:var(--accent,#5E33D6); font-weight:600; margin-top:26px;">ANNEX G</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:28px; line-height:1.12; letter-spacing:-0.01em; color:#1b1a22; margin:8px 0 0;">Automation Inventory</h2>
+    <p style="font-size:13.5px; line-height:1.55; color:#54505f; max-width:600px; margin:12px 0 0;">A register of every automation that touches the process &mdash; what it is, what fires it and what it does. The list you need before you can safely change any rule, because you can see what else reacts.</p>
+
+    <div style="margin-top:22px; border:1px solid #e7e1f1; border-radius:12px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 0.9fr; background:#f3eff9; font-family:'Plus Jakarta Sans',sans-serif; font-size:9px; letter-spacing:0.06em; font-weight:700; color:#5b5470; text-transform:uppercase;">
+        <div style="padding:11px 12px;">Automation</div>
+        <div style="padding:11px 12px;">Type</div>
+        <div style="padding:11px 12px;">Trigger</div>
+        <div style="padding:11px 12px;">Purpose</div>
+        <div style="padding:11px 12px;">Owner</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:10px 12px; font-weight:600;">Opp Auto-Create</div>
+        <div style="padding:10px 12px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; color:var(--accent,#5E33D6); background:#efe9f7; border-radius:4px; padding:2px 7px; font-weight:600;">FLOW</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Lead qualified</div>
+        <div style="padding:10px 12px; color:#54505f;">One opp per account</div>
+        <div style="padding:10px 12px; color:#54505f;">RevOps</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:10px 12px; font-weight:600;">SDR &rarr; AE Routing</div>
+        <div style="padding:10px 12px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; color:#fff; background:var(--accent,#5E33D6); border-radius:4px; padding:2px 7px; font-weight:600;">LEANDATA</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Owner change</div>
+        <div style="padding:10px 12px; color:#54505f;">Assigns AE, starts SLA</div>
+        <div style="padding:10px 12px; color:#54505f;">RevOps</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:10px 12px; font-weight:600;">Attribution Stamp</div>
+        <div style="padding:10px 12px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; color:#b4453a; background:#f7e7e4; border-radius:4px; padding:2px 7px; font-weight:600;">APEX</span></div>
+        <div style="padding:10px 12px; color:#54505f;"><span style="font-family:ui-monospace,monospace; font-size:9.5px;">SAA_Date</span> set</div>
+        <div style="padding:10px 12px; color:#54505f;">Stamps OSDR / ISR credit</div>
+        <div style="padding:10px 12px; color:#54505f;">RevOps&ndash;Comp</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:10px 12px; font-weight:600;">Required-Field Gate</div>
+        <div style="padding:10px 12px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; color:#1b7a4b; background:#e3f2ea; border-radius:4px; padding:2px 7px; font-weight:600;">VALIDATION</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Stage change</div>
+        <div style="padding:10px 12px; color:#54505f;">Blocks advance w/o fields</div>
+        <div style="padding:10px 12px; color:#54505f;">RevOps</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6;">
+        <div style="padding:10px 12px; font-weight:600;">Account Type Flip</div>
+        <div style="padding:10px 12px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; color:var(--accent,#5E33D6); background:#efe9f7; border-radius:4px; padding:2px 7px; font-weight:600;">FLOW</span></div>
+        <div style="padding:10px 12px; color:#54505f;">First closed-won</div>
+        <div style="padding:10px 12px; color:#54505f;">Prospect &rarr; Customer</div>
+        <div style="padding:10px 12px; color:#54505f;">RevOps</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 0.9fr; font-size:10.5px; line-height:1.35; color:#2c2a35; border-top:1px solid #efeaf6; background:#fcfbfe;">
+        <div style="padding:10px 12px; font-weight:600;">Dedup Guard</div>
+        <div style="padding:10px 12px;"><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; color:#9c6510; background:#f6eddc; border-radius:4px; padding:2px 7px; font-weight:600;">DUPLICATE</span></div>
+        <div style="padding:10px 12px; color:#54505f;">Insert / update</div>
+        <div style="padding:10px 12px; color:#54505f;">Prevents duplicate opps</div>
+        <div style="padding:10px 12px; color:#54505f;">RevOps</div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; display:flex; gap:10px; align-items:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:8.5px; letter-spacing:0.12em; color:#fff; background:#b3aec0; border-radius:4px; padding:3px 9px; font-weight:700;">ILLUSTRATIVE MOCKUP</div>
+      <p style="font-size:11.5px; line-height:1.5; color:#8b8699; margin:0;">Representative automations shown to illustrate the register &mdash; the live inventory would be extracted from Salesforce and LeanData metadata.</p>
+    </div>
+
+    <div style="margin-top:auto; padding-top:32px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; padding-top:18px; border-top:1px solid #ece9f1;">
+        <div>
+          <div style="font-size:14px; font-weight:600; color:#1b1a22;">{{ authorName }}</div>
+          <div style="font-size:12.5px; color:#6b6680; margin-top:1px;">Revenue Systems</div>
+        </div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; letter-spacing:0.16em; color:#b3aec0;">ANNEXES Â· ARTIFACT MOCKUPS</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 880, &quot;height&quot;: 1120 },
+  &quot;accentColor&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#5E33D6&quot;, &quot;options&quot;: [&quot;#5E33D6&quot;, &quot;#0f766e&quot;, &quot;#1d3a8a&quot;, &quot;#3f3f46&quot;] },
+  &quot;authorName&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Fabio MagalhÃ£es&quot; },
+  &quot;preparedFor&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Exercise Stage Â· Remote&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accentColor: this.props.accentColor ?? "#5E33D6",
+      authorName: this.props.authorName ?? "Fabio MagalhÃ£es",
+      preparedFor: this.props.preparedFor ?? "Exercise Stage Â· Remote"
+    };
+  }
+}
+</script>
+</body>
+</html>
