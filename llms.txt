@@ -1,32 +1,37 @@
-# Fábio Magalhães — Go-to-Market Systems Architect · London
+# Fábio Magalhães — RevOps, Revenue Systems & AI Transformation Consultant · London
 
-> Fractional Go-to-Market Systems Architect helping B2B scale-ups fix broken CRM, pipeline, and revenue forecast through AI-powered system design.
+> Fractional RevOps (Revenue Operations) and AI transformation consultant helping B2B SaaS scale-ups build revenue systems: headless architecture, semantic layers, governance, custom MCP servers, and AI agents in production.
 
 ## Who I am
-Fábio Magalhães is a fractional Go-to-Market Systems Architect working with VP Sales, CROs, and Founders at Series A–C B2B SaaS companies in the United Kingdom. Based in London.
+Fábio Magalhães is a fractional RevOps and AI transformation consultant working with VP Sales, CROs, and Founders at Series A–C B2B SaaS companies in the United Kingdom. Based in London.
 
 ## What I do
-I rebuild the operating system behind scale-up revenue growth — fixing the CRM, pipeline, forecast, and execution layer so that sales, CS, and exec teams operate from a single source of truth.
+I rebuild the operating system behind scale-up revenue growth — revenue systems architecture, RevOps process design, and AI transformation. The record lives in one governed place; every team, tool, and AI agent consumes it through the same APIs (headless architecture).
 
-Two engagement models:
-- **Free 1-Week GTM Audit** — Bowtie stage diagnostic (CR1–CR8), CRM data quality review, AI automation opportunity map, stack overlap analysis, and prioritised fix roadmap. No cost, no pitch.
-- **Fractional Go-to-Market Systems Support** — Embedded fractional architect on a monthly retainer. I design, build, and operate your revenue operating system ongoing. No full-time hire required.
+Engagement models:
+- **Free 1-Week AI Transformation Audit** — Bowtie stage diagnostic (CR1–CR8), CRM data quality review, AI-readiness roadmap, stack overlap analysis, and prioritised fix roadmap. No cost, no pitch.
+- **Fractional RevOps / Revenue Systems Support** — Embedded fractional architect on a monthly retainer. I design, build, and operate your revenue operating system ongoing. No full-time hire required.
+- **Full AI Transformation Programme** — Semantic layer, data governance, custom MCP servers, headless architecture, AI use-case portfolio. North-star metric: revenue per employee.
 
 ## Specialisms
-- Go-to-Market systems architecture and CRM design
+- RevOps (Revenue Operations) and revenue systems architecture
+- AI transformation for revenue teams: semantic layers, governance, AI agents in production
+- Headless CRM / headless revenue architecture (decoupled system of record, API-first)
+- Custom MCP (Model Context Protocol) servers — exposing CRM, warehouse, and billing to AI agents securely
+- Custom CRM / system-of-record builds (lean, API-first, AI-native)
 - Salesforce and HubSpot architecture, governance, and cleanup
 - Bowtie model diagnostics (CR1–CR8 customer lifecycle framework)
-- AI sales automation (lead qualification, deal scoring, forecast agents, CS handoff)
+- AI sales automation (deal review agents, lead qualification, forecast agents, churn risk)
 - Pipeline forecasting and revenue visibility
-- Revenue stack integrations (Clay, Gong, BigQuery, Snowflake, n8n, MuleSoft)
-- AI agent deployment at each Bowtie stage
+- Revenue stack integrations (Clay, Gong, ZoomInfo, BigQuery, Snowflake, n8n, MuleSoft)
+- Revenue process discovery, documentation, and business analysis (BRDs, data dictionaries, ownership matrices)
+
+## Case studies
+- Revenue Process Discovery (SDR → AE handover assessment): https://fabiomagalhaes.co.uk/revenue-process-discovery.html
+- Headless Strategy reference architecture: https://fabiomagalhaes.co.uk/headless-strategy.html
 
 ## Who I work with
-Series A to Series C B2B SaaS companies in the UK. Typical buyer: VP Sales, CRO, Head of Sales Operations, or Founder-led GTM at 20–200 employees.
-
-## Services
-1. **Free 1-Week Go-to-Market Systems Audit** — no cost, no obligation
-2. **Fractional Go-to-Market Systems Support** — ongoing monthly retainer, embedded
+Series A to Series C B2B SaaS companies in the UK. Typical buyer: VP Sales, CRO, Head of RevOps / Sales Operations, or Founder-led GTM at 20–200 employees.
 
 ## Contact
 - Website: https://fabiomagalhaes.co.uk
