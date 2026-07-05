@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <title>Fábio Magalhães — spark module mark</title>
+  <rect x="24" y="24" width="30" height="30" rx="8" fill="#0F6E56"/>
+  <rect x="66" y="24" width="30" height="30" rx="8" fill="#1D9E75"/>
+  <rect x="24" y="66" width="30" height="30" rx="8" fill="#5DCAA5"/>
+  <path d="M 81 62 l 5.5 13.5 13.5 5.5 -13.5 5.5 -5.5 13.5 -5.5 -13.5 -13.5 -5.5 13.5 -5.5 z" fill="#7F77DD"/>
+</svg>
