@@ -1559,6 +1559,163 @@
     <h2 style="color:var(--ink);max-width:760px;">One system of record. Any experience on top.</h2>
     <p class="section-sub" style="max-width:580px;color:#6f6558;">Headless means the data core and the interfaces are decoupled. The record lives in one governed place — and every team, tool, and AI agent consumes it through the same APIs. Swap any surface without touching the core.</p>
 
+    <!-- LIVE DEMO: Claude-style headless agent gathering signals -->
+    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#8a7e6d;margin-bottom:12px;">Live Demo — headless in motion</div>
+    <div class="hlive-demo">
+      <div class="hlive-window">
+        <div class="hlive-titlebar">
+          <span class="hlive-tlb r"></span><span class="hlive-tlb y"></span><span class="hlive-tlb g"></span>
+          <span class="hlive-title">Claude — connected to your revenue stack</span>
+        </div>
+        <div class="hlive-body">
+
+          <div class="hlive-msg hlive-user">Which accounts need my attention this week?</div>
+
+          <div class="hlive-sources">
+            <div class="hlive-col">
+              <div class="hlive-chip c0"><img src="logos/salesforce.svg" alt="" class="hlive-icon"><span>Salesforce</span></div>
+              <div class="hlive-connector"><div class="hlive-dot d0"></div></div>
+            </div>
+            <div class="hlive-col">
+              <div class="hlive-chip c1"><img src="logos/hubspot.svg" alt="" class="hlive-icon"><span>HubSpot</span></div>
+              <div class="hlive-connector"><div class="hlive-dot d1"></div></div>
+            </div>
+            <div class="hlive-col">
+              <div class="hlive-chip c2"><img src="logos/gong.svg" alt="" class="hlive-icon"><span>Gong</span></div>
+              <div class="hlive-connector"><div class="hlive-dot d2"></div></div>
+            </div>
+            <div class="hlive-col">
+              <div class="hlive-chip c3"><span class="hlive-icon hlive-icon-text">N</span><span>Nooks</span></div>
+              <div class="hlive-connector"><div class="hlive-dot d3"></div></div>
+            </div>
+            <div class="hlive-col">
+              <div class="hlive-chip c4"><img src="logos/clay.svg" alt="" class="hlive-icon"><span>Clay</span></div>
+              <div class="hlive-connector"><div class="hlive-dot d4"></div></div>
+            </div>
+            <div class="hlive-col">
+              <div class="hlive-chip c5"><img src="logos/zoominfo.svg" alt="" class="hlive-icon"><span>ZoomInfo</span></div>
+              <div class="hlive-connector"><div class="hlive-dot d5"></div></div>
+            </div>
+          </div>
+
+          <div class="hlive-brain">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="24" y="24" width="30" height="30" rx="8" fill="#0F6E56"/><rect x="66" y="24" width="30" height="30" rx="8" fill="#1D9E75"/><rect x="24" y="66" width="30" height="30" rx="8" fill="#5DCAA5"/><path d="M 81 62 l 5.5 13.5 13.5 5.5 -13.5 5.5 -5.5 13.5 -5.5 -13.5 -13.5 -5.5 13.5 -5.5 z" fill="#7F77DD"/></svg>
+          </div>
+
+          <div class="hlive-thinking"><span></span><span></span><span></span></div>
+
+          <div class="hlive-msg hlive-assistant">Pulled live signals from your 6 connected systems. Here's what needs attention this week:</div>
+
+          <div class="hlive-artifact">
+            <div class="hlive-artifact-header">Top Priority Accounts — This Week</div>
+            <div class="hlive-account a0">
+              <div class="hlive-account-top"><span class="hlive-account-name">Acme Corp</span><span class="hlive-tag risk">At risk</span></div>
+              <div class="hlive-account-reason">Renewal in 12 days · health score down 18pts · champion silent 9 days</div>
+            </div>
+            <div class="hlive-account a1">
+              <div class="hlive-account-top"><span class="hlive-account-name">Globex Industries</span><span class="hlive-tag stall">Stalled</span></div>
+              <div class="hlive-account-reason">3 stakeholders gone quiet · deal stalled 45 days</div>
+            </div>
+            <div class="hlive-account a2">
+              <div class="hlive-account-top"><span class="hlive-account-name">Initech</span><span class="hlive-tag opp">Opportunity</span></div>
+              <div class="hlive-account-reason">Expansion signal detected · budget increase mentioned on last call</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .hlive-demo { max-width:640px; margin:0 0 40px; }
+      .hlive-window { background:#fff; border:1px solid rgba(23,23,19,0.14); border-radius:10px; overflow:hidden; box-shadow:0 20px 54px rgba(23,23,19,0.10); }
+      .hlive-titlebar { display:flex; align-items:center; gap:7px; padding:10px 14px; background:#f4efe3; border-bottom:1px solid rgba(23,23,19,0.10); }
+      .hlive-tlb { width:9px; height:9px; border-radius:50%; display:inline-block; }
+      .hlive-tlb.r { background:#e8988a; } .hlive-tlb.y { background:#f0d69a; } .hlive-tlb.g { background:#9fe1cb; }
+      .hlive-title { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#8a7e6d; margin-left:8px; }
+      .hlive-body { padding:22px 22px 24px; min-height:420px; }
+      .hlive-msg { font-size:12.5px; line-height:1.55; padding:9px 13px; border-radius:9px; max-width:82%; opacity:0; }
+      .hlive-msg.hlive-user { background:#0F6E56; color:#fff; margin-left:auto; border-bottom-right-radius:2px; animation:hliveUser 18s infinite ease-in-out; }
+      .hlive-msg.hlive-assistant { background:#f4efe3; color:#171713; border-bottom-left-radius:2px; margin-top:14px; animation:hliveAssistant 18s infinite ease-in-out; }
+      .hlive-sources { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin:18px 0 0; }
+      .hlive-col { display:flex; flex-direction:column; align-items:center; gap:0; width:76px; }
+      .hlive-chip { display:flex; flex-direction:column; align-items:center; gap:4px; padding:8px 6px; border-radius:7px; border:1px solid rgba(23,23,19,0.12); background:#fff; width:100%; transition:none; }
+      .hlive-icon { width:16px; height:16px; object-fit:contain; }
+      .hlive-icon-text { width:16px; height:16px; border-radius:4px; background:#5D3F85; color:#fff; font-size:9px; font-weight:800; display:flex; align-items:center; justify-content:center; font-family:'DM Sans',sans-serif; }
+      .hlive-chip span:last-child { font-size:8px; letter-spacing:0.02em; color:#6f6558; font-family:'DM Mono',monospace; }
+      .hlive-chip.c0 { animation:hliveChip0 18s infinite ease-in-out; }
+      .hlive-chip.c1 { animation:hliveChip1 18s infinite ease-in-out; }
+      .hlive-chip.c2 { animation:hliveChip2 18s infinite ease-in-out; }
+      .hlive-chip.c3 { animation:hliveChip3 18s infinite ease-in-out; }
+      .hlive-chip.c4 { animation:hliveChip4 18s infinite ease-in-out; }
+      .hlive-chip.c5 { animation:hliveChip5 18s infinite ease-in-out; }
+      .hlive-connector { position:relative; width:2px; height:16px; background:rgba(23,23,19,0.10); margin-top:4px; }
+      .hlive-dot { position:absolute; left:50%; top:0; width:6px; height:6px; border-radius:50%; background:#1D9E75; transform:translate(-50%,-50%); opacity:0; }
+      .hlive-dot.d0 { animation:hliveDot0 18s infinite ease-in-out; }
+      .hlive-dot.d1 { animation:hliveDot1 18s infinite ease-in-out; }
+      .hlive-dot.d2 { animation:hliveDot2 18s infinite ease-in-out; }
+      .hlive-dot.d3 { animation:hliveDot3 18s infinite ease-in-out; }
+      .hlive-dot.d4 { animation:hliveDot4 18s infinite ease-in-out; }
+      .hlive-dot.d5 { animation:hliveDot5 18s infinite ease-in-out; }
+      .hlive-brain { display:flex; justify-content:center; margin:6px 0 4px; }
+      .hlive-brain svg { width:30px; height:30px; animation:hliveBrain 18s infinite ease-in-out; }
+      .hlive-thinking { display:flex; justify-content:center; gap:4px; height:14px; opacity:0; animation:hliveThinking 18s infinite ease-in-out; }
+      .hlive-thinking span { width:6px; height:6px; border-radius:50%; background:#7F77DD; animation:hliveThinkingDot 0.9s infinite ease-in-out; }
+      .hlive-thinking span:nth-child(2) { animation-delay:0.15s; }
+      .hlive-thinking span:nth-child(3) { animation-delay:0.3s; }
+      @keyframes hliveThinkingDot { 0%,100%{ transform:translateY(0); opacity:0.4; } 50%{ transform:translateY(-4px); opacity:1; } }
+      .hlive-artifact { margin-top:14px; border:1px solid rgba(125,119,221,0.28); border-left:3px solid #7F77DD; border-radius:8px; padding:14px 16px; background:#fbfaff; opacity:0; animation:hliveArtifact 18s infinite ease-in-out; }
+      .hlive-artifact-header { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:#5D3F85; margin-bottom:10px; }
+      .hlive-account { padding:8px 0; border-top:1px solid rgba(23,23,19,0.08); opacity:0; }
+      .hlive-account:first-of-type { border-top:none; padding-top:0; }
+      .hlive-account.a0 { animation:hliveAcc0 18s infinite ease-in-out; }
+      .hlive-account.a1 { animation:hliveAcc1 18s infinite ease-in-out; }
+      .hlive-account.a2 { animation:hliveAcc2 18s infinite ease-in-out; }
+      .hlive-account-top { display:flex; align-items:center; gap:8px; margin-bottom:3px; }
+      .hlive-account-name { font-weight:700; font-size:12.5px; color:#171713; }
+      .hlive-account-reason { font-size:11px; color:#6f6558; line-height:1.5; }
+      .hlive-tag { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.06em; text-transform:uppercase; padding:2px 7px; border-radius:999px; }
+      .hlive-tag.risk { background:rgba(200,85,48,0.13); color:#8e3328; }
+      .hlive-tag.stall { background:rgba(212,168,83,0.18); color:#8a642b; }
+      .hlive-tag.opp { background:rgba(47,161,126,0.14); color:#166d58; }
+
+      @keyframes hliveUser { 0%,2%{opacity:0;transform:translateY(6px);} 7%{opacity:1;transform:translateY(0);} 91%{opacity:1;} 96%,100%{opacity:0;} }
+      @keyframes hliveAssistant { 0%,47%{opacity:0;transform:translateY(6px);} 53%{opacity:1;transform:translateY(0);} 91%{opacity:1;} 96%,100%{opacity:0;} }
+
+      @keyframes hliveChip0 { 0%,9%{border-color:rgba(23,23,19,0.12);box-shadow:none;} 11%{border-color:#0F6E56;box-shadow:0 0 0 3px rgba(15,110,86,0.16);} 15%{border-color:#0F6E56;box-shadow:0 0 0 3px rgba(15,110,86,0.16);} 18%,100%{border-color:rgba(23,23,19,0.12);box-shadow:none;} }
+      @keyframes hliveChip1 { 0%,13%{border-color:rgba(23,23,19,0.12);box-shadow:none;} 15%{border-color:#e07a2c;box-shadow:0 0 0 3px rgba(224,122,44,0.16);} 19%{border-color:#e07a2c;box-shadow:0 0 0 3px rgba(224,122,44,0.16);} 22%,100%{border-color:rgba(23,23,19,0.12);box-shadow:none;} }
+      @keyframes hliveChip2 { 0%,17%{border-color:rgba(23,23,19,0.12);box-shadow:none;} 19%{border-color:#5D3F85;box-shadow:0 0 0 3px rgba(93,63,133,0.16);} 23%{border-color:#5D3F85;box-shadow:0 0 0 3px rgba(93,63,133,0.16);} 26%,100%{border-color:rgba(23,23,19,0.12);box-shadow:none;} }
+      @keyframes hliveChip3 { 0%,21%{border-color:rgba(23,23,19,0.12);box-shadow:none;} 23%{border-color:#5D3F85;box-shadow:0 0 0 3px rgba(93,63,133,0.16);} 27%{border-color:#5D3F85;box-shadow:0 0 0 3px rgba(93,63,133,0.16);} 30%,100%{border-color:rgba(23,23,19,0.12);box-shadow:none;} }
+      @keyframes hliveChip4 { 0%,25%{border-color:rgba(23,23,19,0.12);box-shadow:none;} 27%{border-color:#b48743;box-shadow:0 0 0 3px rgba(180,135,67,0.18);} 31%{border-color:#b48743;box-shadow:0 0 0 3px rgba(180,135,67,0.18);} 34%,100%{border-color:rgba(23,23,19,0.12);box-shadow:none;} }
+      @keyframes hliveChip5 { 0%,29%{border-color:rgba(23,23,19,0.12);box-shadow:none;} 31%{border-color:#378ADD;box-shadow:0 0 0 3px rgba(55,138,221,0.16);} 35%{border-color:#378ADD;box-shadow:0 0 0 3px rgba(55,138,221,0.16);} 38%,100%{border-color:rgba(23,23,19,0.12);box-shadow:none;} }
+
+      @keyframes hliveDot0 { 0%,10%{opacity:0;top:0;} 12%{opacity:1;top:0;} 15%{opacity:1;top:100%;} 16%,100%{opacity:0;top:100%;} }
+      @keyframes hliveDot1 { 0%,14%{opacity:0;top:0;} 16%{opacity:1;top:0;} 19%{opacity:1;top:100%;} 20%,100%{opacity:0;top:100%;} }
+      @keyframes hliveDot2 { 0%,18%{opacity:0;top:0;} 20%{opacity:1;top:0;} 23%{opacity:1;top:100%;} 24%,100%{opacity:0;top:100%;} }
+      @keyframes hliveDot3 { 0%,22%{opacity:0;top:0;} 24%{opacity:1;top:0;} 27%{opacity:1;top:100%;} 28%,100%{opacity:0;top:100%;} }
+      @keyframes hliveDot4 { 0%,26%{opacity:0;top:0;} 28%{opacity:1;top:0;} 31%{opacity:1;top:100%;} 32%,100%{opacity:0;top:100%;} }
+      @keyframes hliveDot5 { 0%,30%{opacity:0;top:0;} 32%{opacity:1;top:0;} 35%{opacity:1;top:100%;} 36%,100%{opacity:0;top:100%;} }
+
+      @keyframes hliveBrain { 0%,37%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(127,119,221,0));} 42%{transform:scale(1.15);filter:drop-shadow(0 0 10px rgba(127,119,221,0.5));} 48%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(127,119,221,0));} 100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(127,119,221,0));} }
+      @keyframes hliveThinking { 0%,38%{opacity:0;} 41%{opacity:1;} 47%{opacity:1;} 50%,100%{opacity:0;} }
+
+      @keyframes hliveArtifact { 0%,54%{opacity:0;transform:translateY(8px);} 60%{opacity:1;transform:translateY(0);} 91%{opacity:1;} 96%,100%{opacity:0;} }
+      @keyframes hliveAcc0 { 0%,58%{opacity:0;transform:translateX(-4px);} 62%{opacity:1;transform:translateX(0);} 100%{opacity:1;} }
+      @keyframes hliveAcc1 { 0%,62%{opacity:0;transform:translateX(-4px);} 66%{opacity:1;transform:translateX(0);} 100%{opacity:1;} }
+      @keyframes hliveAcc2 { 0%,66%{opacity:0;transform:translateX(-4px);} 70%{opacity:1;transform:translateX(0);} 100%{opacity:1;} }
+
+      @media (max-width:560px) {
+        .hlive-body { padding:18px 16px 20px; min-height:auto; }
+        .hlive-col { width:64px; }
+        .hlive-msg { max-width:92%; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hlive-demo *, .hlive-demo *::before, .hlive-demo *::after { animation:none !important; }
+        .hlive-msg, .hlive-artifact, .hlive-account { opacity:1 !important; transform:none !important; }
+        .hlive-thinking { display:none !important; }
+      }
+    </style>
+
     <!-- Layer 1: Experiences -->
     <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#8a7e6d;margin-bottom:12px;">Experience Layer — composable surfaces</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
