@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="70%">
+      <stop offset="0%" stop-color="#0d6b53"/>
+      <stop offset="30%" stop-color="#1d8a6b"/>
+      <stop offset="68%" stop-color="#3d4f79"/>
+      <stop offset="100%" stop-color="#5d3f85"/>
+    </linearGradient>
+    <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0d69a" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#f0d69a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowCoral" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e88b74" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#e88b74" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <circle cx="1020" cy="120" r="380" fill="url(#glowGold)"/>
+  <circle cx="140" cy="1080" r="420" fill="url(#glowCoral)"/>
+
+  <g opacity="0.05" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="0" y1="800" x2="1200" y2="800"/>
+    <line x1="0" y1="1000" x2="1200" y2="1000"/>
+  </g>
+
+  <!-- logo mark -->
+  <rect x="90" y="90" width="52" height="52" rx="14" fill="#ffffff" opacity="0.95"/>
+  <rect x="154" y="90" width="52" height="52" rx="14" fill="#ffffff" opacity="0.7"/>
+  <rect x="90" y="154" width="52" height="52" rx="14" fill="#ffffff" opacity="0.7"/>
+  <path d="M 205 172 l 9.5 23.5 23.5 9.5 -23.5 9.5 -9.5 23.5 -9.5 -23.5 -23.5 -9.5 23.5 -9.5 z" fill="#f0d69a"/>
+
+  <text x="90" y="420" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="76" fill="#ffffff" letter-spacing="-1">
+    <tspan x="90" dy="0">AI doesn't fail</tspan>
+    <tspan x="90" dy="88">on models.</tspan>
+  </text>
+  <text x="90" y="620" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="76" fill="#f0d69a" letter-spacing="-1">
+    <tspan x="90" dy="0">It fails on</tspan>
+    <tspan x="90" dy="88">foundations.</tspan>
+  </text>
+
+  <line x1="90" y1="760" x2="300" y2="760" stroke="#ffffff" stroke-opacity="0.3" stroke-width="2"/>
+
+  <text x="90" y="830" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="30" fill="#ffffff" opacity="0.92">
+    <tspan x="90" dy="0">Semantic layer. Governance.</tspan>
+    <tspan x="90" dy="42">Custom MCP servers. Headless</tspan>
+    <tspan x="90" dy="42">architecture.</tspan>
+  </text>
+
+  <text x="90" y="1080" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="26" fill="#ffffff" opacity="0.85" letter-spacing="1">HEADLESS REVENUE</text>
+  <text x="90" y="1114" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="20" fill="#f0d69a" opacity="0.85">Revenue Systems &amp; AI Transformation for B2B SaaS</text>
+</svg>
