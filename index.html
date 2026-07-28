@@ -743,6 +743,45 @@
   .chip.purple:hover { border-color:rgba(158,126,216,0.5); background:rgba(158,126,216,0.07); }
   .chip.coral  { border-color:rgba(200,85,48,0.28); color:var(--coral2); background:rgba(200,85,48,0.04); }
 
+  /* ─── TOOL MARQUEE ─── */
+  #tool-marquee {
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px) 0 0 / 120px 120px,
+      var(--bg2);
+    color:var(--text);
+    padding-bottom:56px;
+  }
+  #tool-marquee .section-sub { color:var(--muted2); }
+  .marquee-outer {
+    margin:44px -56px 0;
+    overflow:hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .marquee-track {
+    display:flex; align-items:center; gap:48px;
+    width:max-content;
+    animation: marquee-scroll 46s linear infinite;
+  }
+  .marquee-outer:hover .marquee-track { animation-play-state:paused; }
+  @keyframes marquee-scroll {
+    from { transform:translateX(0); }
+    to   { transform:translateX(-50%); }
+  }
+  .marquee-logo {
+    display:flex; align-items:center; gap:9px;
+    flex-shrink:0;
+    opacity:0.62;
+    filter:grayscale(1) brightness(1.9);
+    transition:opacity 0.25s, filter 0.25s, transform 0.2s;
+  }
+  .marquee-logo:hover { opacity:1; filter:none; transform:translateY(-2px); }
+  .marquee-logo img { height:24px; width:auto; max-width:96px; object-fit:contain; }
+  .marquee-logo span {
+    font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.01em;
+    color:var(--text2); white-space:nowrap;
+  }
+
   /* ─── PROCESS ─── */
   .process-flow { display:flex; align-items:stretch; }
   .process-step { flex:1; padding:32px 28px; background:var(--paper); color:var(--ink); border:1px solid rgba(23,23,19,0.12); border-right:none; transition:background 0.2s; }
@@ -2454,6 +2493,62 @@
     </div>
   </div>
 </section>
+
+<hr class="divider">
+
+<!-- TOOL MARQUEE -->
+<section id="tool-marquee">
+  <div class="section-label">Tools I Use</div>
+  <h2>Hands-on with the <em>full stack</em></h2>
+  <p class="section-sub">Not slideware — tools I run daily across CRM, data, GTM process, and AI.</p>
+</section>
+<div class="marquee-outer">
+  <div class="marquee-track">
+    <div class="marquee-logo"><img src="logos/salesforce.svg" alt="Salesforce"><span>Salesforce</span></div>
+    <div class="marquee-logo"><img src="logos/salesforce.svg" alt="Salesforce Revenue Cloud"><span>Revenue Cloud</span></div>
+    <div class="marquee-logo"><img src="logos/hubspot.svg" alt="HubSpot"><span>HubSpot</span></div>
+    <div class="marquee-logo"><img src="logos/nooks.png" alt="Nooks"><span>Nooks</span></div>
+    <div class="marquee-logo"><img src="logos/clay.svg" alt="Clay"><span>Clay</span></div>
+    <div class="marquee-logo"><img src="logos/gong.svg" alt="Gong"><span>Gong</span></div>
+    <div class="marquee-logo"><img src="logos/bigquery.svg" alt="BigQuery"><span>BigQuery</span></div>
+    <div class="marquee-logo"><img src="logos/tableau.svg" alt="Tableau"><span>Tableau</span></div>
+    <div class="marquee-logo"><img src="logos/captivateiq.png" alt="CaptivateIQ"><span>CaptivateIQ</span></div>
+    <div class="marquee-logo"><img src="logos/leandata.png" alt="LeanData"><span>LeanData</span></div>
+    <div class="marquee-logo"><img src="logos/zoominfo.svg" alt="ZoomInfo"><span>ZoomInfo</span></div>
+    <div class="marquee-logo"><img src="logos/lusha.png" alt="Lusha"><span>Lusha</span></div>
+    <div class="marquee-logo"><img src="logos/gainsight.png" alt="Gainsight"><span>Gainsight</span></div>
+    <div class="marquee-logo"><img src="logos/rocketlane.png" alt="Rocketlane"><span>Rocketlane</span></div>
+    <div class="marquee-logo"><img src="logos/dealhub.png" alt="DealHub"><span>DealHub</span></div>
+    <div class="marquee-logo"><img src="logos/zuora.png" alt="Zuora"><span>Zuora</span></div>
+    <div class="marquee-logo"><img src="logos/mulesoft.svg" alt="MuleSoft"><span>MuleSoft</span></div>
+    <div class="marquee-logo"><img src="logos/claude.svg" alt="Claude"><span>Claude</span></div>
+    <div class="marquee-logo"><img src="logos/openai.svg" alt="OpenAI"><span>OpenAI</span></div>
+    <div class="marquee-logo"><img src="logos/sixsense.png" alt="6sense"><span>6sense</span></div>
+    <div class="marquee-logo"><img src="logos/nrich.png" alt="N.Rich"><span>N.Rich</span></div>
+    <!-- duplicate set for seamless loop -->
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/salesforce.svg" alt=""><span>Salesforce</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/salesforce.svg" alt=""><span>Revenue Cloud</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/hubspot.svg" alt=""><span>HubSpot</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/nooks.png" alt=""><span>Nooks</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/clay.svg" alt=""><span>Clay</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/gong.svg" alt=""><span>Gong</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/bigquery.svg" alt=""><span>BigQuery</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/tableau.svg" alt=""><span>Tableau</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/captivateiq.png" alt=""><span>CaptivateIQ</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/leandata.png" alt=""><span>LeanData</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/zoominfo.svg" alt=""><span>ZoomInfo</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/lusha.png" alt=""><span>Lusha</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/gainsight.png" alt=""><span>Gainsight</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/rocketlane.png" alt=""><span>Rocketlane</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/dealhub.png" alt=""><span>DealHub</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/zuora.png" alt=""><span>Zuora</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/mulesoft.svg" alt=""><span>MuleSoft</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/claude.svg" alt=""><span>Claude</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/openai.svg" alt=""><span>OpenAI</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/sixsense.png" alt=""><span>6sense</span></div>
+    <div class="marquee-logo" aria-hidden="true"><img src="logos/nrich.png" alt=""><span>N.Rich</span></div>
+  </div>
+</div>
 
 <hr class="divider">
 
