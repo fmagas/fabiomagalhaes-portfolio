@@ -30,6 +30,7 @@ Engagement models:
 - Fractional RevOps consultant UK: https://fabiomagalhaes.co.uk/fractional-revops.html
 - AI transformation for revenue teams: https://fabiomagalhaes.co.uk/ai-transformation.html
 - Headless CRM architecture: https://fabiomagalhaes.co.uk/headless-crm.html
+- Full technical architecture (headless system design, AI operating layer, tool stack, certifications): https://fabiomagalhaes.co.uk/how-i-work.html
 
 ## Case studies
 - Revenue Process Discovery (SDR → AE handover assessment): https://fabiomagalhaes.co.uk/revenue-process-discovery.html
@@ -40,6 +41,6 @@ Series A to Series C B2B SaaS companies in the UK. Typical buyer: VP Sales, CRO,
 
 ## Contact
 - Website: https://fabiomagalhaes.co.uk
-- Email: f.magas@gmail.com
+- Email: fabio@headlessrevenue.com
 - LinkedIn: https://www.linkedin.com/in/fabio-pinto-magalhaes-4a812940/
 - Book Free Audit: https://calendar.app.google/jTo2VGZAuLmgHv3L9
