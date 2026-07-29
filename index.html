@@ -451,6 +451,28 @@
     letter-spacing:0.10em; text-transform:uppercase; color:#746a5c;
   }
 
+  /* ─── PERSONA PICKER ─── */
+  .persona-picker {
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    margin:40px 0 4px;
+  }
+  .persona-picker-label {
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em;
+    text-transform:uppercase; color:#746a5c; white-space:nowrap;
+  }
+  .persona-chips { display:flex; gap:8px; flex-wrap:wrap; }
+  .persona-chip {
+    font-family:'DM Sans',sans-serif; font-size:12.5px; font-weight:600;
+    padding:9px 18px; border-radius:999px; border:1px solid var(--border2);
+    background:transparent; color:#50483d; cursor:pointer;
+    transition:border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .persona-chip:hover { border-color:var(--gold2); color:var(--ink); background:rgba(212,168,83,0.06); }
+  .persona-chip.active { background:var(--gold); border-color:var(--gold); color:#fff; }
+  .service-card.persona-highlight {
+    border-color:var(--gold2); box-shadow:0 0 0 3px rgba(212,168,83,0.22), 0 18px 46px rgba(23,23,19,0.06);
+  }
+
   /* ─── CAPABILITY CARDS ─── */
   .caps-grid {
     display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
@@ -1411,6 +1433,14 @@
     <div class="metric-item"><div class="metric-val">40<span>%</span></div><div class="metric-label">Avg Forecast Accuracy Gain</div></div>
     <div class="metric-item"><div class="metric-val">3<span>x</span></div><div class="metric-label">Pipeline Velocity Improvement</div></div>
   </div>
+  <div class="persona-picker">
+    <span class="persona-picker-label">Which best describes you?</span>
+    <div class="persona-chips">
+      <button type="button" class="persona-chip" data-target="svc-fractional">Founder / CRO</button>
+      <button type="button" class="persona-chip" data-target="svc-diagnostic">GTM Ops Leader</button>
+      <button type="button" class="persona-chip" data-target="svc-build">Technical / Build Lead</button>
+    </div>
+  </div>
 </section>
 
 <hr class="divider">
@@ -1421,7 +1451,7 @@
   <h2>How I can <em>plug in</em></h2>
   <p class="section-sub">Flexible support for founders, CROs, GTM leaders, and scale-up teams that need senior systems-of-record leadership without hiring a full-time operator.</p>
   <div class="services-grid">
-    <div class="service-card featured">
+    <div class="service-card featured" id="svc-fractional">
       <div class="service-kicker">Fractional Leadership</div>
       <h3>Fractional Head of GTM Systems</h3>
       <p>Ongoing strategic and operational ownership of the GTM stack: systems of record, forecasting, lifecycle reporting, governance, and the operating cadence around it.</p>
@@ -1432,7 +1462,7 @@
         <li>Hands-on delivery across tooling, process, and reporting</li>
       </ul>
     </div>
-    <div class="service-card">
+    <div class="service-card" id="svc-diagnostic">
       <div class="service-kicker">Diagnostic Sprint</div>
       <h3>Systems-of-Record Audit</h3>
       <p>A focused diagnostic to find where pipeline, forecast, system-of-record hygiene, handoffs, or customer lifecycle motion are breaking.</p>
@@ -1443,7 +1473,7 @@
         <li>Executive-ready findings and fix roadmap</li>
       </ul>
     </div>
-    <div class="service-card">
+    <div class="service-card" id="svc-build">
       <div class="service-kicker">Build & Automate</div>
       <h3>AI + GTM Systems Build</h3>
       <p>Design and implementation of practical automations that reduce manual work, improve data quality, and surface revenue risk earlier.</p>
@@ -2002,6 +2032,19 @@
   }
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closePrivacy();
+  });
+
+  document.querySelectorAll('.persona-chip').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.persona-chip').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.service-card').forEach(function(c) { c.classList.remove('persona-highlight'); });
+      var target = document.getElementById(btn.dataset.target);
+      if (target) {
+        target.classList.add('persona-highlight');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
   });
 </script>
 
