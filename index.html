@@ -950,6 +950,32 @@
   .fade-up:nth-child(1){animation-delay:0.08s}.fade-up:nth-child(2){animation-delay:0.18s}.fade-up:nth-child(3){animation-delay:0.30s}.fade-up:nth-child(4){animation-delay:0.44s}.fade-up:nth-child(5){animation-delay:0.58s}
   @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.35} }
 
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity:0; transform:translateY(26px);
+    transition:opacity 0.7s cubic-bezier(.16,.84,.44,1), transform 0.7s cubic-bezier(.16,.84,.44,1);
+    will-change:opacity, transform;
+  }
+  .reveal.in-view { opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:1; transform:none; transition:none; }
+    .fade-up { animation:none; opacity:1; transform:none; }
+  }
+
+  /* ─── HERO AMBIENT MOTION ─── */
+  #hero { background-size:140% 140%; animation:hero-drift 18s ease-in-out infinite alternate; }
+  @keyframes hero-drift { 0%{background-position:0% 0%;} 100%{background-position:100% 40%;} }
+  .hero-glow { animation:glow-drift-a 9s ease-in-out infinite alternate; }
+  .hero-glow2 { animation:glow-drift-b 11s ease-in-out infinite alternate; }
+  @keyframes glow-drift-a { 0%{transform:translate(0,0);opacity:0.38;} 100%{transform:translate(-24px,14px);opacity:0.55;} }
+  @keyframes glow-drift-b { 0%{transform:translate(0,0);opacity:0.36;} 100%{transform:translate(20px,-12px);opacity:0.5;} }
+  @media (prefers-reduced-motion: reduce) {
+    #hero, .hero-glow, .hero-glow2 { animation:none; }
+  }
+
+  /* ─── ACTIVE NAV STATE ─── */
+  .chapter-nav a.active { background:var(--gold); color:#fff; }
+
   /* ─── RESPONSIVE ─── */
   @media(max-width:1100px){
     .hero-inner { grid-template-columns:1fr; gap:40px; }
@@ -1429,10 +1455,10 @@
 
 <section style="padding:0 56px;">
   <div class="metrics-bar">
-    <div class="metric-item"><div class="metric-val">8<span>+</span></div><div class="metric-label">Years Systems Experience</div></div>
-    <div class="metric-item"><div class="metric-val">£<span>120M</span></div><div class="metric-label">Commercial Systems Managed</div></div>
-    <div class="metric-item"><div class="metric-val">40<span>%</span></div><div class="metric-label">Avg Forecast Accuracy Gain</div></div>
-    <div class="metric-item"><div class="metric-val">3<span>x</span></div><div class="metric-label">Pipeline Velocity Improvement</div></div>
+    <div class="metric-item"><div class="metric-val count-num" data-count-to="8" data-count-tpl="{n}&lt;span&gt;+&lt;/span&gt;">0</div><div class="metric-label">Years Systems Experience</div></div>
+    <div class="metric-item"><div class="metric-val count-num" data-count-to="120" data-count-tpl="&#163;&lt;span&gt;{n}M&lt;/span&gt;">£0M</div><div class="metric-label">Commercial Systems Managed</div></div>
+    <div class="metric-item"><div class="metric-val count-num" data-count-to="40" data-count-tpl="{n}&lt;span&gt;%&lt;/span&gt;">0</div><div class="metric-label">Avg Forecast Accuracy Gain</div></div>
+    <div class="metric-item"><div class="metric-val count-num" data-count-to="3" data-count-tpl="{n}&lt;span&gt;x&lt;/span&gt;">0</div><div class="metric-label">Pipeline Velocity Improvement</div></div>
   </div>
   <div class="persona-picker">
     <span class="persona-picker-label">Which best describes you?</span>
@@ -2047,6 +2073,101 @@
       }
     });
   });
+
+  // ─── SCROLL REVEAL ───
+  (function() {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var groupSelectors = [
+      '.metrics-bar > .metric-item',
+      '.persona-picker',
+      '#services .services-grid > .service-card',
+      '.projects-list > .project-row',
+      '.testimonials-grid > .testimonial-card',
+      '.process-flow > .process-step',
+      '.solution-grid > .solution-card',
+      '#consultation .services-grid > .service-card',
+      '#use-cases > a'
+    ];
+    var els = [];
+    groupSelectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el, i) {
+        el.classList.add('reveal');
+        el.style.transitionDelay = (Math.min(i, 5) * 0.09) + 's';
+        els.push(el);
+      });
+    });
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      els.forEach(function(el) { el.classList.add('in-view'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+  })();
+
+  // ─── ANIMATED METRIC COUNTERS ───
+  (function() {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var counters = document.querySelectorAll('.count-num');
+    function animateCounter(el) {
+      var target = parseFloat(el.dataset.countTo);
+      var tpl = el.dataset.countTpl;
+      if (reduceMotion) { el.innerHTML = tpl.replace('{n}', target); return; }
+      var start = performance.now();
+      var duration = 1100;
+      function frame(now) {
+        var p = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var current = Math.round(target * eased);
+        el.innerHTML = tpl.replace('{n}', current);
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+    if (!counters.length) return;
+    if (!('IntersectionObserver' in window)) {
+      counters.forEach(animateCounter);
+      return;
+    }
+    var cio = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          cio.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function(el) { cio.observe(el); });
+  })();
+
+  // ─── ACTIVE NAV HIGHLIGHT ───
+  (function() {
+    var navLinks = document.querySelectorAll('.chapter-nav a');
+    if (!navLinks.length || !('IntersectionObserver' in window)) return;
+    var map = {};
+    navLinks.forEach(function(a) {
+      var id = a.getAttribute('href').replace('#', '');
+      var sec = document.getElementById(id);
+      if (sec) map[id] = a;
+    });
+    var nio = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var id = entry.target.id;
+        if (!map[id]) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function(a) { a.classList.remove('active'); });
+          map[id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    Object.keys(map).forEach(function(id) { nio.observe(document.getElementById(id)); });
+  })();
 </script>
 
 </body>
