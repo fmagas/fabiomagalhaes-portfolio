@@ -1,0 +1,13 @@
+# Normalise text files, but never touch binaries — line-ending
+# conversion silently corrupts PDFs and images.
+* text=auto
+
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.woff  binary
+*.woff2 binary

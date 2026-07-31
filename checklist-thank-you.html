@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your checklist is ready | Fábio Magalhães</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://fabiomagalhaes.co.uk/checklist-thank-you">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap');
+
+  :root {
+    --bg:      #11110f;
+    --bg2:     #171713;
+    --border:  rgba(216,205,185,0.16);
+    --border2: rgba(143,125,91,0.34);
+    --gold:    oklch(0.62 0.090 73);
+    --gold2:   oklch(0.77 0.105 78);
+    --gold3:   oklch(0.88 0.080 85);
+    --teal2:   oklch(0.70 0.105 168);
+    --text:    #f5efe5;
+    --text2:   #d9d0c2;
+    --muted:   #978c79;
+    --muted2:  #b9ad9b;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:15px; overflow-x:hidden; }
+  body {
+    background:var(--bg); color:var(--text);
+    font-family:'DM Sans',sans-serif; font-size:1rem; line-height:1.65;
+    min-height:100vh; display:flex; flex-direction:column; overflow-x:hidden;
+  }
+  a { color:inherit; }
+
+  nav {
+    padding:14px 56px; display:flex; align-items:center; justify-content:space-between;
+    background:rgba(17,17,15,0.88); border-bottom:1px solid var(--border);
+  }
+  .nav-brand { display:flex; align-items:center; gap:11px; text-decoration:none; }
+  .nav-brand-name { font-weight:600; font-size:14px; letter-spacing:-0.01em; }
+  .nav-back {
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--muted2); text-decoration:none; transition:color 0.2s;
+  }
+  .nav-back:hover { color:var(--text); }
+
+  main { flex:1; display:flex; align-items:center; justify-content:center; padding:80px 24px; position:relative; overflow:hidden; }
+  .glow {
+    position:absolute; top:-140px; right:-140px; width:600px; height:600px;
+    background:radial-gradient(circle, rgba(180,135,67,0.13), transparent 68%);
+    pointer-events:none;
+  }
+  .glow2 {
+    position:absolute; bottom:-200px; left:-180px; width:560px; height:560px;
+    background:radial-gradient(circle, rgba(47,161,126,0.10), transparent 68%);
+    pointer-events:none;
+  }
+
+  .panel { max-width:620px; width:100%; text-align:center; position:relative; z-index:1; }
+
+  .tick {
+    width:62px; height:62px; margin:0 auto 26px; border-radius:50%;
+    background:rgba(47,161,126,0.12); border:1px solid rgba(47,161,126,0.34);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tick svg { width:28px; height:28px; }
+
+  .eyebrow {
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.18em;
+    text-transform:uppercase; color:var(--gold2); margin-bottom:16px;
+  }
+  h1 {
+    font-weight:800; font-size:clamp(30px,4.4vw,46px);
+    letter-spacing:-0.03em; line-height:1.08; margin-bottom:16px;
+  }
+  h1 em { font-family:'Instrument Serif',serif; font-style:italic; color:var(--gold2); font-weight:400; }
+  .lede { color:var(--text2); font-size:16px; line-height:1.7; max-width:470px; margin:0 auto 32px; }
+
+  .btn-primary {
+    font-weight:700; font-size:14.5px; letter-spacing:0.02em; padding:16px 34px;
+    background:var(--gold); color:#08080a; border:none; cursor:pointer; border-radius:3px;
+    text-decoration:none; display:inline-block; font-family:'DM Sans',sans-serif;
+    transition:background 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { background:var(--gold2); transform:translateY(-1px); box-shadow:0 8px 24px rgba(212,168,83,0.25); }
+  .fallback { font-size:12.5px; color:var(--muted); margin-top:16px; }
+  .fallback a { color:var(--muted2); text-underline-offset:3px; }
+
+  .next {
+    margin-top:52px; padding:28px 30px; background:var(--bg2);
+    border:1px solid var(--border); border-radius:4px; text-align:left;
+  }
+  .next h3 { font-size:16px; font-weight:700; margin-bottom:8px; }
+  .next p { font-size:14px; color:var(--muted2); line-height:1.7; margin-bottom:18px; }
+  .btn-ghost {
+    font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em;
+    text-transform:uppercase; padding:12px 22px; background:transparent;
+    color:var(--text2); border:1px solid var(--border2); border-radius:3px;
+    text-decoration:none; display:inline-block; transition:border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .btn-ghost:hover { border-color:var(--gold2); color:var(--text); background:rgba(244,238,229,0.04); }
+
+  footer {
+    border-top:1px solid var(--border); padding:26px 56px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .footer-text { font-size:12px; color:var(--muted); }
+  .footer-status { font-size:12px; color:var(--teal2); }
+
+  @media (max-width:900px) {
+    nav { padding:12px 22px; }
+    footer { padding:22px 22px; }
+    main { padding:60px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34" aria-label="Headless Revenue mark">
+      <path d="M12 8 H7 V26 H12" stroke="#f5efe5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 8 H27 V26 H22" stroke="#f5efe5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="17" cy="17" r="6" stroke="#2fa17e" stroke-width="1.6"/>
+      <circle cx="17" cy="17" r="3.1" fill="#d3aa63"/>
+    </svg>
+    <span class="nav-brand-name">Fábio Magalhães</span>
+  </a>
+  <a class="nav-back" href="/">← Back to site</a>
+</nav>
+
+<main>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  <div class="panel">
+    <div class="tick">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2fa17e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+    </div>
+
+    <div class="eyebrow">You're In</div>
+    <h1>Your checklist is <em>ready</em>.</h1>
+    <p class="lede">The download should start automatically. If it doesn't, grab it below.</p>
+
+    <a class="btn-primary" href="/guides/headless-crm-readiness-checklist.pdf" download>Download the checklist (PDF)</a>
+    <p class="fallback">Trouble downloading? <a href="/guides/headless-crm-readiness-checklist.pdf" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+
+    <div class="next">
+      <h3>When you have your score</h3>
+      <p>If the total lands under 26, the useful conversation is about what to fix first — not about tooling. Bring your score to a 30-minute architecture review and we'll walk the two lowest dimensions. You'll leave with a prioritised list whether or not we work together.</p>
+      <a class="btn-ghost" href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener">Book a 30-min review →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="footer-text">© 2026 Fábio Magalhães · Systems of Record &amp; AI GTM Architecture</span>
+  <span class="footer-status">Available for engagements</span>
+</footer>
+
+<script>
+  // Nudge the download without navigating away from this page.
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var a = document.createElement('a');
+      a.href = '/guides/headless-crm-readiness-checklist.pdf';
+      a.download = 'headless-crm-readiness-checklist.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, 700);
+  });
+</script>
+
+</body>
+</html>
