@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fábio Magalhães — RevOps, Revenue Systems & AI Transformation Consultant</title>
+<title>Fábio Magalhães — Revenue & Enterprise Systems Architect</title>
 
 <!-- Favicon: spark module mark -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect x='24' y='24' width='30' height='30' rx='8' fill='%230F6E56'/%3E%3Crect x='66' y='24' width='30' height='30' rx='8' fill='%231D9E75'/%3E%3Crect x='24' y='66' width='30' height='30' rx='8' fill='%235DCAA5'/%3E%3Cpath d='M 81 62 l 5.5 13.5 13.5 5.5 -13.5 5.5 -5.5 13.5 -5.5 -13.5 -13.5 -5.5 13.5 -5.5 z' fill='%237F77DD'/%3E%3C/svg%3E">
@@ -12,16 +12,16 @@
 <meta name="google-site-verification" content="b5deCtJZ2OH82CRNHTLg9hw-W3G-78PIlwXaEy-auLE" />
 
 <!-- ─── SEO META ─── -->
-<meta name="description" content="Fractional RevOps and AI transformation consultant for B2B SaaS scale-ups in the UK. Revenue systems architecture, headless CRM strategy, custom MCP servers, semantic layers, and AI agents in production.">
-<meta name="keywords" content="RevOps, revenue operations consultant, revenue systems, AI transformation, headless CRM, headless architecture, fractional RevOps UK, revenue systems architect, MCP servers, semantic layer, Salesforce, HubSpot, AI agents, B2B SaaS">
+<meta name="description" content="Revenue & Enterprise Systems Architect. I design the architecture connecting Salesforce, CRM, data, CPQ, billing, integrations and AI — for enterprise platform leadership and advisory engagements across B2B SaaS and enterprise organisations.">
+<meta name="keywords" content="revenue systems architect, enterprise systems architect, Salesforce architecture, CRM architecture, enterprise platforms, revenue architecture, GTM systems, commercial systems, enterprise applications, AI transformation, Salesforce platform strategy, revenue technology, data architecture, CPQ, lead-to-cash">
 <meta name="author" content="Fábio Magalhães">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://fabiomagalhaes.co.uk/">
 
 <!-- ─── OPEN GRAPH (LinkedIn, Slack, social previews) ─── -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Fábio Magalhães — RevOps, Revenue Systems & AI Transformation">
-<meta property="og:description" content="Fractional RevOps and AI transformation for B2B SaaS scale-ups. Headless revenue architecture, custom MCP servers, and AI agents in production.">
+<meta property="og:title" content="Fábio Magalhães — Revenue & Enterprise Systems Architect">
+<meta property="og:description" content="I design the architecture behind how companies sell, serve and scale — Salesforce, revenue platforms, data architecture and AI-enabled workflows, connected into one operating architecture.">
 <meta property="og:url" content="https://fabiomagalhaes.co.uk/">
 <meta property="og:site_name" content="Fábio Magalhães">
 <meta property="og:locale" content="en_GB">
@@ -29,8 +29,8 @@
 
 <!-- ─── TWITTER / X CARD ─── -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Fábio Magalhães — RevOps & AI Transformation">
-<meta name="twitter:description" content="Fractional RevOps, revenue systems, headless architecture, and AI transformation for B2B SaaS scale-ups in the UK.">
+<meta name="twitter:title" content="Fábio Magalhães — Revenue & Enterprise Systems Architect">
+<meta name="twitter:description" content="I design the architecture behind how companies sell, serve and scale — Salesforce, revenue platforms, data architecture and AI-enabled workflows.">
 
 <!-- ─── SCHEMA: Person + Professional Service ─── -->
 <script type="application/ld+json">
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Fábio Magalhães",
-  "jobTitle": "Fractional RevOps & AI Transformation Consultant",
+  "jobTitle": "Revenue & Enterprise Systems Architect",
   "url": "https://fabiomagalhaes.co.uk",
   "image": "https://fabiomagalhaes.co.uk/headshot.jpg",
   "email": "fabio@headlessrevenue.com",
@@ -46,20 +46,25 @@
     "https://www.linkedin.com/in/fabiomagalhaes"
   ],
   "knowsAbout": [
-    "Revenue Operations (RevOps)",
-    "Revenue Systems Architecture",
+    "Enterprise Platform Strategy",
+    "Salesforce Architecture",
+    "Revenue Architecture",
+    "CRM Architecture",
+    "Data Architecture & Governance",
+    "Master Data Management (MDM)",
+    "CPQ & Lead-to-Cash",
+    "Enterprise Integrations",
     "AI Transformation",
     "Headless CRM Architecture",
     "Model Context Protocol (MCP) Servers",
     "Semantic Layers",
-    "Data Governance",
-    "Bowtie Model",
+    "Salesforce DevOps & Release Governance",
+    "Bowtie Revenue Model",
     "AI Agents",
     "Salesforce",
     "HubSpot",
     "B2B SaaS",
-    "Forecast Accuracy",
-    "Pipeline Visibility"
+    "Enterprise Applications"
   ],
   "areaServed": {
     "@type": "Country",
@@ -517,6 +522,13 @@
     display:grid; grid-template-columns:1.1fr 1fr 1fr;
     gap:14px; align-items:stretch;
   }
+  .architect-grid { grid-template-columns:repeat(4,1fr); }
+  .architect-grid .service-card h3 { font-size:19px; }
+  #services .service-card h3 { color:var(--ink); }
+  #services .service-card p { color:#50483d; }
+  #services .service-list li { color:#6f6558; }
+  @media(max-width:1100px){ .architect-grid { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:560px){ .architect-grid { grid-template-columns:1fr; } }
   .service-card {
     background:#fff8ed; color:var(--ink);
     border:1px solid rgba(23,23,19,0.12);
@@ -858,6 +870,27 @@
 
   /* ─── SERVICES / CONSULTATION ─── */
   #consultation { background:var(--bg2); }
+  .leadership-strip {
+    display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+    margin-top:36px; padding:22px 26px;
+    border:1px solid var(--border); border-radius:6px;
+    background:rgba(244,238,229,0.03);
+  }
+  .leadership-strip-kicker {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--gold2); margin-bottom:8px;
+  }
+  .leadership-strip-text p { font-size:13px; line-height:1.65; color:var(--text2); max-width:640px; margin:0; }
+  .leadership-strip-link {
+    font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; color:var(--text);
+    white-space:nowrap; text-decoration:none; border-bottom:1px solid var(--border2); padding-bottom:2px;
+    transition:color 0.2s, border-color 0.2s;
+  }
+  .leadership-strip-link:hover { color:var(--gold2); border-color:var(--gold2); }
+  .consultation-subhead {
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--muted); margin:40px 0 14px;
+  }
   #consultation .services-grid {
     display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px;
   }
@@ -1158,6 +1191,7 @@
   #capabilities,
   #services,
   #projects,
+  #transformations,
   #testimonials,
   #process,
   #consultation,
@@ -1185,6 +1219,7 @@
   #services h2,
   #use-cases h2,
   #projects h2,
+  #transformations h2,
   #testimonials h2,
   #stack h2,
   #process h2,
@@ -1197,6 +1232,7 @@
   #services .section-sub,
   #use-cases .section-sub,
   #projects .section-sub,
+  #transformations .section-sub,
   #testimonials .section-sub,
   #stack .section-sub,
   #process .section-sub,
@@ -1238,6 +1274,25 @@
   #projects .project-cell-label,
   #projects .project-sector,
   #projects .project-metric-label { color:#7b7163; }
+
+  #transformations .projects-list {
+    background:rgba(23,23,19,0.12);
+    border-color:rgba(23,23,19,0.12);
+  }
+  #transformations .project-row {
+    background:#fff8ed;
+  }
+  #transformations .project-row:hover {
+    background:#fffdf6;
+  }
+  #transformations .project-cell {
+    color:#50483d;
+    border-right-color:rgba(23,23,19,0.10);
+  }
+  #transformations .project-company { color:var(--ink); }
+  #transformations .project-cell-label,
+  #transformations .project-sector,
+  #transformations .project-metric-label { color:#7b7163; }
 
   #stack .stack-group-label {
     color:#6f6558;
@@ -1366,11 +1421,10 @@
     <span class="nav-brand-name">Fábio Magalhães</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">What I Do</a></li>
-    <li><a href="#projects">Results</a></li>
+    <li><a href="#services">What I Architect</a></li>
+    <li><a href="#transformations">Transformations</a></li>
+    <li><a href="#projects">Outcomes</a></li>
     <li><a href="#process">How I Work</a></li>
-    <li><a href="#solutions">Solutions</a></li>
-    <li><a href="#use-cases">Under the Hood</a></li>
     <li><a href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener" class="nav-cta">Book Free Audit</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1384,76 +1438,76 @@
   <div class="hero-inner">
     <div class="hero-copy">
       <img src="headshot.jpg" alt="Fábio Magalhães" width="76" height="76" fetchpriority="high" decoding="async" class="hero-headshot fade-up">
-      <div class="hero-badge fade-up">1-Week Free Audit · Fractional GTM Systems Support · Limited Slots</div>
-      <div class="hero-eyebrow fade-up">RevOps · Revenue Systems · AI Transformation · Headless Architecture</div>
-      <h1 class="fade-up">I rebuild the <em>operating system</em> behind scale-up growth.</h1>
-      <p class="hero-sub fade-up">Fractional RevOps and AI transformation for B2B SaaS scale-ups. I design revenue systems — headless architecture, Bowtie diagnostics, and AI agents in production — so forecast, pipeline, churn, and execution live in one operating layer.</p>
+      <div class="hero-badge fade-up">Revenue &amp; Enterprise Systems Architect</div>
+      <div class="hero-eyebrow fade-up">Enterprise Platforms · Revenue Architecture · Salesforce · Data · AI Transformation</div>
+      <h1 class="fade-up">I design the <em>architecture</em> behind how companies sell, serve and scale.</h1>
+      <p class="hero-sub fade-up">I lead the design and transformation of Salesforce, revenue platforms, data architecture and AI-enabled workflows — connecting Sales, Marketing, Customer Success, Finance and enterprise systems into one scalable operating architecture.</p>
       <div class="hero-ctas fade-up" style="flex-direction:column;align-items:flex-start;gap:16px;">
         <a href="https://calendar.app.google/jTo2VGZAuLmgHv3L9" target="_blank" rel="noopener" class="btn-mega">Book Free Audit →</a>
         <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
-          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#746a5c;">Free · 1 week · AI-readiness roadmap included</span>
-          <a href="#solutions" class="btn-ghost" style="padding:9px 18px;font-size:10px;">See the full programme ↓</a>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#746a5c;">Free · 1 week · architecture-readiness roadmap included</span>
+          <a href="#leadership" class="btn-ghost" style="padding:9px 18px;font-size:10px;">Leadership Opportunities →</a>
         </div>
       </div>
       <div class="hero-tags fade-up">
-        <span class="tag">Systems of Record</span>
-        <span class="tag">Salesforce / HubSpot</span>
-        <span class="tag">Gong Revenue Intelligence</span>
-        <span class="tag">Clay Prospecting</span>
-        <span class="tag">Bowtie Lifecycle Model</span>
-        <span class="tag">Claude Workspace</span>
-        <span class="tag">Pipeline Forecasting</span>
+        <span class="tag">Enterprise Platform Strategy</span>
+        <span class="tag">Salesforce Architecture</span>
+        <span class="tag">Revenue Architecture</span>
+        <span class="tag">Data Governance &amp; MDM</span>
+        <span class="tag">CPQ &amp; Lead-to-Cash</span>
+        <span class="tag">AI Architecture &amp; Agents</span>
       </div>
     </div>
-    <div class="control-panel fade-up" aria-label="GTM system health snapshot">
-      <div class="panel-kicker">GTM System Health</div>
-      <div class="panel-title">A control-room view of where growth is leaking.</div>
+    <div class="control-panel fade-up" aria-label="Enterprise platform health snapshot">
+      <div class="panel-kicker">Enterprise Platform Health</div>
+      <div class="panel-title">A control-room view of where the architecture is leaking.</div>
       <div class="signal-list">
         <div class="signal-row">
           <div>
-            <div class="signal-name">Forecast Confidence</div>
-            <div class="signal-meta">CR4 · board number risk</div>
+            <div class="signal-name">Data Governance</div>
+            <div class="signal-meta">ownership, MDM, field-level trust</div>
           </div>
           <div class="signal-status risk">Fix</div>
         </div>
         <div class="signal-row">
           <div>
-            <div class="signal-name">Pipeline Conversion</div>
-            <div class="signal-meta">CR2–3 · qualification quality</div>
+            <div class="signal-name">Integration Reliability</div>
+            <div class="signal-meta">API contracts, sync failures</div>
           </div>
           <div class="signal-status watch">Watch</div>
         </div>
         <div class="signal-row">
           <div>
-            <div class="signal-name">System-of-Record Hygiene</div>
-            <div class="signal-meta">stage gates · data ownership</div>
+            <div class="signal-name">Platform Release Governance</div>
+            <div class="signal-meta">DevOps, change control, incidents</div>
           </div>
           <div class="signal-status risk">Fix</div>
         </div>
         <div class="signal-row">
           <div>
-            <div class="signal-name">AI Automation Layer</div>
-            <div class="signal-meta">alerts · scoring · next actions</div>
+            <div class="signal-name">AI Governance Layer</div>
+            <div class="signal-meta">agent scope, human intervention</div>
           </div>
           <div class="signal-status live">Live</div>
         </div>
       </div>
       <div class="panel-footer">
         <div class="panel-score">7d</div>
-        <div class="panel-caption">Systems audit to map the Bowtie, expose operational debt, and define the highest-value service path.</div>
+        <div class="panel-caption">Architecture audit to map the platform, expose governance debt, and define the highest-value fix path.</div>
       </div>
     </div>
   </div>
 </section>
 
 <div class="chapter-nav" aria-label="Page chapters">
-  <a href="#services">What I Do</a>
-  <a href="#projects">Results</a>
+  <a href="#services">What I Architect</a>
+  <a href="#transformations">Transformations</a>
+  <a href="#projects">Outcomes</a>
   <a href="#testimonials">What People Say</a>
   <a href="#process">How I Work</a>
   <a href="#use-cases">Under the Hood</a>
   <a href="#solutions">Solutions</a>
-  <a href="#consultation">Start Here</a>
+  <a href="#consultation">Engage</a>
   <a href="#contact">Contact</a>
 </div>
 
@@ -1461,61 +1515,120 @@
 
 <section style="padding:0 56px;">
   <div class="metrics-bar">
-    <div class="metric-item"><div class="metric-val count-num" data-count-to="8" data-count-tpl="{n}&lt;span&gt;+&lt;/span&gt;">0</div><div class="metric-label">Years Systems Experience</div></div>
-    <div class="metric-item"><div class="metric-val count-num" data-count-to="120" data-count-tpl="&#163;&lt;span&gt;{n}M&lt;/span&gt;">£0M</div><div class="metric-label">Commercial Systems Managed</div></div>
-    <div class="metric-item"><div class="metric-val count-num" data-count-to="40" data-count-tpl="{n}&lt;span&gt;%&lt;/span&gt;">0</div><div class="metric-label">Avg Forecast Accuracy Gain</div></div>
-    <div class="metric-item"><div class="metric-val count-num" data-count-to="3" data-count-tpl="{n}&lt;span&gt;x&lt;/span&gt;">0</div><div class="metric-label">Pipeline Velocity Improvement</div></div>
+    <div class="metric-item"><div class="metric-val count-num" data-count-to="7000" data-count-tpl="{n}&lt;span&gt;+&lt;/span&gt;">0</div><div class="metric-label">Salesforce Users Governed</div></div>
+    <div class="metric-item"><div class="metric-val count-num" data-count-to="100" data-count-tpl="{n}&lt;span&gt;+&lt;/span&gt;">0</div><div class="metric-label">Global Business Units</div></div>
+    <div class="metric-item"><div class="metric-val count-num" data-count-to="3" data-count-tpl="&#36;&lt;span&gt;{n}M&lt;/span&gt;">$0M</div><div class="metric-label">Technology Portfolio</div></div>
+    <div class="metric-item"><div class="metric-val count-num" data-count-to="40" data-count-tpl="{n}&lt;span&gt;%&lt;/span&gt;">0</div><div class="metric-label">Reduction in Platform Incidents</div></div>
   </div>
   <div class="persona-picker">
     <span class="persona-picker-label">Which best describes you?</span>
     <div class="persona-chips">
-      <button type="button" class="persona-chip" data-target="svc-fractional">Founder / CRO</button>
-      <button type="button" class="persona-chip" data-target="svc-diagnostic">GTM Ops Leader</button>
-      <button type="button" class="persona-chip" data-target="svc-build">Technical / Build Lead</button>
+      <button type="button" class="persona-chip" data-target="arch-platform">CIO / Technology Director</button>
+      <button type="button" class="persona-chip" data-target="arch-salesforce">Salesforce / CRM Leader</button>
+      <button type="button" class="persona-chip" data-target="arch-revenue">CRO / Revenue Leader</button>
+      <button type="button" class="persona-chip" data-target="arch-ai">Founder / PE Operator</button>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- SERVICES -->
+<!-- WHAT I ARCHITECT -->
 <section id="services">
-  <div class="section-label">What I Do</div>
-  <h2>How I can <em>plug in</em></h2>
-  <p class="section-sub">Flexible support for founders, CROs, GTM leaders, and scale-up teams that need senior systems-of-record leadership without hiring a full-time operator.</p>
-  <div class="services-grid">
-    <div class="service-card featured" id="svc-fractional">
-      <div class="service-kicker">Fractional Leadership</div>
-      <h3>Fractional Head of GTM Systems</h3>
-      <p>Ongoing strategic and operational ownership of the GTM stack: systems of record, forecasting, lifecycle reporting, governance, and the operating cadence around it.</p>
+  <div class="section-label">What I Architect</div>
+  <h2>One <em>architecture</em>, four domains.</h2>
+  <p class="section-sub">Enterprise platforms, Salesforce, revenue systems and AI — designed and governed as one connected architecture, not four separate consulting tracks.</p>
+  <div class="services-grid architect-grid">
+    <div class="service-card" id="arch-platform">
+      <div class="service-kicker">01 · Enterprise Platform Strategy</div>
+      <h3>Platform Strategy</h3>
+      <p>Target-state architecture, platform roadmaps, and the governance that keeps investment decisions — build vs buy, vendor strategy, platform health — grounded in how the business actually runs.</p>
       <ul class="service-list">
-        <li>Systems-of-record roadmap and prioritisation</li>
-        <li>System-of-record governance, data ownership, and stage logic</li>
-        <li>Weekly operating rhythm with Sales, CS, Finance, and leadership</li>
-        <li>Hands-on delivery across tooling, process, and reporting</li>
+        <li>Target architecture &amp; roadmaps</li>
+        <li>Platform governance &amp; investment decisions</li>
+        <li>Build vs buy, vendor strategy</li>
+        <li>Platform health &amp; reliability</li>
       </ul>
     </div>
-    <div class="service-card" id="svc-diagnostic">
-      <div class="service-kicker">Diagnostic Sprint</div>
-      <h3>Systems-of-Record Audit</h3>
-      <p>A focused diagnostic to find where pipeline, forecast, system-of-record hygiene, handoffs, or customer lifecycle motion are breaking.</p>
+    <div class="service-card" id="arch-salesforce">
+      <div class="service-kicker">02 · Salesforce &amp; CRM Architecture</div>
+      <h3>Salesforce &amp; CRM</h3>
+      <p>Salesforce and CRM architecture at scale — data models, integration and system-of-record design, backed by Centre of Excellence practice: DevOps, release governance, platform standards.</p>
       <ul class="service-list">
-        <li>Bowtie stage audit across CR1–CR8</li>
-        <li>System-of-record, data quality, and workflow review</li>
-        <li>Automation opportunity map</li>
-        <li>Executive-ready findings and fix roadmap</li>
+        <li>Salesforce architecture &amp; data models</li>
+        <li>Integration &amp; MDM</li>
+        <li>System-of-record design</li>
+        <li>Salesforce CoE, DevOps &amp; release governance</li>
       </ul>
     </div>
-    <div class="service-card" id="svc-build">
-      <div class="service-kicker">Build & Automate</div>
-      <h3>AI + GTM Systems Build</h3>
-      <p>Design and implementation of practical automations that reduce manual work, improve data quality, and surface revenue risk earlier.</p>
+    <div class="service-card" id="arch-revenue">
+      <div class="service-kicker">03 · Revenue Architecture</div>
+      <h3>Revenue Architecture</h3>
+      <p>The architecture connecting acquisition through renewal — lead-to-cash, CPQ, billing, routing and attribution — so Sales, Marketing, CS and Finance operate off one revenue data model.</p>
       <ul class="service-list">
-        <li>Forecast, hygiene, churn, and deal-risk agents</li>
-        <li>Salesforce, HubSpot, Gong, Clay, Claude Workspace, n8n, MuleSoft, and warehouse integrations</li>
-        <li>Dashboards that support real operating decisions</li>
-        <li>Documentation and handover for internal ownership</li>
+        <li>Lead-to-cash &amp; customer lifecycle</li>
+        <li>CPQ, billing &amp; routing</li>
+        <li>Attribution &amp; revenue data</li>
+        <li>Sales / Marketing / CS / Finance integration</li>
       </ul>
+    </div>
+    <div class="service-card" id="arch-ai">
+      <div class="service-kicker">04 · AI Architecture</div>
+      <h3>AI Architecture</h3>
+      <p>AI extended into the architecture, not bolted on: semantic layers, agents and workflow redesign through governed APIs and MCP — with human intervention built in by design.</p>
+      <ul class="service-list">
+        <li>Semantic layer &amp; AI agents</li>
+        <li>Workflow redesign &amp; automation</li>
+        <li>MCP / APIs &amp; governance</li>
+        <li>Human intervention by design</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SELECTED TRANSFORMATIONS -->
+<section id="transformations">
+  <div class="section-label">Selected Transformations</div>
+  <h2>Architecture in the <em>real world</em></h2>
+  <p class="section-sub">Enterprise-scale platform work across global organisations — where I owned it, not just advised on it.</p>
+  <div class="projects-header">
+    <div class="proj-th">Organisation</div>
+    <div class="proj-th">Scope of Ownership</div>
+    <div class="proj-th">Architecture / Systems</div>
+    <div class="proj-th">Outcome</div>
+  </div>
+  <div class="projects-list">
+    <div class="project-row">
+      <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">Hilton</div><div class="project-sector">Global Hospitality Enterprise</div></div>
+      <div class="project-cell"><div class="project-cell-label">Scope</div>Enterprise Salesforce governance across a 7,000+ user, 100+ business unit global estate — platform standards, access model, and release process for a system that size demands.</div>
+      <div class="project-cell"><div class="project-cell-label">Architecture</div>Salesforce Platform Governance · Access &amp; Release Model</div>
+      <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">7,000+</div><div class="project-metric-label">Salesforce users governed</div></div>
+    </div>
+    <div class="project-row">
+      <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">Farfetch</div><div class="project-sector">Global Luxury E-Commerce</div></div>
+      <div class="project-cell"><div class="project-cell-label">Scope</div>Salesforce Product Ownership within the Centre of Excellence — data governance and quality resolution across the CRM estate.</div>
+      <div class="project-cell"><div class="project-cell-label">Architecture</div>Salesforce CoE · Data Governance</div>
+      <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">2,500+</div><div class="project-metric-label">Data discrepancies resolved</div></div>
+    </div>
+    <div class="project-row">
+      <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">RealVNC</div><div class="project-sector">Enterprise Software</div></div>
+      <div class="project-cell"><div class="project-cell-label">Scope</div>Platform modernisation spanning Salesforce, MuleSoft and Zuora — integration architecture and release discipline across the commercial stack.</div>
+      <div class="project-cell"><div class="project-cell-label">Architecture</div>Salesforce · MuleSoft · Zuora</div>
+      <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">40%</div><div class="project-metric-label">Reduction in platform incidents</div></div>
+    </div>
+    <div class="project-row">
+      <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">Staffbase</div><div class="project-sector">Enterprise SaaS</div></div>
+      <div class="project-cell"><div class="project-cell-label">Scope</div>Enterprise revenue platform strategy — Salesforce, CPQ, data and AI — owning a technology portfolio at real budget scale.</div>
+      <div class="project-cell"><div class="project-cell-label">Architecture</div>Salesforce · CPQ · Data · AI</div>
+      <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">$3M</div><div class="project-metric-label">Technology portfolio</div></div>
+    </div>
+    <div class="project-row">
+      <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">Lunio</div><div class="project-sector">B2B SaaS</div></div>
+      <div class="project-cell"><div class="project-cell-label">Scope</div>Revenue methodology implementation — MEDDPIC qualification framework and the Bowtie lifecycle model embedded into the operating system.</div>
+      <div class="project-cell"><div class="project-cell-label">Architecture</div>MEDDPIC · Bowtie Model</div>
+      <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">Org-wide</div><div class="project-metric-label">MEDDPIC &amp; Bowtie adoption</div></div>
     </div>
   </div>
 </section>
@@ -1524,9 +1637,9 @@
 
 <!-- CASE STUDIES -->
 <section id="projects">
-  <div class="section-label">Results</div>
-  <h2>Selected <em>outcomes</em></h2>
-  <p class="section-sub">Real systems, real constraints, measurable results. Each engagement started with a broken Bowtie stage and ended with a scalable system.</p>
+  <div class="section-label">Business Outcomes</div>
+  <h2>Architecture that <em>moves the numbers</em></h2>
+  <p class="section-sub">Architecture is not the objective by itself. Real systems, real constraints — each engagement started with a broken revenue system and ended with measurable business results.</p>
   <div class="projects-header">
     <div class="proj-th">Context</div>
     <div class="proj-th">Problem → Action</div>
@@ -1536,13 +1649,13 @@
   <div class="projects-list">
     <div class="project-row">
       <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">FinTech Scale-up</div><div class="project-sector">Series B · SaaS · London</div></div>
-      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>Forecast missing by 40%+ (CR4 broken). No single source of truth. Rebuilt the system-of-record data model, stage-gate logic, and AI forecast agent layered on rep input.</div>
+      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>Forecast missing by 40%+. No single source of truth. Rebuilt the system-of-record data model, stage-gate logic, and AI forecast agent layered on rep input.</div>
       <div class="project-cell"><div class="project-cell-label">Systems Built</div>CPQ · AI Forecast Agent · Gong integration · Board dashboard</div>
       <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">+40%</div><div class="project-metric-label">Forecast accuracy in 90 days</div></div>
     </div>
     <div class="project-row">
       <div class="project-cell"><div class="project-cell-label">Organisation</div><div class="project-company">Enterprise SaaS</div><div class="project-sector">Series C · B2B · £80M ARR</div></div>
-      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>Pipeline coverage 1.8x (CR2–3 broken). Reps sandbagging, poor qualification. Designed MEDDPIC CRM scoring, automated hygiene alerts, Clay ICP enrichment.</div>
+      <div class="project-cell"><div class="project-cell-label">Problem → Action</div>Pipeline coverage 1.8x. Reps sandbagging, poor qualification. Designed MEDDPIC CRM scoring, automated hygiene alerts, Clay ICP enrichment.</div>
       <div class="project-cell"><div class="project-cell-label">Systems Built</div>MEDDPIC agent · Gong scorecards · Clay ICP · Hygiene automation</div>
       <div class="project-cell"><div class="project-cell-label">Outcome</div><div class="project-metric">3.4x</div><div class="project-metric-label">Pipeline coverage in 60 days</div></div>
     </div>
@@ -1624,7 +1737,7 @@
     <div class="process-step">
       <div class="process-num">01</div>
       <div class="process-name">Diagnose</div>
-      <div class="process-desc">Map the Bowtie. Find the broken CR. Audit system data, process gaps, system misalignment. No assumptions.</div>
+      <div class="process-desc">Map the architecture. Find where governance and data ownership break down. Audit systems, process gaps, misalignment. No assumptions.</div>
     </div>
     <div class="process-connector">›</div>
     <div class="process-step">
@@ -1636,7 +1749,7 @@
     <div class="process-step">
       <div class="process-num">03</div>
       <div class="process-name">Automate</div>
-      <div class="process-desc">Deploy AI agents at each broken Bowtie stage. Replace manual work with intelligent, measurable workflows.</div>
+      <div class="process-desc">Deploy AI agents at each governance gap in the architecture. Replace manual work with intelligent, measurable workflows.</div>
     </div>
     <div class="process-connector">›</div>
     <div class="process-step">
@@ -1699,8 +1812,18 @@
 <!-- SERVICES / CONSULTATION -->
 <section id="consultation">
   <div class="section-label">How to Work Together</div>
-  <h2>Two ways to <em>start</em></h2>
-  <p class="section-sub">Start free to understand where your GTM system is breaking. Then choose the right engagement model to fix it.</p>
+  <h2>Two ways to <em>engage</em></h2>
+  <p class="section-sub">Permanent leadership or advisory and fractional — different buyers of the same underlying capability: designing scalable commercial architecture across CRM, data, CPQ, billing, automation and AI.</p>
+
+  <div id="leadership" class="leadership-strip">
+    <div class="leadership-strip-text">
+      <div class="leadership-strip-kicker">Leadership Opportunities</div>
+      <p>Open to permanent leadership roles — Head of Enterprise Platforms, Revenue Systems, Salesforce/CRM Platform, or Commercial &amp; Business Systems leadership — where the mandate is architecture, not administration.</p>
+    </div>
+    <a href="mailto:fabio@headlessrevenue.com?subject=Leadership%20Opportunity" class="leadership-strip-link">Get in touch →</a>
+  </div>
+
+  <div class="consultation-subhead">Advisory &amp; Fractional</div>
 
   <div class="services-grid">
 
@@ -1713,10 +1836,10 @@
           <div class="consult-price-sub">1-week · audit · roadmap</div>
         </div>
       </div>
-      <h3 class="service-card-title">GTM Systems <em>Audit</em></h3>
-      <p class="service-card-desc">Not sure where your GTM operating system is breaking? I map your Bowtie, identify the biggest conversion gaps, and hand you a prioritised roadmap — at no cost.</p>
+      <h3 class="service-card-title">Revenue Systems <em>Audit</em></h3>
+      <p class="service-card-desc">Not sure where your revenue architecture is breaking? I map the system end to end, identify the biggest gaps, and hand you a prioritised roadmap — at no cost.</p>
       <div class="consult-features">
-        <div class="consult-feature">Bowtie stage audit (CR1–CR8)</div>
+        <div class="consult-feature">Revenue lifecycle audit (Bowtie methodology)</div>
         <div class="consult-feature">System-of-record & data quality review</div>
         <div class="consult-feature">AI automation opportunity map</div>
         <div class="consult-feature">Stack overlap & cost analysis</div>
@@ -1738,12 +1861,12 @@
           <div class="consult-price-sub">monthly · part-time · embedded</div>
         </div>
       </div>
-      <h3 class="service-card-title">GTM Systems <em>Support</em></h3>
-      <p class="service-card-desc">Embedded fractional GTM systems architect — I design, build, and operate your revenue operating system on an ongoing basis. No full-time hire required.</p>
+      <h3 class="service-card-title">Fractional Systems <em>Leadership</em></h3>
+      <p class="service-card-desc">Embedded fractional revenue &amp; enterprise systems architect — I design, build, and govern your commercial architecture on an ongoing basis. No full-time hire required.</p>
       <div class="consult-features">
         <div class="consult-feature">CRM architecture & ongoing governance</div>
         <div class="consult-feature">AI agent builds & automation rollouts</div>
-        <div class="consult-feature">Bowtie model implementation & tuning</div>
+        <div class="consult-feature">Revenue lifecycle model implementation (Bowtie)</div>
         <div class="consult-feature">Pipeline & forecast system ownership</div>
         <div class="consult-feature">GTM stack integration & ops</div>
         <div class="consult-feature">Weekly exec reporting & diagnostics</div>
@@ -2092,6 +2215,7 @@
       '.process-flow > .process-step',
       '.solution-grid > .solution-card',
       '#consultation .services-grid > .service-card',
+      '.leadership-strip',
       '#use-cases > a'
     ];
     var els = [];
@@ -2133,14 +2257,14 @@
     function animateCounter(el) {
       var target = parseFloat(el.dataset.countTo);
       var tpl = el.dataset.countTpl;
-      if (reduceMotion) { el.innerHTML = tpl.replace('{n}', target); return; }
+      if (reduceMotion) { el.innerHTML = tpl.replace('{n}', target.toLocaleString('en-GB')); return; }
       var start = performance.now();
       var duration = 1100;
       function frame(now) {
         var p = Math.min((now - start) / duration, 1);
         var eased = 1 - Math.pow(1 - p, 3);
         var current = Math.round(target * eased);
-        el.innerHTML = tpl.replace('{n}', current);
+        el.innerHTML = tpl.replace('{n}', current.toLocaleString('en-GB'));
         if (p < 1) requestAnimationFrame(frame);
       }
       requestAnimationFrame(frame);
