@@ -527,8 +527,30 @@
   #services .service-card h3 { color:var(--ink); }
   #services .service-card p { color:#50483d; }
   #services .service-list li { color:#6f6558; }
+  .architect-rail {
+    position:relative; height:1px; background:rgba(23,23,19,0.15);
+    margin:0 8px 28px; display:flex; align-items:center; justify-content:center;
+  }
+  .architect-rail-label {
+    position:absolute; background:var(--bg); padding:0 14px;
+    font-family:'DM Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  .architect-grid .service-card { position:relative; }
+  .architect-grid .service-card::before {
+    content:''; position:absolute; top:-28px; left:50%; transform:translateX(-50%);
+    width:1px; height:22px; background:rgba(23,23,19,0.15);
+  }
+  .architect-grid .service-card::after {
+    content:''; position:absolute; top:-31px; left:50%; transform:translateX(-50%);
+    width:6px; height:6px; border-radius:50%; background:var(--gold);
+  }
   @media(max-width:1100px){ .architect-grid { grid-template-columns:repeat(2,1fr); } }
-  @media(max-width:560px){ .architect-grid { grid-template-columns:1fr; } }
+  @media(max-width:560px){
+    .architect-grid { grid-template-columns:1fr; }
+    .architect-rail { display:none; }
+    .architect-grid .service-card::before, .architect-grid .service-card::after { display:none; }
+  }
   .service-card {
     background:#fff8ed; color:var(--ink);
     border:1px solid rgba(23,23,19,0.12);
@@ -593,22 +615,47 @@
 
   /* ─── USE CASES ─── */
   #use-cases { background:rgba(244,238,229,0.035); }
-  .arch-progression {
-    display:flex; align-items:center; flex-wrap:wrap; gap:10px;
-    margin-top:32px; margin-bottom:28px;
+  .arch-diagram {
+    display:flex; flex-direction:column; align-items:stretch;
+    max-width:640px; margin:32px 0 28px;
   }
-  .arch-step {
-    display:flex; align-items:center; gap:9px;
-    background:#fff8ed; border:1px solid rgba(23,23,19,0.12); border-radius:999px;
-    padding:9px 16px 9px 12px;
+  .arch-layer {
+    display:flex; align-items:center; gap:16px;
+    background:#fff8ed; border:1px solid rgba(23,23,19,0.1); border-left:4px solid var(--layer-accent,var(--gold));
+    border-radius:6px; padding:15px 20px;
   }
-  .arch-step-num {
-    font-family:'DM Mono',monospace; font-size:10px; font-weight:700; color:var(--gold);
-    background:rgba(212,168,83,0.12); border-radius:50%;
-    width:20px; height:20px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  .arch-layer-marker {
+    font-family:'DM Mono',monospace; font-size:11px; font-weight:700; color:var(--layer-accent,var(--gold));
+    background:color-mix(in srgb, var(--layer-accent,var(--gold)) 14%, transparent);
+    border-radius:50%; width:26px; height:26px;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
-  .arch-step-name { font-size:12.5px; font-weight:600; color:var(--ink); white-space:nowrap; }
-  .arch-arrow { color:var(--gold); font-size:14px; opacity:0.6; flex-shrink:0; }
+  .arch-layer-name { font-size:14px; font-weight:700; color:var(--ink); letter-spacing:-0.01em; }
+  .arch-layer-desc { font-size:12px; line-height:1.5; color:#7a7062; margin-top:2px; }
+  .arch-connector {
+    width:1px; height:16px; background:rgba(23,23,19,0.15); margin-left:33px;
+  }
+  .arch-layer--business { --layer-accent:var(--muted); }
+  .arch-layer--data { --layer-accent:var(--gold); }
+  .arch-layer--platforms { --layer-accent:var(--teal2); }
+  .arch-layer--integration { --layer-accent:var(--purple2); }
+  .arch-layer--automation { --layer-accent:var(--coral2); }
+  .arch-layer--ai {
+    background:var(--ink); border-left-color:var(--gold2);
+  }
+  .arch-layer--ai .arch-layer-marker { color:var(--gold2); background:rgba(230,196,120,0.16); }
+  .arch-layer--ai .arch-layer-name { color:var(--text); }
+  .arch-layer--ai .arch-layer-desc { color:var(--text2); }
+  .callout--insight {
+    max-width:640px; margin:0 0 32px;
+    background:var(--ink); border-left:4px solid var(--gold2); border-radius:6px;
+    padding:22px 26px;
+  }
+  .callout-kicker {
+    font-family:'DM Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--gold2); margin-bottom:8px;
+  }
+  .callout-text { font-size:16px; line-height:1.5; color:var(--text); letter-spacing:-0.01em; margin:0; }
   .arch-topics { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
   .arch-topics .tag { color:#6f6558; background:#fff8ed; border-color:rgba(23,23,19,0.12); }
   .arch-deepdive-link {
@@ -616,7 +663,6 @@
     background:#fff8ed; border:1px solid rgba(23,23,19,0.12); border-radius:6px;
     padding:32px 30px; text-decoration:none; box-shadow:0 14px 40px rgba(23,23,19,0.06);
   }
-  @media(max-width:700px){ .arch-arrow { display:none; } }
   .use-cases-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -1562,6 +1608,7 @@
   <div class="section-label">What I Architect</div>
   <h2>One <em>architecture</em>, four domains.</h2>
   <p class="section-sub">Enterprise platforms, Salesforce, revenue systems and AI — designed and governed as one connected architecture, not four separate consulting tracks.</p>
+  <div class="architect-rail"><span class="architect-rail-label">One Architecture</span></div>
   <div class="services-grid architect-grid">
     <div class="service-card" id="arch-platform">
       <div class="service-kicker">01 · Enterprise Platform Strategy</div>
@@ -1792,18 +1839,59 @@
   <h2>How I think <em>beyond the tool</em></h2>
   <p class="section-sub">Every engagement runs through the same conceptual chain — from why the business acquires and retains customers, down to which interface a human or an AI agent actually touches.</p>
 
-  <div class="arch-progression">
-    <div class="arch-step"><span class="arch-step-num">01</span><span class="arch-step-name">Business Architecture</span></div>
-    <span class="arch-arrow">→</span>
-    <div class="arch-step"><span class="arch-step-num">02</span><span class="arch-step-name">Data &amp; Semantic Architecture</span></div>
-    <span class="arch-arrow">→</span>
-    <div class="arch-step"><span class="arch-step-num">03</span><span class="arch-step-name">Enterprise Platforms</span></div>
-    <span class="arch-arrow">→</span>
-    <div class="arch-step"><span class="arch-step-num">04</span><span class="arch-step-name">APIs &amp; Integration</span></div>
-    <span class="arch-arrow">→</span>
-    <div class="arch-step"><span class="arch-step-num">05</span><span class="arch-step-name">Automation &amp; Agents</span></div>
-    <span class="arch-arrow">→</span>
-    <div class="arch-step"><span class="arch-step-num">06</span><span class="arch-step-name">Human &amp; AI Interfaces</span></div>
+  <div class="arch-diagram" role="img" aria-label="Architecture layers diagram: Business Architecture flows down through Data and Semantic Architecture, Enterprise Platforms, APIs and Integration, and Automation and Agents, to Human and AI Interfaces at the top.">
+    <div class="arch-layer arch-layer--business">
+      <div class="arch-layer-marker">01</div>
+      <div class="arch-layer-body">
+        <div class="arch-layer-name">Business Architecture</div>
+        <div class="arch-layer-desc">Why the business acquires, sells, prices and retains customers.</div>
+      </div>
+    </div>
+    <div class="arch-connector"></div>
+    <div class="arch-layer arch-layer--data">
+      <div class="arch-layer-marker">02</div>
+      <div class="arch-layer-body">
+        <div class="arch-layer-name">Data &amp; Semantic Architecture</div>
+        <div class="arch-layer-desc">One shared definition of every metric — pipeline, ARR, churn.</div>
+      </div>
+    </div>
+    <div class="arch-connector"></div>
+    <div class="arch-layer arch-layer--platforms">
+      <div class="arch-layer-marker">03</div>
+      <div class="arch-layer-body">
+        <div class="arch-layer-name">Enterprise Platforms</div>
+        <div class="arch-layer-desc">Salesforce, CRM, billing — where the business actually runs.</div>
+      </div>
+    </div>
+    <div class="arch-connector"></div>
+    <div class="arch-layer arch-layer--integration">
+      <div class="arch-layer-marker">04</div>
+      <div class="arch-layer-body">
+        <div class="arch-layer-name">APIs &amp; Integration</div>
+        <div class="arch-layer-desc">The governed contracts connecting systems, not duct tape.</div>
+      </div>
+    </div>
+    <div class="arch-connector"></div>
+    <div class="arch-layer arch-layer--automation">
+      <div class="arch-layer-marker">05</div>
+      <div class="arch-layer-body">
+        <div class="arch-layer-name">Automation &amp; Agents</div>
+        <div class="arch-layer-desc">Workflows and decision logic doing the repeatable work.</div>
+      </div>
+    </div>
+    <div class="arch-connector"></div>
+    <div class="arch-layer arch-layer--ai">
+      <div class="arch-layer-marker">06</div>
+      <div class="arch-layer-body">
+        <div class="arch-layer-name">Human &amp; AI Interfaces</div>
+        <div class="arch-layer-desc">Where a person or an agent actually touches the system.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout--insight">
+    <div class="callout-kicker">Architecture Insight</div>
+    <p class="callout-text">AI changes the interface to enterprise systems. It does not remove the need for architecture.</p>
   </div>
 
   <div class="arch-topics">
