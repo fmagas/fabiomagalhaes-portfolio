@@ -151,9 +151,32 @@
           <span style="margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6862; text-decoration: underline; text-underline-offset: 2px;">Review</span>
         </div>
         <div style="display: flex; align-items: center; gap: 2.5px; height: 26px; padding: 0 13px; margin: 9px 0;">
-          <sc-for list="{{ wave }}" as="h" hint-placeholder-count="26">
-            <div style="width: 3px; height: {{ h }}; background: #CBC6BA; border-radius: 2px;"></div>
-          </sc-for>
+          <div style="width: 3px; height: 40%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 62%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 30%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 78%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 52%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 88%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 44%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 70%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 34%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 80%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 58%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 92%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 48%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 66%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 38%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 84%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 54%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 72%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 42%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 90%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 60%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 32%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 76%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 50%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 68%; background: #CBC6BA; border-radius: 2px;"></div>
+          <div style="width: 3px; height: 46%; background: #CBC6BA; border-radius: 2px;"></div>
         </div>
         <div style="display: flex; gap: 6px; padding: 0 13px 12px;">
           <span style="display: inline-flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; color: #4A473F; border: 1px solid #E6E2D8; padding: 3px 8px; border-radius: 4px;"><img src="logos/salesforce.svg" alt="Salesforce" width="12" height="12">$120K Opp</span>
@@ -198,13 +221,5 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1000}}">
-class Component extends DCLogic {
-  renderVals() {
-    const heights = [40,62,30,78,52,88,44,70,34,80,58,92,48,66,38,84,54,72,42,90,60,32,76,50,68,46];
-    return { wave: heights.map((h) => h + "%") };
-  }
-}
-</script>
 </body>
 </html>
