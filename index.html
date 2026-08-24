@@ -208,6 +208,16 @@
   .intro-word:nth-of-type(2){ animation-delay:0.85s; }
   .intro-word:nth-of-type(3){ animation-delay:1.35s; }
   .intro-word--final{ animation-delay:1.85s; }
+  /* Forces the intro to play regardless of session-seen state or prefers-reduced-motion —
+     for testing/demo via ?intro=1. Higher specificity than both, so it always wins. */
+  html.intro-force #intro { display:flex !important; animation:introOut 0.6s ease forwards !important; animation-delay:2.5s !important; }
+  html.intro-force .intro-mark { animation:introFade 0.5s ease forwards !important; }
+  html.intro-force .intro-word { animation:introWord 0.55s ease forwards !important; }
+  html.intro-force .intro-word--final { animation:introFade 0.45s ease forwards !important; }
+  html.intro-force .intro-word:nth-of-type(1){ animation-delay:0.35s !important; }
+  html.intro-force .intro-word:nth-of-type(2){ animation-delay:0.85s !important; }
+  html.intro-force .intro-word:nth-of-type(3){ animation-delay:1.35s !important; }
+  html.intro-force .intro-word--final{ animation-delay:1.85s !important; }
   @keyframes introFade { to{ opacity:1; } }
   @keyframes introWord {
     0%{ opacity:0; transform:translateY(6px); }
@@ -1536,6 +1546,10 @@
 <script>
 (function(){
   try {
+    if (/(?:^|[?&])intro=1(?:&|$)/.test(location.search)) {
+      document.documentElement.classList.add('intro-force');
+      return;
+    }
     if (sessionStorage.getItem('introSeen')) {
       document.documentElement.classList.add('intro-seen');
     } else {
