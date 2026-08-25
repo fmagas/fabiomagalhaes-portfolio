@@ -1,46 +1,21 @@
-# Fábio Magalhães — RevOps, Revenue Systems & AI Transformation Consultant · London
+# Fábio Magalhães | Revenue & Enterprise Systems Architect · London
 
-> Fractional RevOps (Revenue Operations) and AI transformation consultant helping B2B SaaS scale-ups build revenue systems: headless architecture, semantic layers, governance, custom MCP servers, and AI agents in production.
+> Personal portfolio for Fábio Magalhães, a Revenue & Enterprise Systems Architect based in London, UK.
 
 ## Who I am
-Fábio Magalhães is a fractional RevOps and AI transformation consultant working with VP Sales, CROs, and Founders at Series A–C B2B SaaS companies in the United Kingdom. Based in London.
+Fábio Magalhães designs the architecture connecting how companies acquire, sell, price/quote, contract, bill, onboard, serve and retain customers: Salesforce/CRM architecture, revenue architecture (lead-to-cash, CPQ, billing), data architecture and governance, enterprise platform strategy, and AI-enabled workflows layered on top.
 
-## What I do
-I rebuild the operating system behind scale-up revenue growth — revenue systems architecture, RevOps process design, and AI transformation. The record lives in one governed place; every team, tool, and AI agent consumes it through the same APIs (headless architecture).
+## Track record
+- Hilton: Enterprise Salesforce governance, 7,000+ users, 100+ global business units
+- Farfetch: Salesforce Product Ownership / Centre of Excellence, data governance, 2,500+ discrepancies resolved
+- RealVNC: Platform modernisation (Salesforce, MuleSoft, Zuora), 40% reduction in platform incidents
+- Staffbase: Enterprise revenue platform strategy (Salesforce/CPQ/data/AI), $3M technology portfolio
+- Lunio: MEDDPIC qualification framework and Bowtie lifecycle model implementation
 
-Engagement models:
-- **Free 1-Week AI Transformation Audit** — Bowtie stage diagnostic (CR1–CR8), CRM data quality review, AI-readiness roadmap, stack overlap analysis, and prioritised fix roadmap. No cost, no pitch.
-- **Fractional RevOps / Revenue Systems Support** — Embedded fractional architect on a monthly retainer. I design, build, and operate your revenue operating system ongoing. No full-time hire required.
-- **Full AI Transformation Programme** — Semantic layer, data governance, custom MCP servers, headless architecture, AI use-case portfolio. North-star metric: revenue per employee.
-
-## Specialisms
-- RevOps (Revenue Operations) and revenue systems architecture
-- AI transformation for revenue teams: semantic layers, governance, AI agents in production
-- Headless CRM / headless revenue architecture (decoupled system of record, API-first)
-- Custom MCP (Model Context Protocol) servers — exposing CRM, warehouse, and billing to AI agents securely
-- Custom CRM / system-of-record builds (lean, API-first, AI-native)
-- Salesforce and HubSpot architecture, governance, and cleanup
-- Bowtie model diagnostics (CR1–CR8 customer lifecycle framework)
-- AI sales automation (deal review agents, lead qualification, forecast agents, churn risk)
-- Pipeline forecasting and revenue visibility
-- Revenue stack integrations (Clay, Gong, ZoomInfo, BigQuery, Snowflake, n8n, MuleSoft)
-- Revenue process discovery, documentation, and business analysis (BRDs, data dictionaries, ownership matrices)
-
-## Guides
-- Fractional RevOps consultant UK: https://fabiomagalhaes.co.uk/fractional-revops.html
-- AI transformation for revenue teams: https://fabiomagalhaes.co.uk/ai-transformation.html
-- Headless CRM architecture: https://fabiomagalhaes.co.uk/headless-crm.html
-- Full technical architecture (headless system design, AI operating layer, tool stack, certifications): https://fabiomagalhaes.co.uk/how-i-work.html
-
-## Case studies
-- Revenue Process Discovery (SDR → AE handover assessment): https://fabiomagalhaes.co.uk/revenue-process-discovery.html
-- Headless Strategy reference architecture: https://fabiomagalhaes.co.uk/headless-strategy.html
-
-## Who I work with
-Series A to Series C B2B SaaS companies in the UK. Typical buyer: VP Sales, CRO, Head of RevOps / Sales Operations, or Founder-led GTM at 20–200 employees.
+## Availability
+Open to permanent enterprise platform / revenue systems leadership roles, and selected fractional or advisory engagements.
 
 ## Contact
 - Website: https://fabiomagalhaes.co.uk
 - Email: fabio@headlessrevenue.com
 - LinkedIn: https://www.linkedin.com/in/fabio-pinto-magalhaes-4a812940/
-- Book Free Audit: https://calendar.app.google/jTo2VGZAuLmgHv3L9
