@@ -1947,7 +1947,7 @@
     <div id="copilot-typing">Thinking…</div>
   </div>
   <form id="copilot-form" onsubmit="return copilotSend(event)">
-    <textarea id="copilot-input" rows="1" placeholder="Ask a question…" onkeydown="copilotKeydown(event)"></textarea>
+    <textarea id="copilot-input" rows="1" maxlength="500" placeholder="Ask about Fábio…"onkeydown="copilotKeydown(event)"></textarea>
     <button id="copilot-send" type="submit" aria-label="Send">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
     </button>
